@@ -1,0 +1,51 @@
+CRITICAL - 2022-03-06 03:43:24 --> Invalid file: layout_backend.php
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout_backend....')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('layout_backend', Array, true)
+#2 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Home.php(9): view('layout_backend')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-06 03:43:30 --> Invalid file: layout_backend.php
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout_backend....')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('layout_backend', Array, true)
+#2 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Home.php(9): view('layout_backend')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-06 03:43:42 --> Invalid file: templates.backend.layout_backend
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates.backe...')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('templates.backe...', Array, true)
+#2 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Home.php(9): view('templates.backe...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-06 03:44:23 --> Call to undefined method CodeIgniter\View\View::extends()
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(210): include()
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('templates/backe...', Array, true)
+#3 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Home.php(9): view('templates/backe...')
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-03-06 03:45:58 --> Invalid file: sidebar.php
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('sidebar.php')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(424): CodeIgniter\View\View->render('sidebar', NULL, true)
+#2 D:\Laragon Projects\www-home\kongres-yogi\app\Views\templates\backend\layout_backend.php(33): CodeIgniter\View\View->include('sidebar')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(210): include('D:\\Laragon Proj...')
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(226): CodeIgniter\View\View->render('templates/backe...', Array, true)
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('templates/backe...', Array, true)
+#7 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Home.php(9): view('templates/backe...')
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
