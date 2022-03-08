@@ -49,3 +49,22 @@ CRITICAL - 2022-03-06 03:45:58 --> Invalid file: sidebar.php
 #10 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #11 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #12 {main}
+CRITICAL - 2022-03-06 04:15:30 --> Invalid file: backend/pendaftaran/index.php
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('backend/pendaft...')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('backend/pendaft...', Array, true)
+#2 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Backend\PendaftaranController.php(11): view('backend/pendaft...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Backend\PendaftaranController->index()
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backend\PendaftaranController))
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-06 09:46:04 --> Undefined index: file
+#0 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Iterators\ColumnCollection.php(56): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\Laragon Proj...', 56, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(92): Ozdemir\Datatables\Iterators\ColumnCollection->getByName('file')
+#2 D:\Laragon Projects\www-home\kongres-yogi\app\Models\PendaftaranModel.php(39): Ozdemir\Datatables\Datatables->edit('file', Object(Closure))
+#3 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Backend\PendaftaranController.php(19): App\Models\PendaftaranModel->getAll()
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Backend\PendaftaranController->jsonDT()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backend\PendaftaranController))
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}

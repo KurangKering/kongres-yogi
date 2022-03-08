@@ -10,8 +10,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
     <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/fontawesome-free/css/all.min.css') ?>">
-
+    <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('templates/backend/dist/css/adminlte.min.css?v=3.2.0') ?>">
+    <script>
+        var BASE_URL = '<?= base_url() ?>/';
+    </script>
+</head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -49,8 +55,14 @@
     <script src="<?= base_url('templates/backend/plugins/jquery/jquery.min.js') ?>"></script>
 
     <script src="<?= base_url('templates/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('templates/backend/plugins/datatables/jquery.dataTables.min.js') ?>"></script>
+    <script src="<?= base_url('templates/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+    <script src="<?= base_url('templates/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
+    <script src="<?= base_url('templates/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
 
     <script src="<?= base_url('templates/backend/dist/js/adminlte.min.js?v=3.2.0') ?>"></script>
+    <script src="<?= base_url('custom.js') ?>"></script>
+
 </body>
 
 </html>

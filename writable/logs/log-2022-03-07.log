@@ -1,0 +1,240 @@
+CRITICAL - 2022-03-07 06:16:31 --> Call to undefined function App\Models\indoDate()
+#0 [internal function]: App\Models\PendaftaranModel->App\Models\{closure}(Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Column.php(75): call_user_func(Object(Closure), Array)
+#2 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(219): Ozdemir\Datatables\Column->value(Array)
+#3 [internal function]: Ozdemir\Datatables\Datatables->Ozdemir\Datatables\{closure}(Object(Ozdemir\Datatables\Column))
+#4 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(220): array_map(Object(Closure), Array)
+#5 [internal function]: Ozdemir\Datatables\Datatables->prepareRowData(Array)
+#6 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(207): array_map(Array, Array)
+#7 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(251): Ozdemir\Datatables\Datatables->getData()
+#8 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(195): Ozdemir\Datatables\Datatables->setResponseData()
+#9 D:\Laragon Projects\www-home\kongres-yogi\app\Models\PendaftaranModel.php(40): Ozdemir\Datatables\Datatables->generate()
+#10 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Backend\PendaftaranController.php(19): App\Models\PendaftaranModel->getAll()
+#11 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Backend\PendaftaranController->jsonDT()
+#12 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backend\PendaftaranController))
+#13 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#15 {main}
+CRITICAL - 2022-03-07 06:16:49 --> Call to undefined function App\Models\indoDate()
+#0 [internal function]: App\Models\PendaftaranModel->App\Models\{closure}(Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Column.php(75): call_user_func(Object(Closure), Array)
+#2 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(219): Ozdemir\Datatables\Column->value(Array)
+#3 [internal function]: Ozdemir\Datatables\Datatables->Ozdemir\Datatables\{closure}(Object(Ozdemir\Datatables\Column))
+#4 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(220): array_map(Object(Closure), Array)
+#5 [internal function]: Ozdemir\Datatables\Datatables->prepareRowData(Array)
+#6 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(207): array_map(Array, Array)
+#7 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(251): Ozdemir\Datatables\Datatables->getData()
+#8 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(195): Ozdemir\Datatables\Datatables->setResponseData()
+#9 D:\Laragon Projects\www-home\kongres-yogi\app\Models\PendaftaranModel.php(40): Ozdemir\Datatables\Datatables->generate()
+#10 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Backend\PendaftaranController.php(19): App\Models\PendaftaranModel->getAll()
+#11 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Backend\PendaftaranController->jsonDT()
+#12 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backend\PendaftaranController))
+#13 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#15 {main}
+CRITICAL - 2022-03-07 06:18:22 --> Call to undefined function App\Models\indoDate()
+#0 [internal function]: App\Models\PendaftaranModel->App\Models\{closure}(Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Column.php(75): call_user_func(Object(Closure), Array)
+#2 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(219): Ozdemir\Datatables\Column->value(Array)
+#3 [internal function]: Ozdemir\Datatables\Datatables->Ozdemir\Datatables\{closure}(Object(Ozdemir\Datatables\Column))
+#4 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(220): array_map(Object(Closure), Array)
+#5 [internal function]: Ozdemir\Datatables\Datatables->prepareRowData(Array)
+#6 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(207): array_map(Array, Array)
+#7 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(251): Ozdemir\Datatables\Datatables->getData()
+#8 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(195): Ozdemir\Datatables\Datatables->setResponseData()
+#9 D:\Laragon Projects\www-home\kongres-yogi\app\Models\PendaftaranModel.php(41): Ozdemir\Datatables\Datatables->generate()
+#10 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Backend\PendaftaranController.php(19): App\Models\PendaftaranModel->getAll()
+#11 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Backend\PendaftaranController->jsonDT()
+#12 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backend\PendaftaranController))
+#13 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#15 {main}
+ERROR - 2022-03-07 07:27:26 --> Unknown column 'id_simposium' in 'field list'
+CRITICAL - 2022-03-07 07:27:27 --> Unknown column 'id_simposium' in 'field list'
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Database\MySQLi\Connection.php(292): mysqli->query('Select count(*)...', 0)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('Select count(*)...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('Select count(*)...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\DB\Codeigniter4Adapter.php(53): CodeIgniter\Database\BaseConnection->query('Select count(*)...', Array)
+#4 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(243): Ozdemir\Datatables\DB\Codeigniter4Adapter->count(Object(Ozdemir\Datatables\Query))
+#5 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(195): Ozdemir\Datatables\Datatables->setResponseData()
+#6 D:\Laragon Projects\www-home\kongres-yogi\app\Models\PendaftaranModel.php(44): Ozdemir\Datatables\Datatables->generate()
+#7 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Backend\PendaftaranController.php(19): App\Models\PendaftaranModel->getAll()
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Backend\PendaftaranController->jsonDT()
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backend\PendaftaranController))
+#10 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+ERROR - 2022-03-07 07:30:35 --> Unknown column 'pend.id' in 'field list'
+CRITICAL - 2022-03-07 07:30:36 --> Unknown column 'pend.id' in 'field list'
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Database\MySQLi\Connection.php(292): mysqli->query('Select count(*)...', 0)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('Select count(*)...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('Select count(*)...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\DB\Codeigniter4Adapter.php(53): CodeIgniter\Database\BaseConnection->query('Select count(*)...', Array)
+#4 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(243): Ozdemir\Datatables\DB\Codeigniter4Adapter->count(Object(Ozdemir\Datatables\Query))
+#5 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(195): Ozdemir\Datatables\Datatables->setResponseData()
+#6 D:\Laragon Projects\www-home\kongres-yogi\app\Models\PendaftaranModel.php(45): Ozdemir\Datatables\Datatables->generate()
+#7 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Backend\PendaftaranController.php(19): App\Models\PendaftaranModel->getAll()
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Backend\PendaftaranController->jsonDT()
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backend\PendaftaranController))
+#10 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+ERROR - 2022-03-07 07:30:59 --> Unknown column 'pendaftaran.id_event_simposium' in 'on clause'
+CRITICAL - 2022-03-07 07:30:59 --> Unknown column 'pendaftaran.id_event_simposium' in 'on clause'
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Database\MySQLi\Connection.php(292): mysqli->query('Select count(*)...', 0)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('Select count(*)...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('Select count(*)...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\DB\Codeigniter4Adapter.php(53): CodeIgniter\Database\BaseConnection->query('Select count(*)...', Array)
+#4 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(243): Ozdemir\Datatables\DB\Codeigniter4Adapter->count(Object(Ozdemir\Datatables\Query))
+#5 D:\Laragon Projects\www-home\kongres-yogi\vendor\ozdemir\datatables\src\Datatables.php(195): Ozdemir\Datatables\Datatables->setResponseData()
+#6 D:\Laragon Projects\www-home\kongres-yogi\app\Models\PendaftaranModel.php(45): Ozdemir\Datatables\Datatables->generate()
+#7 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Backend\PendaftaranController.php(19): App\Models\PendaftaranModel->getAll()
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Backend\PendaftaranController->jsonDT()
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backend\PendaftaranController))
+#10 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-03-07 07:43:19 --> Invalid file: backend/data-event-simposium/index.php
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('backend/data-ev...')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('backend/data-ev...', Array, true)
+#2 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Backend\EventSimposiumController.php(12): view('backend/data-ev...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Backend\EventSimposiumController->index()
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Backend\EventSimposiumController))
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-07 07:54:41 --> Invalid file: templates/frontend/layout_frontend.php
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('templates/front...')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(226): CodeIgniter\View\View->render('templates/front...', Array, true)
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('frontend/home', Array, true)
+#3 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(11): view('frontend/home')
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->index()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-03-07 09:55:23 --> Undefined property: App\Controllers\Frontend\HomeController::$validation
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'D:\\Laragon Proj...', 17, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-07 09:55:32 --> Undefined property: App\Controllers\Frontend\HomeController::$validate
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'D:\\Laragon Proj...', 17, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-07 10:26:56 --> Undefined property: App\Controllers\Frontend\HomeController::$validate
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'D:\\Laragon Proj...', 17, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-07 10:27:44 --> Too few arguments to function CodeIgniter\Controller::validate(), 0 passed in D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php on line 17 and at least 1 expected
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(17): CodeIgniter\Controller->validate()
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-07 10:28:09 --> Call to undefined method App\Controllers\Frontend\HomeController::validation()
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-03-07 17:22:58 --> Column 'kode_unik_pembayaran' cannot be null
+CRITICAL - 2022-03-07 17:22:59 --> Column 'kode_unik_pembayaran' cannot be null
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `pe...', 0)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(107): CodeIgniter\Model->insert(Array)
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#10 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+ERROR - 2022-03-07 17:28:11 --> Not unique table/alias: 'simposium'
+CRITICAL - 2022-03-07 17:28:12 --> Not unique table/alias: 'simposium'
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\Model.php(145): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\BaseModel.php(523): CodeIgniter\Model->doFind(false, NULL)
+#6 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(106): CodeIgniter\BaseModel->find()
+#7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-03-07 17:28:47 --> Column 'id' in where clause is ambiguous
+CRITICAL - 2022-03-07 17:28:48 --> Column 'id' in where clause is ambiguous
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\Model.php(145): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\BaseModel.php(523): CodeIgniter\Model->doFind(false, NULL)
+#6 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(107): CodeIgniter\BaseModel->find()
+#7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-03-07 17:33:03 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+CRITICAL - 2022-03-07 17:33:04 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `pe...', 0)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `pe...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `pe...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `pe...', Array, false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, true)
+#7 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(127): CodeIgniter\Model->insert(Array)
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#10 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+ERROR - 2022-03-07 17:38:41 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+ERROR - 2022-03-07 17:39:02 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+ERROR - 2022-03-07 17:39:07 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+ERROR - 2022-03-07 17:40:08 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+ERROR - 2022-03-07 17:41:19 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+ERROR - 2022-03-07 17:42:54 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+ERROR - 2022-03-07 17:43:06 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+ERROR - 2022-03-07 17:43:15 --> Duplicate entry 'cybercature@gmail.com-1' for key 'email_id_simposium'
+ERROR - 2022-03-07 17:43:50 --> Duplicate entry 'cybercature@gmail.comm-1' for key 'email_id_simposium'
+CRITICAL - 2022-03-07 17:49:43 --> 
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-07 17:50:12 --> Undefined property: App\Controllers\Frontend\HomeController::$db
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(172): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'D:\\Laragon Proj...', 172, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-07 17:50:54 --> Undefined property: App\Controllers\Frontend\HomeController::$db
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(172): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'D:\\Laragon Proj...', 172, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-03-07 17:57:43 --> Duplicate entry 'cybercature@gmail.comm-1' for key 'email_id_simposium'
+ERROR - 2022-03-07 18:01:14 --> Duplicate entry 'cybercature@gmail.comm-9' for key 'email_id_simposium'
+ERROR - 2022-03-07 18:01:50 --> Duplicate entry 'cybercature@gmail.comm-9' for key 'email_id_simposium'
+ERROR - 2022-03-07 18:02:24 --> Duplicate entry 'cybercature@gmail.comm-9' for key 'email_id_simposium'

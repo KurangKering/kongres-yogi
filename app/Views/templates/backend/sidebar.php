@@ -20,7 +20,15 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= base_url('backend/data-validasi') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-circle    "></i>
+                                <p>
+                                    Data Validasi
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('backend/data-pendaftaran') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-circle    "></i>
                                 <p>
                                     Data Pendaftaran
@@ -28,10 +36,18 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="<?= base_url('backend/data-event-simposium') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-circle    "></i>
+                                <p>
+                                    Data Event Simposium
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= base_url('backend/data-simposium') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-circle    "></i>
                                 <p>
-                                    Data Simposium
+                                    Data Master Simposium
                                 </p>
                             </a>
                         </li>
@@ -40,6 +56,14 @@
                                 <i class="nav-icon fas fa-circle    "></i>
                                 <p>
                                     Data Workshop
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('logout') ?>" class="nav-link">
+                                <i class="nav-icon fas fa-circle    "></i>
+                                <p>
+                                    Logout
                                 </p>
                             </a>
                         </li>

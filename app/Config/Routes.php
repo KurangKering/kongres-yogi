@@ -31,10 +31,27 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Backend\DashboardController::index');
+$routes->get('/backend', 'Backend\DashboardController::index');
 
+$routes->get('backend/data-event-simposium', 'Backend\EventSimposiumController::index');
+$routes->get('backend/data-event-simposium/json-dt', 'Backend\EventSimposiumController::jsonDT');
 $routes->get('backend/data-simposium', 'Backend\SimposiumController::index');
+$routes->get('backend/data-simposium/json-dt', 'Backend\SimposiumController::jsonDT');
+$routes->get('backend/data-workshop', 'Backend\WorkshopController::index');
+$routes->get('backend/data-workshop/json-dt', 'Backend\WorkshopController::jsonDT');
+$routes->get('backend/data-pendaftaran', 'Backend\PendaftaranController::index');
+$routes->get('backend/data-pendaftaran/json-dt', 'Backend\PendaftaranController::jsonDT');
+$routes->get('backend/data-validasi', 'Backend\ValidasiController::index');
+$routes->get('backend/data-validasi/json-dt', 'Backend\ValidasiController::jsonDT');
 
+$routes->get('login', 'Backend\AuthController::login');
+$routes->get('logout', 'Backend\AuthController::logout');
+$routes->post('login', 'Backend\AuthController::login');
+
+
+$routes->get('/', 'Frontend\HomeController::index');
+$routes->get('/daftar', 'Frontend\HomeController::daftar');
+$routes->post('/daftar', 'Frontend\HomeController::daftar');
 
 /*
  * --------------------------------------------------------------------
