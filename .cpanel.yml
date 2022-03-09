@@ -18,3 +18,6 @@ deployment:
     - /bin/cp composer.lock $COREPATH
     - /bin/cp depfile.yaml $COREPATH
     - /bin/cp spark $COREPATH
+    - /bin/cp .cpanel.yml $COREPATH
+    - /bin/cp .gitignore $COREPATH
+    - /bin/cp .htaccess $COREPATH
