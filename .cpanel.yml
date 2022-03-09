@@ -1,0 +1,20 @@
+---
+deployment:
+  tasks:
+    - export PUBLICPATH=/home/u1686920/public_html/registrasi
+    - export COREPATH=/home/u1686920/public_html/registrasi/ci4_core
+    - /bin/cp -R public/templates $PUBLICPATH
+    - /bin/cp custom.css $PUBLICPATH
+    - /bin/cp custom.js $PUBLICPATH
+    - /bin/cp favicon.ico $PUBLICPATH
+    - /bin/cp login.js $PUBLICPATH
+    - /bin/cp robots.txt $PUBLICPATH
+    - /bin/cp -R app $COREPATH
+    - /bin/cp -R system $COREPATH
+    - /bin/cp -R tests $COREPATH
+    - /bin/cp -R vendor $COREPATH
+    - /bin/cp -R writable $COREPATH
+    - /bin/cp composer.json $COREPATH
+    - /bin/cp composer.lock $COREPATH
+    - /bin/cp depfile.yaml $COREPATH
+    - /bin/cp spark $COREPATH
