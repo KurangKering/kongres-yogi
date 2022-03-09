@@ -5,6 +5,7 @@ deployment:
     - export COREPATH=/home/u1686920/public_html/registrasi/ci4_core/
     - /bin/cp -R * $COREPATH
     - /bin/cp -R public/templates $PUBLICPATH
+    - /bin/cp -R public/null $PUBLICPATH
     - /bin/cp .htaccess $PUBLICPATH
     - /bin/cp custom.css $PUBLICPATH
     - /bin/cp custom.js $PUBLICPATH
