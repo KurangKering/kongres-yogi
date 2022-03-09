@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export COREPATH=/home/u1686920/public_html/registrasi/ci4_core
-    - /bin/cp -R app $COREPATH
+    - export DEPLOYPATH=/home/u1686920/public_html/registrasi/
+    - /bin/cp -R * $DEPLOYPATH
