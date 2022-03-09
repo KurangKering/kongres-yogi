@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1686920/public_html/pendaftaran
+    - /bin/cp -R * $DEPLOYPATH
+    
