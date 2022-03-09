@@ -1,0 +1,102 @@
+CRITICAL - 2022-03-08 06:53:14 --> Invalid file: frontend/sidebar.php
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontend/sideba...')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(424): CodeIgniter\View\View->render('frontend/sideba...', NULL, true)
+#2 D:\Laragon Projects\www-home\kongres-yogi\app\Views\templates\frontend\layout_frontend.php(35): CodeIgniter\View\View->include('frontend/sideba...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(210): include('D:\\Laragon Proj...')
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(226): CodeIgniter\View\View->render('templates/front...', Array, true)
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('frontend/home', Array, true)
+#7 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(16): view('frontend/home')
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->index()
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#10 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-03-08 06:57:15 --> Invalid file: frontend/home.php
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('frontend/home.p...')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('frontend/home', Array, true)
+#2 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(16): view('frontend/home')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->index()
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-03-08 07:44:46 --> Call to undefined function App\Controllers\Frontend\now()
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-08 07:46:30 --> Undefined property: App\Controllers\Frontend\HomeController::$db
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(188): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'D:\\Laragon Proj...', 188, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-03-08 07:47:07 --> Argument 1 passed to CodeIgniter\Database\BaseBuilder::get() must be of the type int or null, string given, called in D:\Laragon Projects\www-home\kongres-yogi\system\Model.php on line 728
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Model.php(728): CodeIgniter\Database\BaseBuilder->get('event_simposium')
+#1 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(190): CodeIgniter\Model->__call('get', Array)
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2022-03-08 07:54:21 --> Unknown column 'active' in 'where clause'
+CRITICAL - 2022-03-08 07:54:21 --> Unknown column 'active' in 'where clause'
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(195): CodeIgniter\BaseModel->findAll()
+#7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-03-08 08:15:16 --> Undefined index: id_workshop
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Views\frontend\pendaftaran.php(78): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\Laragon Proj...', 78, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(210): include('D:\\Laragon Proj...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('frontend/pendaf...', Array, true)
+#4 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(202): view('frontend/pendaf...', Array)
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-08 08:15:32 --> Undefined index: id_workshop
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Views\frontend\pendaftaran.php(78): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\Laragon Proj...', 78, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(210): include('D:\\Laragon Proj...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('frontend/pendaf...', Array, true)
+#4 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(202): view('frontend/pendaf...', Array)
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-08 08:15:40 --> Undefined index: id_workshop
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Views\frontend\pendaftaran.php(78): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\Laragon Proj...', 78, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(210): include('D:\\Laragon Proj...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('frontend/pendaf...', Array, true)
+#4 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(202): view('frontend/pendaf...', Array)
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-03-08 08:15:42 --> Undefined index: id_workshop
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Views\frontend\pendaftaran.php(78): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\Laragon Proj...', 78, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(210): include('D:\\Laragon Proj...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('frontend/pendaf...', Array, true)
+#4 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(202): view('frontend/pendaf...', Array)
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

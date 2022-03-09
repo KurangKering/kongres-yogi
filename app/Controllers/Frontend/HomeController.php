@@ -13,7 +13,7 @@ class HomeController extends BaseController
 {
     public function index()
     {
-        return view('frontend/home');
+        return redirect()->to('/daftar');
     }
 
     public function daftar()
@@ -91,6 +91,8 @@ class HomeController extends BaseController
                     $errors += $validation->getErrors();
                     throw new \Exception();
                 }
+
+
 
 
                 $post = [
@@ -180,6 +182,28 @@ class HomeController extends BaseController
                 return $this->response->setJSON($response);
             }
         }
+
+
+        $sekarang = date('Y-m-d H:i:s');
+
+        $modelEventSimposium = new EventSimposiumModel();
+        $modelEventSimposium->where('mulai_pendaftaran <=', $sekarang);
+        $modelEventSimposium->where('selesai_pendaftaran >=', $sekarang);
+        $modelEventSimposium->join('simposium s', 'event_simposium.id_simposium = s.id');
+        $eventSimposium = $modelEventSimposium->findAll();
+
+        $modelWorkshop = new WorkshopModel();
+        $workshop = $modelWorkshop->where('active', '1')->findAll();
+
+        $digits = 3;
+        $kodeUnik = rand(pow(10, $digits-1), pow(10, $digits)-1);
+        $D = [
+            'eventSimposium' => $eventSimposium,
+            'workshop' => $workshop,
+            'kode_unik' => $kodeUnik,
+        ];
+
+        return view('frontend/pendaftaran', $D);
     }
 
     public function validasi()
