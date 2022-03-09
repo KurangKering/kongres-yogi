@@ -1,6 +1,0 @@
-# ---
-# deployment:
-#   tasks:
-#     - export DEPLOYPATH=/home/u1686920/public_html/pendaftaran/ci
-#     - /bin/cp -R * $DEPLOYPATH
-    
