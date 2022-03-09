@@ -14,6 +14,7 @@
                                 <input type="hidden" name="total_pembayaran">
                                 <input type="hidden" name="kode_unik_pembayaran" value="<?= $kode_unik ?>">
                                 <div class="card-content">
+                                    <h4>Data Diri</h4>
 
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -29,38 +30,42 @@
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="material-icons">circle</i>
+                                            <i class="material-icons">calendar_today</i>
                                         </span>
                                         <input type="text" name="tanggal_lahir" class="form-control datepicker" placeholder="Tanggal Lahir...">
                                     </div>
 
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="material-icons">circle</i>
+                                            <i class="material-icons">maps_home_work</i>
                                         </span>
                                         <input type="text" name="institusi" class="form-control" placeholder="Institusi...">
                                     </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">circle</i>
-                                        </span>
-                                        <input type="text" name="kota" class="form-control" placeholder="Kota...">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">home</i>
+                                                </span>
+                                                <input type="text" name="kota" class="form-control" placeholder="Kota...">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <input type="text" name="provinsi" class="form-control" placeholder="Provinsi...">
+                                        </div>
                                     </div>
+
+
                                     <div class="input-group">
                                         <span class="input-group-addon">
-                                            <i class="material-icons">circle</i>
-                                        </span>
-                                        <input type="text" name="provinsi" class="form-control" placeholder="Provinsi...">
-                                    </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="material-icons">circle</i>
+                                            <i class="material-icons">smartphone</i>
                                         </span>
                                         <input type="text" name="no_hp" class="form-control" placeholder="No HP...">
                                     </div>
 
 
-                                    <h4><small>Simposium</small></h4>
+                                    <h4>Simposium</h4>
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="table-simposium">
                                             <thead>
@@ -92,7 +97,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <h4><small>Workshop</small></h4>
+                                    <h4>Workshop</h4>
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="table-workshop">
                                             <thead>
@@ -112,15 +117,14 @@
                                                         <td>
                                                             <div class="checkbox">
                                                                 <label>
-                                                                    <input data-biaya="<?= $ws['biaya'] ?>" type="checkbox" name="id_workshop[]" value="<?= $ws['id'] ?>">
-
+                                                                    <input data-biaya="<?= $ws['biaya'] ?>" type="checkbox" disabled name="id_workshop[]" value="<?= $ws['id'] ?>">
                                                                 </label>
                                                             </div>
                                                         </td>
-                                                        <td><?= $ws['pelatihan'] ?></td>
-                                                        <td><?= indoDate($ws['waktu'], 'd-m-Y') ?></td>
-                                                        <td><?= $ws['tempat'] ?></td>
-                                                        <td><?= rupiah($ws['biaya']) ?></td>
+                                                        <td class="<?= 1 == 1  ? 'text-decoration-line-through' : '' ?>"><?= $ws['pelatihan'] ?></td>
+                                                        <td class="<?= 1 == 1  ? 'text-decoration-line-through' : '' ?>"><?= indoDate($ws['waktu'], 'd-m-Y') ?></td>
+                                                        <td class="<?= 1 == 1  ? 'text-decoration-line-through' : '' ?>"><?= $ws['tempat'] ?></td>
+                                                        <td class="<?= 1 == 1  ? 'text-decoration-line-through' : '' ?>"><?= rupiah($ws['biaya']) ?></td>
                                                     </tr>
                                                 <?php endforeach ?>
 

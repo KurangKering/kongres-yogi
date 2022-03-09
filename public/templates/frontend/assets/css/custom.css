@@ -2,3 +2,7 @@
 
     font-size: 1em;
 }
+
+.text-decoration-line-through {
+    text-decoration: line-through;
+}

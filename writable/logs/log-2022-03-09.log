@@ -1,0 +1,11 @@
+CRITICAL - 2022-03-09 17:09:41 --> Undefined index: penuh
+#0 D:\Laragon Projects\www-home\kongres-yogi\app\Views\frontend\pendaftaran.php(124): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'D:\\Laragon Proj...', 124, Array)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(210): include('D:\\Laragon Proj...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Common.php(1089): CodeIgniter\View\View->render('frontend/pendaf...', Array, true)
+#4 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(206): view('frontend/pendaf...', Array)
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
