@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'eb91c3b2db7ff9fbd75e6db8ae3906989cadd5f9',
+        'reference' => '46c6f323993d7cc03e95b28e4993db58c7122c4c',
         'name' => 'codeigniter4/codeigniter4',
         'dev' => false,
     ),
@@ -16,7 +16,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'eb91c3b2db7ff9fbd75e6db8ae3906989cadd5f9',
+            'reference' => '46c6f323993d7cc03e95b28e4993db58c7122c4c',
             'dev_requirement' => false,
         ),
         'kint-php/kint' => array(
@@ -29,12 +29,12 @@
             'dev_requirement' => false,
         ),
         'laminas/laminas-escaper' => array(
-            'pretty_version' => '2.10.0',
-            'version' => '2.10.0.0',
+            'pretty_version' => '2.9.0',
+            'version' => '2.9.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laminas/laminas-escaper',
             'aliases' => array(),
-            'reference' => '58af67282db37d24e584a837a94ee55b9c7552be',
+            'reference' => '891ad70986729e20ed2e86355fcf93c9dc238a5f',
             'dev_requirement' => false,
         ),
         'ozdemir/datatables' => array(
