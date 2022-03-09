@@ -6,7 +6,7 @@
             <div class="col-md-10 col-md-offset-1">
 
                 <div class="card card-signup">
-                    <h2 class="card-title text-center">Tes PENDAFTARAN</h2>
+                    <h2 class="card-title text-center">PENDAFTARAN</h2>
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <form class="form">
