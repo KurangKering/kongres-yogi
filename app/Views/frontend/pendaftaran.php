@@ -14,7 +14,7 @@
                                 <input type="hidden" name="total_pembayaran">
                                 <input type="hidden" name="kode_unik_pembayaran" value="<?= $kode_unik ?>">
                                 <div class="card-content">
-                                    <h4>Data Diri</h4>
+                                    <h4 style="font-weight: 500;">Data Diri</h4>
 
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -51,8 +51,18 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">home</i>
+                                                </span>
 
-                                            <input type="text" name="provinsi" class="form-control" placeholder="Provinsi...">
+                                                <select name="provinsi" id="provinsi" class="form-control">
+                                                    <?php foreach ($provinsi as $k => $prov) : ?>
+                                                        <option value="<?= $prov['prov_name'] ?>"><?= $prov['prov_name'] ?></option>
+                                                    <?php endforeach ?>
+                                                </select>
+
+                                            </div>
                                         </div>
                                     </div>
 
@@ -65,7 +75,7 @@
                                     </div>
 
 
-                                    <h4>Simposium</h4>
+                                    <h4 style="font-weight: 500;">Simposium</h4>
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="table-simposium">
                                             <thead>
@@ -97,7 +107,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <h4>Workshop</h4>
+                                    <h4 style="font-weight: 500;">Workshop</h4>
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="table-workshop">
                                             <thead>
@@ -112,19 +122,22 @@
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($workshop as $k => $ws) : ?>
+                                                    <?php
+                                                    $is_penuh = $ws['terpakai'] >= $ws['kuota'];
+                                                    ?>
                                                     <tr>
                                                         <td class="text-center"><?= $k + 1 ?></td>
                                                         <td>
                                                             <div class="checkbox">
                                                                 <label>
-                                                                    <input data-biaya="<?= $ws['biaya'] ?>" type="checkbox" disabled name="id_workshop[]" value="<?= $ws['id'] ?>">
+                                                                    <input title="Penuh" data-biaya="<?= $ws['biaya'] ?>" type="checkbox" <?= $is_penuh ? 'disabled'  : '' ?> name="id_workshop[]" value="<?= $ws['id'] ?>">
                                                                 </label>
                                                             </div>
                                                         </td>
-                                                        <td class="<?= 1 == 1  ? 'text-decoration-line-through' : '' ?>"><?= $ws['pelatihan'] ?></td>
-                                                        <td class="<?= 1 == 1  ? 'text-decoration-line-through' : '' ?>"><?= indoDate($ws['waktu'], 'd-m-Y') ?></td>
-                                                        <td class="<?= 1 == 1  ? 'text-decoration-line-through' : '' ?>"><?= $ws['tempat'] ?></td>
-                                                        <td class="<?= 1 == 1  ? 'text-decoration-line-through' : '' ?>"><?= rupiah($ws['biaya']) ?></td>
+                                                        <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= $ws['pelatihan'] ?></td>
+                                                        <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= indoDate($ws['waktu'], 'd-m-Y') ?></td>
+                                                        <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= $ws['tempat'] ?></td>
+                                                        <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= rupiah($ws['biaya']) ?></td>
                                                     </tr>
                                                 <?php endforeach ?>
 
@@ -160,7 +173,7 @@
 
                                 </div>
                                 <div class="footer text-center">
-                                    <a href="javascript:void(0);" id="btnSubmitPendaftaran" class="btn btn-primary btn-round">Daftar Sekarang</a>
+                                    <a href="javascript:void(0);" id="btnSubmitPendaftaran" submit="true" class="btn btn-primary btn-round">Daftar Sekarang</a>
                                 </div>
                             </form>
 

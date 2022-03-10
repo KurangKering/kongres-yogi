@@ -6,6 +6,7 @@ use App\Controllers\BaseController;
 use App\Models\EventSimposiumModel;
 use App\Models\PendaftaranModel;
 use App\Models\PendaftaranWorkshopModel;
+use App\Models\ProvinsiModel;
 use App\Models\SimposiumModel;
 use App\Models\WorkshopModel;
 
@@ -171,12 +172,21 @@ class HomeController extends BaseController
 
                 $this->db->transRollback();
 
+
+                $errors = "<ul><li>" . implode("</li><li>", $errors) . "</li></ul>";
+                
+                
+                
+                $html = "<div class=\"alert-icon\"><i class=\"material-icons\">error_outline</i></div><b>Terdapat kesalahan</b>$errors";
+
+
                 $response =
                     [
                         'success' => false,
                         'message' => $message,
-                        'form_message' => $errors,
+                        'form_message' => $html,
                     ];
+
 
 
                 return $this->response->setJSON($response);
@@ -193,14 +203,21 @@ class HomeController extends BaseController
         $eventSimposium = $modelEventSimposium->findAll();
 
         $modelWorkshop = new WorkshopModel();
+        $modelWorkshop->select("workshop.*, (SELECT COUNT(*) FROM pendaftaran_workshop pw WHERE pw.id_workshop = workshop.id) as terpakai");
         $workshop = $modelWorkshop->where('active', '1')->findAll();
 
+
+
+        $modelProvinsi = new ProvinsiModel();
+        $provinsi = $modelProvinsi->findAll();
+
         $digits = 3;
-        $kodeUnik = rand(pow(10, $digits-1), pow(10, $digits)-1);
+        $kodeUnik = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
         $D = [
             'eventSimposium' => $eventSimposium,
             'workshop' => $workshop,
             'kode_unik' => $kodeUnik,
+            'provinsi' => $provinsi,
         ];
 
         return view('frontend/pendaftaran', $D);

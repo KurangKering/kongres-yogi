@@ -9,3 +9,33 @@ CRITICAL - 2022-03-09 17:09:41 --> Undefined index: penuh
 #7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #8 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #9 {main}
+ERROR - 2022-03-09 17:33:04 --> Unknown table 'kongres_yogi.workshops'
+CRITICAL - 2022-03-09 17:33:05 --> Unknown table 'kongres_yogi.workshops'
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `worksho...', 0)
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `worksho...')
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `worksho...')
+#3 D:\Laragon Projects\www-home\kongres-yogi\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `worksho...', Array, false)
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Laragon Projects\www-home\kongres-yogi\app\Controllers\Frontend\HomeController.php(197): CodeIgniter\BaseModel->findAll()
+#7 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#8 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#9 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-03-09 17:52:46 --> Class 'App\Controllers\Frontend\ProvinsiModel' not found
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(832): App\Controllers\Frontend\HomeController->daftar()
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Frontend\HomeController))
+#2 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-03-09 18:15:23 --> syntax error, unexpected 'workshop' (T_STRING)
+#0 D:\Laragon Projects\www-home\kongres-yogi\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('D:\\Laragon Proj...')
+#1 D:\Laragon Projects\www-home\kongres-yogi\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 D:\Laragon Projects\www-home\kongres-yogi\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 D:\Laragon Projects\www-home\kongres-yogi\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}

@@ -3,6 +3,16 @@ $(document).ready(function () {
 
   $("#btnSubmitPendaftaran").click(function (e) {
     let $form = $(this).closest("form");
+    let $button = $(this);
+
+    if ($button.attr("submit") == "false") {
+      return;
+    }
+
+    $button.attr("submit", "false");
+    $button.html(
+      '<img src="' + BASEURL + 'templates/frontend/assets/img/spinner.gif" />'
+    );
 
     let formData = new FormData($form[0]);
 
@@ -12,7 +22,15 @@ $(document).ready(function () {
       type: "POST",
       url: BASEURL + "/daftar",
       data: formData,
-      success: function (response) {},
+      success: function (response) {
+        if (!response.success) {
+          $("#notifModal #modalBody").html(response.form_message);
+          $("#notifModal").modal('show');
+        }
+      },
+    }).always(function (e) {
+      $button.attr("submit", "true");
+      $button.html("DAFTAR SEKARANG");
     });
   });
   setTotalPembayaran();

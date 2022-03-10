@@ -45,6 +45,19 @@
 
 
 
+    <div class="modal fade" id="notifModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-notice ">
+            <div class="modal-content alert alert-danger">
+
+                <div class="modal-body" id="modalBody">
+
+                </div>
+                <div class="modal-footer text-center">
+                    <button type="button" class="btn btn-default btn-round" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <!--   Core JS Files   -->
 <script src="<?= base_url('templates/frontend/assets/js/jquery.min.js') ?>" type="text/javascript"></script>
