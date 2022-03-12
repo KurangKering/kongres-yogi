@@ -33,6 +33,11 @@
 
         <table id="table-identitas">
             <tr>
+                <th>No Pendaftaran</th>
+                <td>:</td>
+                <td><?= $pendaftaran['id'] ?></td>
+            </tr>
+            <tr>
                 <th>Nama</th>
                 <td>:</td>
                 <td><?= $pendaftaran['nama'] ?></td>
