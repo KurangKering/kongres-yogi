@@ -9,12 +9,12 @@
                     <h2 class="card-title text-center">Validasi Pembayaran</h2>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
-                            <div id="form-message">
 
-                            </div>
                             <form class="form" method="" action="">
                                 <div class="card-content">
+                                    <div id="form-message">
 
+                                    </div>
                                     <div class="form-group label-floating">
                                         <label class="control-label">No. Pendaftaran</label>
                                         <input type="text" class="form-control" name="id_pendaftaran">
