@@ -116,7 +116,7 @@ class Email extends BaseConfig
      *
      * @var integer
      */
-    public $priority = 1;
+    public $priority = 3;
     /**
      * Newline character. (Use “\r\n” to comply with RFC 822)
      *
