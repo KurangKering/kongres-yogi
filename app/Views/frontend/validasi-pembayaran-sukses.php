@@ -12,7 +12,7 @@
                             </div>
                             <h4 class="info-title">Berhasil submit bukti pembayaran</h4>
                             <?php $email = $data['pendaftaran']['email']; ?>
-                            <p>Bukti pembayaran dengan No Pendaftaran <?= $data['pendaftaran']['id'] ?> atas nama <?= $data['pendaftaran']['nama'] ?> berhasil disubmit. Hasil verifikasi bukti pembayaran akan diumumkan melalui email. Silahkan cek email secara berkala. </p>
+                            <p>Bukti pembayaran dengan <b>No Pendaftaran <?= $data['pendaftaran']['id'] ?></b> atas nama <b><?= $data['pendaftaran']['nama'] ?></b> berhasil disubmit. Hasil verifikasi bukti pembayaran akan diumumkan melalui email. Silahkan cek email secara berkala. </p>
 
                         </div>
                     </div>
