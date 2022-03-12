@@ -405,6 +405,10 @@ class HomeController extends BaseController
     public function testSendMail($email)
     {
         $send = sendMail($email, "Tes Email", "Tes Email", "Tes Email");
-        dd($send);
+        echo '<pre>'; 
+        print_r($send);
+        echo '</pre>'; 
+        die();
+        
     }
 }
