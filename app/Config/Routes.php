@@ -53,6 +53,13 @@ $routes->get('/', 'Frontend\HomeController::index');
 $routes->get('/daftar', 'Frontend\HomeController::daftar');
 $routes->post('/daftar', 'Frontend\HomeController::daftar');
 
+
+$routes->get('/validasi-pembayaran', 'Frontend\HomeController::validasiPembayaran');
+$routes->post('/validasi-pembayaran', 'Frontend\HomeController::validasiPembayaran');
+
+$routes->get('/show-file/bukti-pembayaran/(:any)', 'ImageController::buktiPembayaran/$1');
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -8,7 +8,10 @@ use App\Models\PendaftaranModel;
 use App\Models\PendaftaranWorkshopModel;
 use App\Models\ProvinsiModel;
 use App\Models\SimposiumModel;
+use App\Models\ValidasiModel;
 use App\Models\WorkshopModel;
+use Exception;
+use CodeIgniter\Files\File;
 
 class HomeController extends BaseController
 {
@@ -92,14 +95,14 @@ class HomeController extends BaseController
                     $errors += $validation->getErrors();
                     throw new \Exception();
                 }
-
-
-
+                $tanggal_lahir = \DateTime::createFromFormat('d/m/Y', $this->request->getPost('tanggal_lahir'));
+                $tanggal_lahir =  $tanggal_lahir->format('Y-m-d');
+                $emailPendaftar = $this->request->getPost('email');
 
                 $post = [
                     'tanggal_pendaftaran' => date('Y-m-d H:i:s'),
                     'nama' => $this->request->getPost('nama'),
-                    'tanggal_lahir' => $this->request->getPost('tanggal_lahir'),
+                    'tanggal_lahir' => $tanggal_lahir,
                     'institusi' => $this->request->getPost('institusi'),
                     'kota' => $this->request->getPost('kota'),
                     'provinsi' => $this->request->getPost('provinsi'),
@@ -111,18 +114,15 @@ class HomeController extends BaseController
 
                 ];
 
-
                 $modelEventSimposium = new EventSimposiumModel();
                 $simposium = $modelEventSimposium->where('event_simposium.id', $post['id_event_simposium'])
                     ->join('simposium', 'event_simposium.id_simposium = simposium.id')
                     ->first();
 
-
                 if (empty($simposium)) {
                     $errors += ['id_event_simposium' => 'Event tidak ditemukan'];
                     throw new \Exception();
                 }
-
 
                 $modelPendaftaran = new PendaftaranModel();
 
@@ -135,12 +135,13 @@ class HomeController extends BaseController
                 }
 
                 $id_pendaftaran = $insertPendaftaran;
+                $post['id'] = $id_pendaftaran;
 
                 $modelPendaftaranWorkshop = new PendaftaranWorkshopModel();
 
-                $workshops = $this->request->getPost('id_workshop');
+                $postIdWorkshops = $this->request->getPost('id_workshop');
 
-                foreach ($workshops as $k => $v) {
+                foreach ($postIdWorkshops as $k => $v) {
                     $postPendaftaranWorkshop = [
                         'id_pendaftaran' => $id_pendaftaran,
                         'id_workshop' => $v,
@@ -148,38 +149,42 @@ class HomeController extends BaseController
 
                     $insertWorkshop =  $modelPendaftaranWorkshop->insert($postPendaftaranWorkshop);
                 }
+                $workshops = $this->db->table('workshop')->whereIn('id', $postIdWorkshops)->get()->getResultArray();
 
-                $this->db->transCommit();
+                $dataSukses = [
+                    'workshops' => $workshops,
+                    'simposium' => $simposium,
+                    'pendaftaran' => $post,
+                ];
 
+                $this->session->setFlashdata('dataSukses', $dataSukses);
 
                 $response =
                     [
                         'success' => true,
                         'message' => 'Berhasil mendaftar',
-                        'redirect' => '',
+                        'redirect' => current_url(),
                     ];
-                return $this->response->setJSON($response);
+
+                $this->db->transCommit();
+
+                $mailMessage = 'Ini adalah pesan pendaftaran sukses';
+                $sendMail = sendMail($emailPendaftar, "Pendaftaran KOGI", "Pendaftaran KOGI", $mailMessage);
+                if ($sendMail) {
+                    $updatePendaftaran = $this->db->table('pendaftaran')
+                        ->where('id', $id_pendaftaran)
+                        ->update(['status_email_pendaftaran' => 1]);
+                }
             } catch (\Throwable $th) {
-
                 $message = "Terdapat kesalahan";
-
-
                 if ($th->getCode() == '1062') {
                     $errors += ['email' => 'Email telah terdaftar'];
                 } else if (!empty($th->getCode())) {
                     $errors += ['exception' => $th->getMessage()];
                 }
 
-                $this->db->transRollback();
-
-
                 $errors = "<ul><li>" . implode("</li><li>", $errors) . "</li></ul>";
-                
-                
-                
-                $html = "<div class=\"alert-icon\"><i class=\"material-icons\">error_outline</i></div><b>Terdapat kesalahan</b>$errors";
-
-
+                $html = alert('error', "<b>Terdapat kesalahan</b>$errors");
                 $response =
                     [
                         'success' => false,
@@ -187,12 +192,19 @@ class HomeController extends BaseController
                         'form_message' => $html,
                     ];
 
-
-
-                return $this->response->setJSON($response);
+                $this->db->transRollback();
             }
+
+            return $this->response->setJSON($response);
         }
 
+        if ($flashdata = $this->session->getFlashdata('dataSukses')) {
+
+            $D = [
+                'data' => $flashdata,
+            ];
+            return view('frontend/daftar_sukses', $D);
+        }
 
         $sekarang = date('Y-m-d H:i:s');
 
@@ -206,8 +218,6 @@ class HomeController extends BaseController
         $modelWorkshop->select("workshop.*, (SELECT COUNT(*) FROM pendaftaran_workshop pw WHERE pw.id_workshop = workshop.id) as terpakai");
         $workshop = $modelWorkshop->where('active', '1')->findAll();
 
-
-
         $modelProvinsi = new ProvinsiModel();
         $provinsi = $modelProvinsi->findAll();
 
@@ -219,12 +229,167 @@ class HomeController extends BaseController
             'kode_unik' => $kodeUnik,
             'provinsi' => $provinsi,
         ];
-
-        return view('frontend/pendaftaran', $D);
+        return view('frontend/daftar', $D);
     }
 
-    public function validasi()
+    public function validasiPembayaran()
     {
-        return view('frontend/validasi');
+
+        if ($this->request->getMethod() == 'post') {
+
+            $message = null;
+            $errors = [];
+
+            $validation =  \Config\Services::validation();
+
+            $rules = [
+                'id_pendaftaran' => [
+                    'label' => 'No. Pendaftaran', 'rules' => 'required',
+                    'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+                    ],
+                ],
+            ];
+
+
+            $is_f_validasi = isset($_FILES['file']);
+            $is_f_validasi = $is_f_validasi ? !empty($_FILES['file']['tmp_name']) : false;
+            $f_validasi = $is_f_validasi ? $_FILES['file'] : null;
+
+            if (!$is_f_validasi) {
+
+                $rules += [
+                    'file' => [
+                        'label' => 'Bukti Pembayaran', 'rules' => 'required',
+                        'errors' => [
+                            'required' => '{field} tidak boleh kosong',
+                        ],
+                    ],
+                ];
+            } else {
+                if (empty(strstr($f_validasi['type'], 'image/'))) {
+                    $rules += [
+                        'file_type' => [
+                            'label' => 'Bukti Pembayaran', 'rules' => 'required',
+                            'errors' => [
+                                'required' => '{field} harus berformat JPG atau PNG',
+                            ],
+                        ],
+                    ];
+                }
+                if ($f_validasi['size'] > 1024000) {
+                    $rules += [
+                        'file_size' => [
+                            'label' => 'Bukti Pembayaran', 'rules' => 'required',
+                            'errors' => [
+                                'required' => '{field} maksimal berukuran 1 MB',
+                            ],
+                        ],
+                    ];
+                }
+            }
+
+            $validation->setRules($rules);
+
+            try {
+                $this->db = \Config\Database::connect();
+
+                if (!$validation->withRequest($this->request)->run()) {
+                    $errors += $validation->getErrors();
+                    throw new \Exception();
+                }
+
+                $idPendaftaran = $this->request->getPost('id_pendaftaran');
+
+                $modelPendaftaran = new PendaftaranModel();
+                $modelPendaftaran->join('validasi', 'pendaftaran.id = validasi.id_pendaftaran', 'LEFT');
+                $pendaftaran = $modelPendaftaran->find($idPendaftaran);
+
+                if (empty($pendaftaran)) {
+                    $errors += [
+                        'id_pendaftaran' => 'No. Pendaftaran tidak ditemukan',
+                    ];
+                    throw new \Exception();
+                }
+
+                if (!empty($pendaftaran['id_pendaftaran'])) {
+                    $errors += [
+                        'id_pendaftaran' => 'Bukti pembayaran telah ada',
+                    ];
+                    throw new \Exception();
+                }
+
+                $img = $this->request->getFile('file');
+                $newName = $img->getRandomName();
+
+                if (!$img->hasMoved()) {
+                    $img->move(WRITEPATH . 'uploads', $newName);
+                }
+
+                if (!empty($img->getError())) {
+                    $errors += [
+                        'file' => uploadErrors($img->getError()),
+                    ];
+                    throw new \Exception();
+                }
+
+                $this->db->transBegin();
+
+                $modelValidasi = new ValidasiModel();
+                $postValidasi = [
+                    'id_pendaftaran' => $idPendaftaran,
+                    'tanggal_validasi' => date('Y-m-d H:i:s'),
+                    'file' => $newName,
+                ];
+                $modelValidasi->insert($postValidasi);
+
+                $this->db->transCommit();
+                $modelPendaftaran->join('validasi', 'pendaftaran.id = validasi.id_pendaftaran', 'LEFT');
+                $pendaftaran = $modelPendaftaran->find($idPendaftaran);
+
+                $dataSukses = [
+                    'pendaftaran' => $pendaftaran,
+                ];
+                $this->session->setFlashdata('dataSuksesValidasi', $dataSukses);
+
+                $response =
+                    [
+                        'success' => true,
+                        'message' => "Berhasil melakukan validasi pembayaran",
+                        'redirect' => current_url(),
+                    ];
+            } catch (\Throwable $th) {
+                $message = "Terdapat kesalahan";
+
+                $exceptionMessage = $th->getMessage();
+
+                if ($exceptionMessage !== '') {
+                    $errors += ['exception' => $th->getMessage()];
+                }
+
+                $errors = "<ul><li>" . implode("</li><li>", $errors) . "</li></ul>";
+
+                $html = alert('error', "<b>Terdapat kesalahan</b>$errors");
+
+                $response =
+                    [
+                        'success' => false,
+                        'message' => $message,
+                        'form_message' => $html,
+                    ];
+
+                $this->db->transRollback();
+            }
+            return $this->response->setJSON($response);
+        }
+
+        if ($flashdata = $this->session->getFlashdata('dataSuksesValidasi')) {
+            $D = [
+                'data' => $flashdata,
+            ];
+            return view('frontend/validasi-pembayaran-sukses', $D);
+        }
+
+        return view('frontend/validasi-pembayaran');
     }
 }

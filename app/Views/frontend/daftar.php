@@ -55,8 +55,9 @@
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">home</i>
                                                 </span>
-
                                                 <select name="provinsi" id="provinsi" class="form-control">
+                                                    <option value="" disabled selected>Provinsi...</option>
+
                                                     <?php foreach ($provinsi as $k => $prov) : ?>
                                                         <option value="<?= $prov['prov_name'] ?>"><?= $prov['prov_name'] ?></option>
                                                     <?php endforeach ?>
@@ -170,7 +171,7 @@
                                         </table>
                                     </div>
 
-
+                                    <div id="form-message"></div>
                                 </div>
                                 <div class="footer text-center">
                                     <a href="javascript:void(0);" id="btnSubmitPendaftaran" submit="true" class="btn btn-primary btn-round">Daftar Sekarang</a>

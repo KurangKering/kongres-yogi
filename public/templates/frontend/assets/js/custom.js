@@ -2,6 +2,8 @@ $(document).ready(function () {
   materialKit.initFormExtendedDatetimepickers();
 
   $("#btnSubmitPendaftaran").click(function (e) {
+    $("#form-message").empty();
+
     let $form = $(this).closest("form");
     let $button = $(this);
 
@@ -24,8 +26,12 @@ $(document).ready(function () {
       data: formData,
       success: function (response) {
         if (!response.success) {
-          $("#notifModal #modalBody").html(response.form_message);
-          $("#notifModal").modal('show');
+          $("#form-message").html(response.form_message);
+        } else {
+          if (response.redirect) {
+            $button.remove();
+            window.location.href = response.redirect;
+          }
         }
       },
     }).always(function (e) {
@@ -37,6 +43,45 @@ $(document).ready(function () {
 
   $('input[name^="id_workshop"]').change(setTotalPembayaran);
   $('input[name="id_event_simposium"]').change(setTotalPembayaran);
+
+  $("#btnSubmitValidasiPembayaran").click(function (e) {
+    $("#form-message").empty();
+
+    let $form = $(this).closest("form");
+    let $button = $(this);
+
+    if ($button.attr("submit") == "false") {
+      return;
+    }
+
+    $button.attr("submit", "false");
+    $button.html(
+      '<img src="' + BASEURL + 'templates/frontend/assets/img/spinner.gif" />'
+    );
+
+    let formData = new FormData($form[0]);
+
+    $.ajax({
+      processData: false,
+      contentType: false,
+      type: "POST",
+      url: BASEURL + "/validasi-pembayaran",
+      data: formData,
+      success: function (response) {
+        if (!response.success) {
+          $("#form-message").html(response.form_message);
+        } else {
+          if (response.redirect) {
+            $button.remove();
+            window.location.href = response.redirect;
+          }
+        }
+      },
+    }).always(function (e) {
+      $button.attr("submit", "true");
+      $button.html("SUBMIT");
+    });
+  });
 });
 
 function setTotalPembayaran() {
@@ -57,10 +102,13 @@ function setTotalPembayaran() {
     }
   });
 
-  let totalPembayaran =
-    parseInt(hargaSimposium) +
-    parseInt(hargaKodeUnik) +
-    parseInt(hargaWorkshop);
+  let totalPembayaran = parseInt(hargaSimposium) + parseInt(hargaWorkshop);
+  console.log(totalPembayaran);
+
+  $inputBiaya.val(totalPembayaran);
+
+  totalPembayaran = totalPembayaran + parseInt(hargaKodeUnik);
+
   $inputTotalPembayaran.val(totalPembayaran);
   $spanTotalPembayaran.text(formatRupiah(totalPembayaran.toString()));
 }
