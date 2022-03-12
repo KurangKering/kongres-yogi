@@ -6,14 +6,22 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        pendaftaran  berhasil
+                        <div class="text-center">
+                            <div class="icon icon-success">
+                                <i class="material-icons" style="font-size: 4.4em">verified</i>
+                            </div>
+                            <h4 class="info-title">Pendaftaran Berhasil</h4>
+                            <?php $email = $data['pendaftaran']['email']; ?>
+                            <p>Kami telah mengirim detail pendaftaran ke email <?= $email ?> . Silahkan cek email anda. </p>
 
+                        </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </div>
+</div>
 
 </div>
 <?= $this->endSection() ?>
