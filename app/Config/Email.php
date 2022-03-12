@@ -80,7 +80,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPCrypto = 'tls';
+    public $SMTPCrypto = 'ssl';
     /**
      * Enable word-wrap
      *
