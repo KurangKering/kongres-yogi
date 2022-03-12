@@ -96,7 +96,7 @@ if (!function_exists('sendMail')) {
         ];
 
         if (!$email->send()) {
-            $errorResponse = $email->printDebugger();
+            $errorResponse = $email->printDebugger(['headers']);
             $response = [
                 'success' => false,
                 'message' => $errorResponse,

@@ -168,12 +168,8 @@ class HomeController extends BaseController
 
                 $mailMessage = 'Pendaftaran berhasil';
                 $sendMail = sendMail($emailPendaftar, "Pendaftaran KOGI", "Pendaftaran KOGI", $mailMessage);
-                echo '<pre>'; 
-                print_r($sendMail);
-                echo '</pre>'; 
-                die();
                 
-                if ($sendMail) {
+                if ($sendMail['success']) {
                     $updatePendaftaran = $this->db->table('pendaftaran')
                         ->where('id', $id_pendaftaran)
                         ->update(['status_email_pendaftaran' => 1]);
