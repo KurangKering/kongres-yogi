@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url('templates/frontend/assets/img/favicons/apple-touch-icon.png') ?>">
+	<link rel="icon" type="image/png" href="<?= base_url('templates/frontend/assets/img/favicons/favicon-32x32.png') ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Pendaftaran</title>
