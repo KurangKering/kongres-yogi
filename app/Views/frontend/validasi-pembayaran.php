@@ -23,7 +23,7 @@
                                     <div class="form-group form-file-upload">
                                         <input type="file" name="file" id="inputFile2" multiple="">
                                         <div class="input-group">
-                                            <input type="text" readonly="" class="form-control" placeholder="Single File">
+                                            <input type="text" readonly="" class="form-control" placeholder="File Bukti Pembayaran">
                                             <span class="input-group-btn input-group-s">
                                                 <button type="button" class="btn btn-just-icon btn-round btn-primary">
                                                     <i class="material-icons">attach_file</i>
