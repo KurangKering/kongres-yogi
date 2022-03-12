@@ -10,6 +10,8 @@ use App\Models\ProvinsiModel;
 use App\Models\SimposiumModel;
 use App\Models\ValidasiModel;
 use App\Models\WorkshopModel;
+use Config\Services;
+
 use Exception;
 use CodeIgniter\Files\File;
 
@@ -150,11 +152,15 @@ class HomeController extends BaseController
                     $insertWorkshop =  $modelPendaftaranWorkshop->insert($postPendaftaranWorkshop);
                 }
                 $workshops = $this->db->table('workshop')->whereIn('id', $postIdWorkshops)->get()->getResultArray();
+                $settings = $this->db->table('settings')
+                ->where('param', 'durasi_pembayaran')
+                ->get()->getRowArray();
 
                 $dataSukses = [
                     'workshops' => $workshops,
                     'simposium' => $simposium,
                     'pendaftaran' => $post,
+                    'settings' => $settings,
                 ];
 
                 $this->session->setFlashdata('dataSukses', $dataSukses);
@@ -166,20 +172,24 @@ class HomeController extends BaseController
                         'redirect' => current_url(),
                     ];
 
-                $mailMessage = 'Pendaftaran berhasil';
-                $sendMail = sendMail($emailPendaftar, "Pendaftaran KOGI", "Pendaftaran KOGI", $mailMessage);
-                
+
+                $templateEmail = view('frontend/template_email_pendaftaran', $dataSukses);
+
+                $sendMail = sendMail($emailPendaftar, "KOGI XVIII PEKANBARU 2022", "PENDFTARAN KOGI XVIII PEKANBARU 2022", $templateEmail);
+
                 if ($sendMail['success']) {
                     $updatePendaftaran = $this->db->table('pendaftaran')
                         ->where('id', $id_pendaftaran)
                         ->update(['status_email_pendaftaran' => 1]);
                 }
+
                 $this->db->transCommit();
             } catch (\Throwable $th) {
+
                 $message = "Terdapat kesalahan";
                 if ($th->getCode() == '1062') {
                     $errors += ['email' => 'Email telah terdaftar'];
-                } else if (!empty($th->getCode())) {
+                } else if (!empty($th->getMessage())) {
                     $errors += ['exception' => $th->getMessage()];
                 }
 
@@ -401,10 +411,9 @@ class HomeController extends BaseController
     public function testSendMail($email)
     {
         $send = sendMail($email, "Tes Email", "Tes Email", "Tes Email");
-        echo '<pre>'; 
+        echo '<pre>';
         print_r($send);
-        echo '</pre>'; 
+        echo '</pre>';
         die();
-        
     }
 }
