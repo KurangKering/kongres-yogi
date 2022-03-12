@@ -82,7 +82,7 @@ if (!function_exists('rupiah')) {
 }
 
 if (!function_exists('sendMail')) {
-    function sendMail($recipient, $subjectFrom, $subject, $message, $from = "POGI")
+    function sendMail($recipient, $subjectFrom, $subject, $message, $from = "pogiriau@gmail.com")
     {
         $email = \Config\Services::email();
         $email->setTo($recipient);
