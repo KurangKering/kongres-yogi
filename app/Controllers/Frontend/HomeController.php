@@ -166,15 +166,15 @@ class HomeController extends BaseController
                         'redirect' => current_url(),
                     ];
 
-                $this->db->transCommit();
-
                 $mailMessage = 'Pendaftaran berhasil';
                 $sendMail = sendMail($emailPendaftar, "Pendaftaran KOGI", "Pendaftaran KOGI", $mailMessage);
+                dd($sendMail);
                 if ($sendMail) {
                     $updatePendaftaran = $this->db->table('pendaftaran')
                         ->where('id', $id_pendaftaran)
                         ->update(['status_email_pendaftaran' => 1]);
                 }
+                $this->db->transCommit();
             } catch (\Throwable $th) {
                 $message = "Terdapat kesalahan";
                 if ($th->getCode() == '1062') {
