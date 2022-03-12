@@ -58,6 +58,7 @@ $routes->get('/validasi-pembayaran', 'Frontend\HomeController::validasiPembayara
 $routes->post('/validasi-pembayaran', 'Frontend\HomeController::validasiPembayaran');
 
 $routes->get('/show-file/bukti-pembayaran/(:any)', 'ImageController::buktiPembayaran/$1');
+$routes->get('/test-send-mail/(:any)', 'Frontend\HomeController::testSendMail/$1');
 
 
 /*

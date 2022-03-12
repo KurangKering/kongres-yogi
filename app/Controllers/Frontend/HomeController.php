@@ -397,4 +397,10 @@ class HomeController extends BaseController
 
         return view('frontend/validasi-pembayaran');
     }
+
+    public function testSendMail($email)
+    {
+        $send = sendMail($email, "Tes Email", "Tes Email", "Tes Email");
+        dd($send);
+    }
 }
