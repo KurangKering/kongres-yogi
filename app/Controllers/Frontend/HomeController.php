@@ -168,8 +168,8 @@ class HomeController extends BaseController
 
                 $this->db->transCommit();
 
-                $mailMessage = 'Ini adalah pesan pendaftaran sukses';
-                $sendMail = sendMail($emailPendaftar, "Pendaftarasn KOGI", "Pendaftasran KOGI", $mailMessage);
+                $mailMessage = 'Pendaftaran berhasil';
+                $sendMail = sendMail($emailPendaftar, "Pendaftaran KOGI", "Pendaftaran KOGI", $mailMessage);
                 if ($sendMail) {
                     $updatePendaftaran = $this->db->table('pendaftaran')
                         ->where('id', $id_pendaftaran)
