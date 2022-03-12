@@ -232,6 +232,11 @@ class HomeController extends BaseController
         return view('frontend/daftar', $D);
     }
 
+    private function daftarSukses()
+    {
+        return view('frontend/daftar_sukses');
+    }
+
     public function validasiPembayaran()
     {
 
