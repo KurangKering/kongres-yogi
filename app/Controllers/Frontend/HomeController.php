@@ -173,7 +173,7 @@ class HomeController extends BaseController
                     [
                         'success' => true,
                         'message' => 'Berhasil mendaftar',
-                        // 'redirect' => current_url(),
+                        'redirect' => current_url(),
                     ];
 
 
