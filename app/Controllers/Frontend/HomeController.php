@@ -131,7 +131,11 @@ class HomeController extends BaseController
                 $insertPendaftaran = $modelPendaftaran->insert($post);
 
                 if (!$insertPendaftaran) {
-
+                    echo '<pre>'; 
+                    print_r($insertPendaftaran);
+                    echo '</pre>'; 
+                    die();
+                    
                     $errors += ['exception' => 'Tidak dapat menyimpan data pendaftaran'];
                     throw new \Exception();
                 }
@@ -169,7 +173,7 @@ class HomeController extends BaseController
                     [
                         'success' => true,
                         'message' => 'Berhasil mendaftar',
-                        'redirect' => current_url(),
+                        // 'redirect' => current_url(),
                     ];
 
 
