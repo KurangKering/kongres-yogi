@@ -131,12 +131,8 @@ class HomeController extends BaseController
                 $insertPendaftaran = $modelPendaftaran->insert($post);
 
                 if (!$insertPendaftaran) {
-                    echo '<pre>'; 
-                    print_r($insertPendaftaran);
-                    echo '</pre>'; 
-                    die();
                     
-                    $errors += ['exception' => 'Tidak dapat menyimpan data pendaftaran'];
+                    $errors += ['exception' => $this->db->error()];
                     throw new \Exception();
                 }
 
