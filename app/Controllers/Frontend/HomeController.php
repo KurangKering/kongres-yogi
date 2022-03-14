@@ -132,7 +132,7 @@ class HomeController extends BaseController
 
                 if (!$insertPendaftaran) {
                     
-                    $errors += ['exception' => $this->db->error()];
+                    $errors += ['exception' => json_encode($this->db->error())];
                     throw new \Exception();
                 }
 
