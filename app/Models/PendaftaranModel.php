@@ -19,7 +19,8 @@ class PendaftaranModel extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id', 'tanggal_pendaftaran', 'nama', 'tanggal_lahir', 'institusi', 'kota', 'provinsi', 'no_hp', 'email', 'id_event_simposium', 'status', 'biaya', 'kode_unik_pembayaran, status_email_pendaftaran'];
+    protected $allowedFields        = ['id', 'tanggal_pendaftaran', 'nama', 'tanggal_lahir', 'institusi', 'kota', 'provinsi', 'no_hp', 'email', 'id_event_simposium', 'status', 'biaya', 'kode_unik_pembayaran', 
+    'status_email_pendaftaran'];
 
     // Dates
     protected $useTimestamps        = false;
