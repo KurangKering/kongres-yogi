@@ -131,8 +131,12 @@ class HomeController extends BaseController
                 $insertPendaftaran = $modelPendaftaran->insert($post);
 
                 if (!$insertPendaftaran) {
-                    
-                    $errors += ['exception' => json_encode($this->db->error())];
+
+                    $errorDB = $this->db->error();
+
+                    if ($errorDB['code'] == '1062') {
+                        $errors += ['exception' => "Email telah terdaftar"];
+                    }
                     throw new \Exception();
                 }
 
@@ -153,8 +157,8 @@ class HomeController extends BaseController
                 }
                 $workshops = $this->db->table('workshop')->whereIn('id', $postIdWorkshops)->get()->getResultArray();
                 $settings = $this->db->table('settings')
-                ->where('param', 'durasi_pembayaran')
-                ->get()->getRowArray();
+                    ->where('param', 'durasi_pembayaran')
+                    ->get()->getRowArray();
 
                 $dataSukses = [
                     'workshops' => $workshops,
