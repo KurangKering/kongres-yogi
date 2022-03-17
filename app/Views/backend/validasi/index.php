@@ -1,4 +1,4 @@
-<?= $this->extend('templates/backend/layout_backend') ?>
+<?= $this->extend('backend/template/layout') ?>
 
 <?= $this->section('content') ?>
 <div class="content-wrapper">
@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Data Validasi Pendaftaran</h1>
+                    <h1 class="m-0">Validasi Pembayaran</h1>
                 </div>
                 <div class="col-sm-6">
                 </div>
@@ -43,3 +43,38 @@
 
 </div>
 <?= $this->endSection() ?>
+
+
+<?= $this->section('js') ?>
+<script>
+    $(document).ready(function() {
+        $(document).on("click", "[bDetail]", function(e) {
+            let id = $(this).attr("bDetail");
+            openModal({
+                classDialog: 'modal-lg',
+                title: "Detail Submit Validasi Pembayaran",
+                src: BASE_URL + "backend/validasi/detail/" + id,
+                buttonClose: {
+                    title: "Tutup",
+                    action: function() {},
+                },
+                buttonDone: false,
+            });
+        });
+
+        $(document).on("click", "[bVerifikasiii]", function(e) {
+            let id = $(this).attr("bDetail");
+            openModal({
+                classDialog: 'modal-lg',
+                title: "Verifikasi Pembayaran",
+                src: BASE_URL + "backend/validasi/render-verifikasi/" + id,
+                buttonClose: {
+                    title: "Tutup",
+                    action: function() {},
+                },
+                buttonDone: false,
+            });
+        });
+    });
+</script>
+<?php $this->endSection() ?>

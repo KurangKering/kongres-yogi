@@ -19,12 +19,18 @@ class EventSimposiumModel extends Model
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id', 'id_simposium', 'tipe_pendaftaran', 'harga', 'mulai_pendaftaran', 'selesai_pendaftaran', 'active'];
-
-    // Dates
+    protected $allowedFields        = [
+        'id',
+        'id_simposium',
+        'tipe_pendaftaran',
+        'harga',
+        'mulai_pendaftaran',
+        'selesai_pendaftaran',
+        'active'
+    ];
     protected $useTimestamps        = false;
 
-    public function getAll()
+    public function jsonEventSimposium()
     {
         $dt = new Datatables(new Codeigniter4Adapter());
         $dt->query('select s.kategori, s.hybrid, es.id, id_simposium, tipe_pendaftaran, harga, mulai_pendaftaran, selesai_pendaftaran, active
@@ -39,12 +45,15 @@ class EventSimposiumModel extends Model
         });
         $dt->add('waktu_pendaftaran', function ($q) {
 
-            return indoDate($q['mulai_pendaftaran'], 'd-m-Y') . '-' . indoDate($q['selesai_pendaftaran'], 'd-m-Y');
-
+            return indoDate($q['mulai_pendaftaran'], 'd-m-Y') . ' s.d ' . indoDate($q['selesai_pendaftaran'], 'd-m-Y');
         });
+
         
         $dt->add('action', function ($q) {
-            return '';
+            $buttons = "";
+            $bDetail = "<button type=\"button\" bDetail=\"$q[id]\"><i class=\"fas fa-list\"></i> Detail</button>";
+            $buttons .= $bDetail;
+            return $buttons;
         });
 
         echo $dt->generate();

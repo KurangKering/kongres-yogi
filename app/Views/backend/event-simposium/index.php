@@ -1,4 +1,4 @@
-<?= $this->extend('templates/backend/layout_backend') ?>
+<?= $this->extend('backend/template/layout') ?>
 
 <?= $this->section('content') ?>
 <div class="content-wrapper">
@@ -44,3 +44,22 @@
 
 </div>
 <?= $this->endSection() ?>
+
+<?= $this->section('js') ?>
+<script>
+    $(document).on("click", "[bDetail]", function(e) {
+        let id = $(this).attr("bDetail");
+
+        openModal({
+            classDialog: 'modal-lg',
+            title: "Detail Event Simposium",
+            src: BASE_URL + "backend/event-simposium/detail/" + id,
+            buttonClose: {
+                title: "Tutup",
+                action: function() {},
+            },
+            buttonDone: false,
+        });
+    });
+</script>
+<?php $this->endSection() ?>

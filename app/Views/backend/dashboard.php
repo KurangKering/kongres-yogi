@@ -1,4 +1,4 @@
-<?= $this->extend('templates/backend/layout_backend') ?>
+<?= $this->extend('backend/template/layout') ?>
 
 <?= $this->section('content') ?>
 <div class="content-wrapper"></div>

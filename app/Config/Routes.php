@@ -31,35 +31,43 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/backend', 'Backend\DashboardController::index');
 
-$routes->get('backend/data-event-simposium', 'Backend\EventSimposiumController::index');
-$routes->get('backend/data-event-simposium/json-dt', 'Backend\EventSimposiumController::jsonDT');
-$routes->get('backend/data-simposium', 'Backend\SimposiumController::index');
-$routes->get('backend/data-simposium/json-dt', 'Backend\SimposiumController::jsonDT');
-$routes->get('backend/data-workshop', 'Backend\WorkshopController::index');
-$routes->get('backend/data-workshop/json-dt', 'Backend\WorkshopController::jsonDT');
-$routes->get('backend/data-pendaftaran', 'Backend\PendaftaranController::index');
-$routes->get('backend/data-pendaftaran/json-dt', 'Backend\PendaftaranController::jsonDT');
-$routes->get('backend/data-validasi', 'Backend\ValidasiController::index');
-$routes->get('backend/data-validasi/json-dt', 'Backend\ValidasiController::jsonDT');
+$routes->get('/show-file/bukti-pembayaran/(:any)', 'ImageController::buktiPembayaran/$1');
 
 $routes->get('login', 'Backend\AuthController::login');
 $routes->get('logout', 'Backend\AuthController::logout');
 $routes->post('login', 'Backend\AuthController::login');
 
 
+$routes->get('/backend', 'Backend\DashboardController::index');
+
+$routes->get('backend/event-simposium', 'Backend\EventSimposiumController::index');
+$routes->get('backend/event-simposium/json-event-simposium', 'Backend\EventSimposiumController::jsonEventSimposium');
+$routes->get('backend/event-simposium/tambah', 'Backend\EventSimposiumController::tambah');
+$routes->get('backend/event-simposium/detail/(:num)', 'Backend\EventSimposiumController::detail');
+
+$routes->get('backend/simposium', 'Backend\SimposiumController::index');
+$routes->get('backend/simposium/json-dt', 'Backend\SimposiumController::jsonDT');
+
+$routes->get('backend/workshop', 'Backend\WorkshopController::index');
+$routes->get('backend/workshop/json-dt', 'Backend\WorkshopController::jsonDT');
+
+$routes->get('backend/pendaftaran', 'Backend\PendaftaranController::index');
+$routes->get('backend/pendaftaran/json-pendaftaran', 'Backend\PendaftaranController::jsonPendaftaran');
+$routes->get('backend/pendaftaran/detail/(:num)', 'Backend\PendaftaranController::detail/$1');
+
+$routes->get('backend/validasi', 'Backend\ValidasiController::index');
+$routes->get('backend/validasi/json-validasi-sudah-bayar', 'Backend\ValidasiController::jsonValidasiSudahBayar');
+$routes->post('backend/validasi/validasi', 'Backend\ValidasiController::validasi');
+$routes->get('backend/validasi/detail/(:num)', 'Backend\ValidasiController::detail/$1');
+$routes->get('backend/validasi/render-verifikasi/(:num)', 'Backend\ValidasiController::renderVerifikasi/$1');
+
+
 $routes->get('/', 'Frontend\HomeController::index');
-$routes->get('/daftar', 'Frontend\HomeController::daftar');
-$routes->post('/daftar', 'Frontend\HomeController::daftar');
-
-
-$routes->get('/validasi-pembayaran', 'Frontend\HomeController::validasiPembayaran');
-$routes->post('/validasi-pembayaran', 'Frontend\HomeController::validasiPembayaran');
-
-$routes->get('/show-file/bukti-pembayaran/(:any)', 'ImageController::buktiPembayaran/$1');
-$routes->get('/test-send-mail/(:any)', 'Frontend\HomeController::testSendMail/$1');
-
+$routes->get('/daftar', 'Frontend\DaftarController::index');
+$routes->post('/daftar', 'Frontend\DaftarController::index');
+$routes->get('/validasi-pembayaran', 'Frontend\ValidasiPembayaranController::index');
+$routes->post('/validasi-pembayaran', 'Frontend\ValidasiPembayaranController::index');
 
 /*
  * --------------------------------------------------------------------

@@ -1,4 +1,4 @@
-<?= $this->extend('templates/frontend/layout_frontend') ?>
+<?= $this->extend('frontend/template/layout') ?>
 <?= $this->section('content') ?>
 <div class="page-header header-filter" filter-color="purple">
     <div class="container">

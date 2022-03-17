@@ -13,7 +13,7 @@ $(document).ready(function () {
 
     $button.attr("submit", "false");
     $button.html(
-      '<img src="' + BASEURL + 'templates/frontend/assets/img/spinner.gif" />'
+      '<i class="fa fa-spinner fa-spin"></i>'
     );
 
     let formData = new FormData($form[0]);
@@ -56,7 +56,7 @@ $(document).ready(function () {
 
     $button.attr("submit", "false");
     $button.html(
-      '<img src="' + BASEURL + 'templates/frontend/assets/img/spinner.gif" />'
+      '<i class="fa fa-spinner fa-spin"></i>'
     );
 
     let formData = new FormData($form[0]);

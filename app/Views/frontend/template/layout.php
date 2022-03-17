@@ -38,7 +38,7 @@
                 <a class="navbar-brand" href="#">KOGI</a>
             </div>
 
-            <?= $this->include('templates/frontend/sidebar') ?>
+            <?= $this->include('frontend/template/sidebar') ?>
         </div>
     </nav>
 
@@ -86,6 +86,6 @@
 
 <!--    Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc    -->
 <script src="<?= base_url('templates/frontend/assets/js/material-kit.js?v=1.2.1') ?>" type="text/javascript"></script>
-<script src="<?= base_url('templates/frontend/assets/js/custom.js?' . time()) ?>" type="text/javascript"></script>
+<script src="<?= base_url('templates/frontend/frontend.js?' . time()) ?>" type="text/javascript"></script>
 
 </html>

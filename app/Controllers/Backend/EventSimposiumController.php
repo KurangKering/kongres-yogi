@@ -12,11 +12,21 @@ class EventSimposiumController extends BaseController
         return view('backend/event-simposium/index');
     }
 
-
-    public function jsonDT()
+    public function jsonEventSimposium()
     {
         $model = new EventSimposiumModel();
 
-        echo $model->getAll();
+        echo $model->jsonEventSimposium();
     }
+
+    public function tambah()
+    {
+
+        return view('backend/event-simposium/tambah');
+    }
+
+    public function detail($id)
+    {
+    }
+
 }

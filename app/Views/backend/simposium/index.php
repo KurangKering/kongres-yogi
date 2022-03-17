@@ -1,4 +1,4 @@
-<?= $this->extend('templates/backend/layout_backend') ?>
+<?= $this->extend('backend/template/layout') ?>
 
 <?= $this->section('content') ?>
 <div class="content-wrapper">
@@ -16,7 +16,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12">     
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -41,3 +41,4 @@
 
 </div>
 <?= $this->endSection() ?>
+

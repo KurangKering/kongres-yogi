@@ -39,4 +39,17 @@ class WorkshopModel extends Model
         });
         echo $dt->generate();
     }
+
+    public function withTerpakai($id)
+    {
+        $this->select("workshop.*, (SELECT COUNT(*) FROM pendaftaran_workshop pw WHERE pw.id_workshop = workshop.id) as terpakai");
+        $this->where('id', $id);
+        $this->where('active', '1');
+        $workshop = $this->first();
+        return $workshop;
+        
+
+    }
+
+
 }

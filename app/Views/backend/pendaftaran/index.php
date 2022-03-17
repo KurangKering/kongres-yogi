@@ -1,4 +1,4 @@
-<?= $this->extend('templates/backend/layout_backend') ?>
+<?= $this->extend('backend/template/layout') ?>
 
 <?= $this->section('content') ?>
 <div class="content-wrapper">
@@ -28,7 +28,7 @@
                                         <th>Nama</th>
                                         <th>Kontak</th>
                                         <th>Simposium</th>
-                                        <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -43,3 +43,22 @@
 
 </div>
 <?= $this->endSection() ?>
+
+<?= $this->section('js') ?>
+<script>
+    $(document).on("click", "[bDetailPendaftaran]", function(e) {
+        let id = $(this).attr("bDetailPendaftaran");
+
+        openModal({
+            classDialog: 'modal-lg',
+            title: "Detail Pendaftaran",
+            src: BASE_URL + "backend/pendaftaran/detail/" + id,
+            buttonClose: {
+                title: "Tutup",
+                action: function() {},
+            },
+            buttonDone: false,
+        });
+    });
+</script>
+<?php $this->endSection() ?>
