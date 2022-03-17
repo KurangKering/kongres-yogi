@@ -91,8 +91,9 @@ class PendaftaranModel extends Model
         echo $dt->generate();
     }
 
-    public function isEmailUsed($email)
-    {
+    public function isEmailUsed($id_event_simposium, $email)
+    {   
+        $this->where('id_event_simposium', $id_event_simposium);
         $this->where('email', $email);
         $pendaftaran = $this->first();
         return !empty($pendaftaran);

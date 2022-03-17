@@ -85,7 +85,7 @@ class DaftarController extends BaseController
                     $errors += $validation->getErrors();
                 }
 
-                if ($mPendaftaran->isEmailUsed($this->request->getPost('email'))) {
+                if ($mPendaftaran->isEmailUsed($this->request->getPost('id_event_simposium'), $this->request->getPost('email'))) {
                     $errors += ['email' => 'Email telah terdaftar'];
                 }
 
