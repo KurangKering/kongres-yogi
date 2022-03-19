@@ -27,7 +27,7 @@
                                         <th>Nama Event</th>
                                         <th>Buka Pendaftaran</th>
                                         <th>Tutup Pendaftaran</th>
-                                        <th>Action</th>
+                                        <th>Active</th>
                                     </tr>
                                 </thead>
                             </table>
