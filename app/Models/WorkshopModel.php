@@ -13,37 +13,44 @@ class WorkshopModel extends Model
 {
     protected $DBGroup              = 'default';
     protected $table                = 'workshop';
-    protected $primaryKey           = 'id';
+    protected $primaryKey           = 'id_workshop';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id', 'pelatihan', 'kuota', 'waktu', 'tanggal', 'tempat', 'biaya'];
+    protected $allowedFields        = ['id_workshop', 'id_event', 'pelatihan', 'kuota', 'waktu', 'tanggal', 'tempat', 'biaya', 'active'];
 
     // Dates
     protected $useTimestamps        = false;
 
-    public function getAll()
+    public function jsonWorkshop()
     {
         $dt = new Datatables(new Codeigniter4Adapter());
-        $dt->query('select id, pelatihan, kuota, waktu, tanggal, tempat, biaya waktu from simposium');
+        $dt->query('select e.nama_event, workshop.id_workshop, workshop.pelatihan, workshop.kuota, workshop.waktu, workshop.tempat, workshop.biaya,
+        (SELECT COUNT(*) FROM pendaftaran_workshop pw WHERE pw.id_workshop = workshop.id_workshop) as terpakai
+        from workshop join event e on workshop.id_event = e.id_event');
 
         $dt->add('action', function ($q) {
             return '';
         });
-
-        $dt->edit('file', function ($q) {
-            $link = base_url() . "/uploads/" . $q['file'];
-            return "<a class=\"example-image-link\" href=\"" . $link . "\" data-lightbox=\"" . $link . "\"><img data-lightbox=\"image-1\"  class=\"image-dt\" src=\"" . $link . "\" alt=\"\">";
+        $dt->edit('waktu', function ($q) {
+            return indoDate($q['waktu'], 'd-m-Y H:i:s');
         });
+
+        $dt->edit('biaya', function ($q) {
+            return rupiah($q['biaya']);
+        });
+
+
+
         echo $dt->generate();
     }
 
     public function withTerpakai($id)
     {
-        $this->select("workshop.*, (SELECT COUNT(*) FROM pendaftaran_workshop pw WHERE pw.id_workshop = workshop.id) as terpakai");
-        $this->where('id', $id);
+        $this->select("workshop.*, (SELECT COUNT(*) FROM pendaftaran_workshop pw WHERE pw.id_workshop = workshop.id_workshop) as terpakai");
+        $this->where('id_workshop', $id);
         $this->where('active', '1');
         $workshop = $this->first();
         return $workshop;

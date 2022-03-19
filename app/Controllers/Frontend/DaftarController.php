@@ -11,6 +11,10 @@ use App\Models\WorkshopModel;
 
 class DaftarController extends BaseController
 {
+    public function __construct()
+    {
+        $this->mPendaftaran = new PendaftaranModel();
+    }
     public function index()
     {
         if ($this->request->getMethod() == 'post') {
@@ -79,19 +83,18 @@ class DaftarController extends BaseController
                 $this->db = \Config\Database::connect();
 
                 $this->db->transBegin();
-                $mPendaftaran = new PendaftaranModel();
 
                 if (!$validation->withRequest($this->request)->run()) {
                     $errors += $validation->getErrors();
                 }
 
-                if ($mPendaftaran->isEmailUsed($this->request->getPost('id_event_simposium'), $this->request->getPost('email'))) {
+                if ($this->mPendaftaran->isEmailUsed($this->request->getPost('id_event_simposium'), $this->request->getPost('email'))) {
                     $errors += ['email' => 'Email telah terdaftar'];
                 }
 
                 $mEventSimposium = new EventSimposiumModel();
-                $simposium = $mEventSimposium->where('event_simposium.id', $this->request->getPost('id_event_simposium'))
-                    ->join('simposium', 'event_simposium.id_simposium = simposium.id')
+                $simposium = $mEventSimposium->where('event_simposium.id_event_simposium', $this->request->getPost('id_event_simposium'))
+                    ->join('simposium', 'event_simposium.id_simposium = simposium.id_simposium')
                     ->first();
 
                 if (empty($simposium)) {
@@ -116,14 +119,16 @@ class DaftarController extends BaseController
                     throw new \Exception();
                 }
 
-                $tanggal_lahir = \DateTime::createFromFormat('d/m/Y', $this->request->getPost('tanggal_lahir'));
-                $tanggal_lahir =  $tanggal_lahir->format('Y-m-d');
+                $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $this->request->getPost('tanggal_lahir'));
+                $tanggalLahir =  $tanggalLahir->format('Y-m-d');
                 $emailPendaftar = $this->request->getPost('email');
+                $totalPembayaran = $this->request->getPost('biaya') + $this->request->getPost('kode_unik_pembayaran');
+
 
                 $post = [
                     'tanggal_pendaftaran' => date('Y-m-d H:i:s'),
                     'nama' => $this->request->getPost('nama'),
-                    'tanggal_lahir' => $tanggal_lahir,
+                    'tanggal_lahir' => $tanggalLahir,
                     'institusi' => $this->request->getPost('institusi'),
                     'kota' => $this->request->getPost('kota'),
                     'provinsi' => $this->request->getPost('provinsi'),
@@ -131,36 +136,40 @@ class DaftarController extends BaseController
                     'email' => $this->request->getPost('email'),
                     'biaya' => $this->request->getPost('biaya'),
                     'id_event_simposium' => $this->request->getPost('id_event_simposium'),
-                    'kode_unik_pembayaran' => $this->request->getPost('kode_unik_pembayaran')
-
+                    'kode_unik_pembayaran' => $this->request->getPost('kode_unik_pembayaran'),
+                    'total_pembayaran' => $totalPembayaran,
                 ];
 
-                $idPendaftaran = $mPendaftaran->insert($post);
+                
 
-                $post['id'] = $idPendaftaran;
-                $mPendftaranWoarkshop = new PendaftaranWorkshopModel();
+                $idPendaftaran = $this->mPendaftaran->insert($post);
+
+                $post['id_pendaftaran'] = $idPendaftaran;
+                $mPendftaranWorkshop = new PendaftaranWorkshopModel();
 
                 foreach ($postIdWorkshops as $k => $v) {
                     $postPendaftaranWorkshop = [
                         'id_pendaftaran' => $idPendaftaran,
                         'id_workshop' => $v,
                     ];
-                    $insertWorkshop =  $mPendftaranWoarkshop->insert($postPendaftaranWorkshop);
+                    $insertWorkshop =  $mPendftaranWorkshop->insert($postPendaftaranWorkshop);
                 }
 
                 $workshops = [];
                 if ($postIdWorkshops) {
-                    $workshops = $mWorkshop->whereIn('id', $postIdWorkshops)->findAll();
+                    $workshops = $mWorkshop->whereIn('id_workshop', $postIdWorkshops)->findAll();
                 }
 
                 $settings = $this->db->table('settings')
                     ->where('param', 'durasi_pembayaran')
                     ->get()->getRowArray();
 
+                $pendaftaran = $this->mPendaftaran->getDetail($idPendaftaran);
+
                 $dataSukses = [
                     'workshops' => $workshops,
                     'simposium' => $simposium,
-                    'pendaftaran' => $post,
+                    'pendaftaran' => $pendaftaran,
                     'settings' => $settings,
                 ];
                 $this->session->setFlashdata('dataSukses', $dataSukses);
@@ -172,11 +181,11 @@ class DaftarController extends BaseController
                         'redirect' => current_url(),
                     ];
 
-                $template = view('frontend/daftar/template_email', $dataSukses);
+            $template = view('frontend/daftar/template_email', $dataSukses);
                 $sendMail = sendMail($emailPendaftar, "KOGI XVIII PEKANBARU 2022", "PENDFTARAN KOGI XVIII PEKANBARU 2022", $template);
 
                 if ($sendMail['success']) {
-                    $mPendaftaran->where('id', $idPendaftaran)
+                $this->mPendaftaran->where('id_pendaftaran', $idPendaftaran)
                         ->set('status_email_pendaftaran', 1)
                         ->update();
                 }
@@ -184,6 +193,7 @@ class DaftarController extends BaseController
                 $this->db->transCommit();
             } catch (\Throwable $th) {
                 $message = "Terdapat kesalahan";
+                
 
                 $exception = $th->getMessage();
                 if (!empty($exception)) {
@@ -220,11 +230,11 @@ class DaftarController extends BaseController
         $mEventSimposium = new EventSimposiumModel();
         $mEventSimposium->where('mulai_pendaftaran <=', $sekarang);
         $mEventSimposium->where('selesai_pendaftaran >=', $sekarang);
-        $mEventSimposium->join('simposium s', 'event_simposium.id_simposium = s.id');
+        $mEventSimposium->join('simposium s', 'event_simposium.id_simposium = s.id_simposium');
         $eventSimposium = $mEventSimposium->findAll();
 
         $mWorkshop = new WorkshopModel();
-        $mWorkshop->select("workshop.*, (SELECT COUNT(*) FROM pendaftaran_workshop pw WHERE pw.id_workshop = workshop.id) as terpakai");
+        $mWorkshop->select("workshop.*, (SELECT COUNT(*) FROM pendaftaran_workshop pw WHERE pw.id_workshop = workshop.id_workshop) as terpakai");
         $workshop = $mWorkshop->where('active', '1')->findAll();
 
         $modelProvinsi = new ProvinsiModel();

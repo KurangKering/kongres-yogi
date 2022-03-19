@@ -24,11 +24,12 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Event</th>
                                         <th>Kategori</th>
                                         <th>Hybrid</th>
                                         <th>Tipe Pendaftaran</th>
                                         <th>Harga</th>
-                                        <th>Waktu</th>
+                                        <th>Waktu Pendaftaran</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -47,18 +48,55 @@
 
 <?= $this->section('js') ?>
 <script>
-    $(document).on("click", "[bDetail]", function(e) {
-        let id = $(this).attr("bDetail");
+    $(document).ready(function() {
+        let table_data_event_simposium = $("#table-data-event-simposium").DataTable({
+            processing: true,
+            serverSide: true,
+            order: [],
+            ajax: BASE_URL + "backend/event-simposium/json-event-simposium",
+            columns: [{
+                    data: "id_event_simposium",
+                },
+                {
+                    data: "nama_event",
+                },
+                {
+                    data: "kategori",
+                },
+                {
+                    data: "hybrid",
+                },
+                {
+                    data: "tipe_pendaftaran",
+                },
+                {
+                    data: "harga",
+                },
+                {
+                    data: "waktu_pendaftaran",
+                },
+                {
+                    data: "action",
+                },
+            ],
+            columnDefs: [{
+                targets: -1,
+            }, ],
+        });
 
-        openModal({
-            classDialog: 'modal-lg',
-            title: "Detail Event Simposium",
-            src: BASE_URL + "backend/event-simposium/detail/" + id,
-            buttonClose: {
-                title: "Tutup",
-                action: function() {},
-            },
-            buttonDone: false,
+        $(document).on("click", "[bDetail]", function(e) {
+            let id = $(this).attr("bDetail");
+
+            openModal({
+                classDialog: 'modal-lg',
+                title: "Detail Event Simposium",
+                src: BASE_URL + "backend/event-simposium/detail/" + id,
+                buttonClose: {
+                    title: "Tutup",
+                    action: function() {},
+                },
+                buttonDone: false,
+            });
         });
     });
 </script>

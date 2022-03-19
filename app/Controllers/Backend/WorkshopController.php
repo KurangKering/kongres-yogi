@@ -3,19 +3,24 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
-use App\Models\PendaftaranModel;
+use App\Models\WorkshopModel;
 
 class WorkshopController extends BaseController
 {
+
+    public function __construct()
+    {
+        $this->mWorkshop = new WorkshopModel();
+    }
     public function index()
     {
-        return view('backend/validasi/index');
+        return view('backend/workshop/index');
     }
 
-    public function jsonDT()
+    public function jsonWorkshop()
     {
-        $model = new PendaftaranModel();
-
-        echo $model->getAllValidasi();
+        echo $this->mWorkshop->jsonWorkshop();
+    
     }
+
 }

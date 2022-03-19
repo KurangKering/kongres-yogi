@@ -13,13 +13,13 @@ class SimposiumModel extends Model
 {
     protected $DBGroup              = 'default';
     protected $table                = 'simposium';
-    protected $primaryKey           = 'id';
+    protected $primaryKey           = 'id_simposium';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
-    protected $allowedFields        = ['id', 'kategori', 'hybrid'];
+    protected $allowedFields        = ['id_simposium', 'kategori', 'hybrid'];
 
     // Dates
     protected $useTimestamps        = false;
@@ -27,7 +27,7 @@ class SimposiumModel extends Model
     public function getAll()
     {
         $dt = new Datatables(new Codeigniter4Adapter());
-        $dt->query('select id, kategori, hybrid from simposium');
+        $dt->query('select id_simposium, kategori, hybrid from simposium');
 
         $dt->add('action', function ($q) {
             return '';

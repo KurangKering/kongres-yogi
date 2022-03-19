@@ -17,10 +17,26 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                 <li class="nav-item">
+                    <a href="<?= base_url('backend') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-circle    "></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url('backend/validasi') ?>" class="nav-link">
                         <i class="nav-icon fas fa-circle    "></i>
                         <p>
-                            Validasi Pembayaran
+                            Data Sudah Bayar
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('backend/verifikasi') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-circle    "></i>
+                        <p>
+                            Data Sudah Verifikasi
                         </p>
                     </a>
                 </li>
@@ -53,6 +69,14 @@
                         <i class="nav-icon fas fa-circle    "></i>
                         <p>
                             Data Workshop
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('backend/event') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-circle    "></i>
+                        <p>
+                            Data Event
                         </p>
                     </a>
                 </li>

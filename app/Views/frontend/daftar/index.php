@@ -95,7 +95,7 @@
                                                         <td>
                                                             <div class="radio">
                                                                 <label>
-                                                                    <input data-harga="<?= $es['harga'] ?>" type="radio" name="id_event_simposium" value="<?= $es['id'] ?>">
+                                                                    <input data-harga="<?= $es['harga'] ?>" type="radio" name="id_event_simposium" value="<?= $es['id_event_simposium'] ?>">
                                                                 </label>
                                                             </div>
                                                         </td>
@@ -131,7 +131,7 @@
                                                         <td>
                                                             <div class="checkbox">
                                                                 <label>
-                                                                    <input title="Penuh" data-biaya="<?= $ws['biaya'] ?>" type="checkbox" <?= $is_penuh ? 'disabled'  : '' ?> name="id_workshop[]" value="<?= $ws['id'] ?>">
+                                                                    <input title="Penuh" data-biaya="<?= $ws['biaya'] ?>" type="checkbox" <?= $is_penuh ? 'disabled'  : '' ?> name="id_workshop[]" value="<?= $ws['id_workshop'] ?>">
                                                                 </label>
                                                             </div>
                                                         </td>

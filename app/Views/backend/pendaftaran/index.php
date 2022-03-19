@@ -27,7 +27,7 @@
                                         <th>Tgl. Pendaftaran</th>
                                         <th>Nama</th>
                                         <th>Kontak</th>
-                                        <th>Simposium</th>
+                                        <th>Total</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -46,18 +46,49 @@
 
 <?= $this->section('js') ?>
 <script>
-    $(document).on("click", "[bDetailPendaftaran]", function(e) {
-        let id = $(this).attr("bDetailPendaftaran");
+    $(document).ready(function() {
+        let table_data_pendaftaran = $("#table-data-pendaftaran").DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: BASE_URL + "backend/pendaftaran/json-pendaftaran",
+            columns: [{
+                    data: "id",
+                },
+                {
+                    data: "tanggal_pendaftaran",
+                },
+                {
+                    data: "nama",
+                },
+                {
+                    data: "no_hp",
+                },
+                {
+                    data: "total_pembayaran",
+                },
+                {
+                    data: "action",
+                },
+            ],
+            columnDefs: [{
+                targets: -1,
+            }, ],
+        });
 
-        openModal({
-            classDialog: 'modal-lg',
-            title: "Detail Pendaftaran",
-            src: BASE_URL + "backend/pendaftaran/detail/" + id,
-            buttonClose: {
-                title: "Tutup",
-                action: function() {},
-            },
-            buttonDone: false,
+        $(document).on("click", "[bDetailPendaftaran]", function(e) {
+
+            let id = $(this).attr("bDetailPendaftaran");
+
+            openModal({
+                classDialog: 'modal-lg',
+                title: "Detail Pendaftaran",
+                src: BASE_URL + "backend/pendaftaran/detail/" + id,
+                buttonClose: {
+                    title: "Tutup",
+                    action: function() {},
+                },
+                buttonDone: false,
+            });
         });
     });
 </script>

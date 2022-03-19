@@ -13,14 +13,14 @@ class PendaftaranModel extends Model
 {
     protected $DBGroup              = 'default';
     protected $table                = 'pendaftaran';
-    protected $primaryKey           = 'id';
+    protected $primaryKey           = 'id_pendaftaran';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
     protected $allowedFields        = [
-        'id',
+        'id_pendaftaran',
         'tanggal_pendaftaran',
         'nama',
         'tanggal_lahir',
@@ -33,6 +33,7 @@ class PendaftaranModel extends Model
         'status',
         'biaya',
         'kode_unik_pembayaran',
+        'total_pembayaran',
         'status_email_pendaftaran'
     ];
 
@@ -44,7 +45,7 @@ class PendaftaranModel extends Model
         $dt = new Datatables(new Codeigniter4Adapter());
         $dt->query('
         select 
-        pend.id as id,
+        pend.id_pendaftaran as id,
         pend.tanggal_pendaftaran,
         pend.nama,
         pend.tanggal_lahir,
@@ -54,16 +55,17 @@ class PendaftaranModel extends Model
         pend.no_hp,
         pend.email,
         pend.status_email_pendaftaran,
-        id_event_simposium,
+        pend.id_event_simposium,
         pend.status,
         pend.biaya,
         pend.kode_unik_pembayaran,
+        (pend.biaya + pend.kode_unik_pembayaran) as total_pembayaran,
         simposium.kategori,
         simposium.hybrid,
         es.harga,
         es.tipe_pendaftaran from pendaftaran pend
-        join event_simposium es on pend.id_event_simposium = es.id 
-        join simposium on es.id_simposium = simposium.id');
+        join event_simposium es on pend.id_event_simposium = es.id_event_simposium
+        join simposium on es.id_simposium = simposium.id_simposium');
 
         $dt->add('action', function ($q) {
             return '';
@@ -74,6 +76,9 @@ class PendaftaranModel extends Model
         });
         $dt->edit('kategori', function ($q) {
             return "$q[kategori] ($q[hybrid])";
+        });
+        $dt->edit('total_pembayaran', function ($q) {
+            return rupiah($q['total_pembayaran']);
         });
 
         $dt->add('action', function ($q) {
@@ -98,4 +103,15 @@ class PendaftaranModel extends Model
         $pendaftaran = $this->first();
         return !empty($pendaftaran);
     }
+
+    public function getDetail($id_pendaftaran)
+    {
+        $this->select('pendaftaran.*, v.id_validasi, v.tanggal_validasi, v.file, v.status_email_verifikasi, v.tanggal_verifikasi, es.*, s.*');
+        $this->join('validasi v', 'v.id_pendaftaran =  pendaftaran.id_pendaftaran', 'LEFT');
+        $this->join('event_simposium es', 'pendaftaran.id_event_simposium = es.id_event_simposium');
+        $this->join('simposium s', 'es.id_simposium = s.id_simposium');
+        $this->where('pendaftaran.id_pendaftaran', $id_pendaftaran);
+        return $this->first();
+    }
+ 
 }

@@ -12,7 +12,7 @@
                             </div>
                             <h4 class="info-title">Pendaftaran Berhasil</h4>
                             <?php $email = $data['pendaftaran']['email']; ?>
-                            <p>Kami telah mengirim detail pendaftaran ke email <?= $email ?> . Silahkan cek email anda. </p>
+                            <p>Kami telah mengirim detail pendaftaran ke email <b><?= $email ?></b> . Silahkan cek email anda. </p>
 
                         </div>
                     </div>

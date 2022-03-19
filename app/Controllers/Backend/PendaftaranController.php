@@ -5,10 +5,18 @@ namespace App\Controllers\Backend;
 use App\Controllers\BaseController;
 use App\Models\PendaftaranModel;
 use App\Models\PendaftaranWorkshopModel;
+use App\Models\ValidasiModel;
 use App\Models\WorkshopModel;
 
 class PendaftaranController extends BaseController
 {
+
+    public function __construct()
+    {
+        $this->mValidasi = new ValidasiModel();
+        $this->mPendaftaran = new PendaftaranModel();
+        $this->mPendaftaranWorkshop = new PendaftaranWorkshopModel();
+    }
     public function index()
     {
         return view('backend/pendaftaran/index');
@@ -16,22 +24,13 @@ class PendaftaranController extends BaseController
 
     public function detail($id)
     {
-
-        $mPendaftaran = new PendaftaranModel();
-        $mPendaftaran->join('event_simposium', 'pendaftaran.id_event_simposium = event_simposium.id');
-        $mPendaftaran->join('simposium', 'simposium.id = event_simposium.id_simposium');
-        $mPendaftaran->where('pendaftaran.id', $id);
-        $pendaftaran = $mPendaftaran->first();
-
-        $mWorkshop = new PendaftaranWorkshopModel();
-        $mWorkshop->join('workshop', 'workshop.id = pendaftaran_workshop.id_workshop');
-        $mWorkshop->where('id_pendaftaran', $id);
-        $workshops = $mWorkshop->findAll();
-        
+        $data = $this->mPendaftaran->getDetail($id);
+        $workshops = $this->mPendaftaranWorkshop->getByIdPendaftaran($id);
         $D = [
-            'pendaftaran' => $pendaftaran,
+            'data' => $data,
             'workshops' => $workshops,
         ];
+
         return view('backend/pendaftaran/detail', $D);
     }
 

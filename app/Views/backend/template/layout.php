@@ -15,7 +15,9 @@
 
     <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/fancybox-3.5.7/dist/jquery.fancybox.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('templates/backend/dist/css/adminlte.min.css?v=3.2.0') ?>">
+    <link rel="stylesheet" href="<?= base_url('templates/backend/backend.css') ?>">
     <?= $this->renderSection('css') ?>
 
     <script>
@@ -101,6 +103,7 @@
     <script src="<?= base_url('templates/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js') ?>"></script>
     <script src="<?= base_url('templates/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') ?>"></script>
     <script src="<?= base_url('templates/backend/plugins/sweetalert2/sweetalert2.min.js') ?>"></script>
+    <script src="<?= base_url('templates/backend/plugins/fancybox-3.5.7/dist/jquery.fancybox.min.js') ?>"></script>
 
     <script src="<?= base_url('templates/backend/dist/js/adminlte.min.js?v=3.2.0') ?>"></script>
     <script src="<?= base_url('templates/backend/backend.js?' . time()) ?>"></script>

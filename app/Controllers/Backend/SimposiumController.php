@@ -13,10 +13,11 @@ class SimposiumController extends BaseController
     }
 
 
-    public function jsonDT()
+    public function jsonSimposium()
     {
         $model = new SimposiumModel();
 
         echo $model->getAll();
     }
+
 }

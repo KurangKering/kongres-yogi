@@ -39,29 +39,40 @@ $routes->get('logout', 'Backend\AuthController::logout');
 $routes->post('login', 'Backend\AuthController::login');
 
 
-$routes->get('/backend', 'Backend\DashboardController::index');
+$routes->get('/backend', 'Backend\DashboardController::index', ['filter' => 'auth']);
 
-$routes->get('backend/event-simposium', 'Backend\EventSimposiumController::index');
-$routes->get('backend/event-simposium/json-event-simposium', 'Backend\EventSimposiumController::jsonEventSimposium');
-$routes->get('backend/event-simposium/tambah', 'Backend\EventSimposiumController::tambah');
-$routes->get('backend/event-simposium/detail/(:num)', 'Backend\EventSimposiumController::detail');
+$routes->get('backend/event', 'Backend\EventController::index', ['filter' => 'auth']);
+$routes->get('backend/event/json-event', 'Backend\EventController::jsonEvent', ['filter' => 'auth']);
 
-$routes->get('backend/simposium', 'Backend\SimposiumController::index');
-$routes->get('backend/simposium/json-dt', 'Backend\SimposiumController::jsonDT');
+$routes->get('backend/event-simposium', 'Backend\EventSimposiumController::index', ['filter' => 'auth']);
+$routes->get('backend/event-simposium/json-event-simposium', 'Backend\EventSimposiumController::jsonEventSimposium', ['filter' => 'auth']);
+$routes->get('backend/event-simposium/tambah', 'Backend\EventSimposiumController::tambah', ['filter' => 'auth']);
+$routes->get('backend/event-simposium/detail/(:num)', 'Backend\EventSimposiumController::detail', ['filter' => 'auth']);
 
-$routes->get('backend/workshop', 'Backend\WorkshopController::index');
-$routes->get('backend/workshop/json-dt', 'Backend\WorkshopController::jsonDT');
+$routes->get('backend/simposium', 'Backend\SimposiumController::index', ['filter' => 'auth']);
+$routes->get('backend/simposium/json-simposium', 'Backend\SimposiumController::jsonSimposium', ['filter' => 'auth']);
 
-$routes->get('backend/pendaftaran', 'Backend\PendaftaranController::index');
-$routes->get('backend/pendaftaran/json-pendaftaran', 'Backend\PendaftaranController::jsonPendaftaran');
-$routes->get('backend/pendaftaran/detail/(:num)', 'Backend\PendaftaranController::detail/$1');
 
-$routes->get('backend/validasi', 'Backend\ValidasiController::index');
-$routes->get('backend/validasi/json-validasi-sudah-bayar', 'Backend\ValidasiController::jsonValidasiSudahBayar');
-$routes->post('backend/validasi/validasi', 'Backend\ValidasiController::validasi');
-$routes->get('backend/validasi/detail/(:num)', 'Backend\ValidasiController::detail/$1');
-$routes->get('backend/validasi/render-verifikasi/(:num)', 'Backend\ValidasiController::renderVerifikasi/$1');
+$routes->get('backend/workshop', 'Backend\WorkshopController::index', ['filter' => 'auth']);
+$routes->get('backend/workshop/json-workshop', 'Backend\WorkshopController::jsonWorkshop', ['filter' => 'auth']);
 
+$routes->get('backend/pendaftaran', 'Backend\PendaftaranController::index', ['filter' => 'auth']);
+$routes->get('backend/pendaftaran/json-pendaftaran', 'Backend\PendaftaranController::jsonPendaftaran', ['filter' => 'auth']);
+$routes->get('backend/pendaftaran/detail/(:num)', 'Backend\PendaftaranController::detail/$1', ['filter' => 'auth']);
+
+$routes->get('backend/validasi', 'Backend\ValidasiController::index', ['filter' => 'auth']);
+$routes->get('backend/validasi/json-validasi-sudah-bayar', 'Backend\ValidasiController::jsonValidasiSudahBayar', ['filter' => 'auth']);
+
+
+$routes->post('backend/validasi/validasi', 'Backend\ValidasiController::validasi', ['filter' => 'auth']);
+$routes->get('backend/validasi/detail/(:num)', 'Backend\ValidasiController::detail/$1', ['filter' => 'auth']);
+$routes->get('backend/validasi/render-verifikasi/(:num)', 'Backend\ValidasiController::renderVerifikasi/$1', ['filter' => 'auth']);
+
+
+
+$routes->get('backend/verifikasi', 'Backend\VerifikasiController::index', ['filter' => 'auth']);
+$routes->get('backend/verifikasi/json-verifikasi', 'Backend\VerifikasiController::jsonVerifikasi', ['filter' => 'auth']);
+$routes->get('backend/verifikasi/detail/(:num)', 'Backend\VerifikasiController::detail/$1', ['filter' => 'auth']);
 
 $routes->get('/', 'Frontend\HomeController::index');
 $routes->get('/daftar', 'Frontend\DaftarController::index');

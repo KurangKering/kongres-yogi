@@ -14,7 +14,11 @@ class AuthController extends BaseController
 
     public function login()
     {
+        $session = session();
 
+        if ($session->get('logged_in')) {
+            return redirect()->to('/backend');
+        }
         if ($this->request->isAJAX()) {
 
             $username = $this->request->getPost('username');
@@ -25,8 +29,7 @@ class AuthController extends BaseController
 
             $user = $model->where('username', $username)
                 ->where('password', $password)
-                ->find();
-
+                ->first();
 
             if (empty($user)) {
 
@@ -43,6 +46,16 @@ class AuthController extends BaseController
                 'message' => 'Berhasil login'
             ];
 
+            $sess = [
+                'id_user'       => $user['id_user'],
+                'nama'     => $user['nama'],
+                'username'     => $user['username'],
+                'email'     => $user['email'],
+                'logged_in'     => TRUE
+            ];
+
+            $session->set($sess);
+
             return $this->response->setJSON($response);
         }
 
@@ -54,7 +67,6 @@ class AuthController extends BaseController
     public function logout()
     {
         session()->destroy();
-
         return redirect()->to('login');
     }
 }

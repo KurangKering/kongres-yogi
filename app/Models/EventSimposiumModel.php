@@ -13,14 +13,15 @@ class EventSimposiumModel extends Model
 {
     protected $DBGroup              = 'default';
     protected $table                = 'event_simposium';
-    protected $primaryKey           = 'id';
+    protected $primaryKey           = 'id_event_simposium';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';
     protected $useSoftDeletes       = false;
     protected $protectFields        = true;
     protected $allowedFields        = [
-        'id',
+        'id_event_simposium',
+        'id_event',
         'id_simposium',
         'tipe_pendaftaran',
         'harga',
@@ -33,8 +34,10 @@ class EventSimposiumModel extends Model
     public function jsonEventSimposium()
     {
         $dt = new Datatables(new Codeigniter4Adapter());
-        $dt->query('select s.kategori, s.hybrid, es.id, id_simposium, tipe_pendaftaran, harga, mulai_pendaftaran, selesai_pendaftaran, active
-        from event_simposium es join simposium s on es.id_simposium = s.id');
+        $dt->query('select s.kategori, s.hybrid, es.id_event_simposium, es.id_simposium, tipe_pendaftaran, harga, es.mulai_pendaftaran, es.selesai_pendaftaran, es.active, e.nama_event
+        from event_simposium es join simposium s on es.id_simposium = s.id_simposium
+        join event e on e.id_event = es.id_event
+        ');
 
         $dt->edit('tipe_pendaftaran', function ($q) {
             return tipePendaftaran($q['tipe_pendaftaran']);
@@ -51,7 +54,7 @@ class EventSimposiumModel extends Model
         
         $dt->add('action', function ($q) {
             $buttons = "";
-            $bDetail = "<button type=\"button\" bDetail=\"$q[id]\"><i class=\"fas fa-list\"></i> Detail</button>";
+            $bDetail = "<button type=\"button\" bDetail=\"$q[id_event_simposium]\"><i class=\"fas fa-list\"></i> Detail</button>";
             $buttons .= $bDetail;
             return $buttons;
         });

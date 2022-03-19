@@ -1,3 +1,10 @@
+var Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000
+});
+
 function openModal(param) {
   if (param.src) {
     var modal = $("#modal-ajax");
@@ -76,7 +83,6 @@ function openModal(param) {
         // });
       })
       .always(function () {
-        modal.find(".modal-body").empty();
 
         // loader(false);
       });
@@ -88,172 +94,4 @@ function openModal(param) {
 $("[link]").click(function (e) {
   let link = $(this).attr("link");
   window.location.href = link;
-});
-
-$(document).ready(function () {
-  let table_data_pendaftaran = $("#table-data-pendaftaran").DataTable({
-    processing: true,
-    serverSide: true,
-    ajax: BASE_URL + "backend/pendaftaran/json-pendaftaran",
-    columns: [
-      {
-        data: "id",
-      },
-      {
-        data: "tanggal_pendaftaran",
-      },
-      {
-        data: "nama",
-      },
-      {
-        data: "no_hp",
-      },
-      {
-        data: "kategori",
-      },
-      {
-        data: "action",
-      },
-    ],
-    columnDefs: [
-      {
-        targets: -1,
-      },
-    ],
-  });
-
-  let table_data_validasi = $("#table-data-validasi").DataTable({
-    processing: true,
-    serverSide: true,
-    ajax: BASE_URL + "backend/validasi/json-validasi-sudah-bayar",
-    columns: [
-      {
-        data: "id_pendaftaran",
-      },
-      {
-        data: "tanggal_validasi",
-      },
-      {
-        data: "nama",
-      },
-      {
-        data: "no_hp",
-      },
-      {
-        data: "status",
-      },
-      {
-        data: "action",
-      },
-    ],
-    columnDefs: [
-      {
-        targets: -1,
-      },
-    ],
-  });
-
-  let table_data_simposium = $("#table-data-simposium").DataTable({
-    processing: true,
-    serverSide: true,
-    ajax: BASE_URL + "backend/simposium/json-dt",
-    columns: [
-      {
-        data: "id",
-      },
-      {
-        data: "kategori",
-      },
-      {
-        data: "hybrid",
-      },
-      {
-        data: "action",
-      },
-    ],
-    columnDefs: [
-      {
-        targets: -1,
-      },
-    ],
-  });
-
-  let table_data_event_simposium = $("#table-data-event-simposium").DataTable({
-    processing: true,
-    serverSide: true,
-    order: [],
-    ajax: BASE_URL + "backend/event-simposium/json-event-simposium",
-    columns: [
-      {
-        data: "id",
-      },
-      {
-        data: "kategori",
-      },
-      {
-        data: "hybrid",
-      },
-      {
-        data: "tipe_pendaftaran",
-      },
-      {
-        data: "harga",
-      },
-      {
-        data: "waktu_pendaftaran",
-      },
-      {
-        data: "action",
-      },
-    ],
-    columnDefs: [
-      {
-        targets: -1,
-      },
-    ],
-  });
-
-  $(document).on("click", "[bVerifikasi]", function () {
-    let $button = $(this);
-    Swal.fire({
-      title: "Apakah data ini valid?",
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: "Valid, terima data",
-      denyButtonText: `Tidak, hapus data`,
-    }).then((result) => {
-      let status = null;
-      if (result.isConfirmed || result.isDenied) {
-        if (result.isConfirmed) {
-          status = 1;
-        } else if (result.isDenied) {
-          status = 0;
-        }
-        let formData = new FormData();
-        formData.append("id", $button.attr("bVerifikasi"));
-        formData.append("status", status);
-
-        $.ajax({
-          type: "POST",
-          url: BASE_URL + "backend/validasi/validasi",
-          data: formData,
-          cache: false,
-          processData: false,
-          contentType: false,
-          dataType: "json",
-          success: function (response) {
-            if (response.success) {
-              Swal.fire({
-                icon: "success",
-                title: "Sukses",
-                text: response.message,
-              });
-
-              table_data_validasi.ajax.reload();
-            }
-          },
-        });
-      }
-    });
-  });
 });

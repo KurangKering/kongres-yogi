@@ -13,7 +13,7 @@ class UserModel extends Model
 {
     protected $DBGroup              = 'default';
     protected $table                = 'user';
-    protected $primaryKey           = 'id';
+    protected $primaryKey           = 'id_user';
     protected $useAutoIncrement     = true;
     protected $insertID             = 0;
     protected $returnType           = 'array';

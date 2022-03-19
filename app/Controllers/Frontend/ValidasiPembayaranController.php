@@ -86,7 +86,7 @@ class ValidasiPembayaranController extends BaseController
                 $idPendaftaran = $this->request->getPost('id_pendaftaran');
 
                 $modelPendaftaran = new PendaftaranModel();
-                $modelPendaftaran->join('validasi', 'pendaftaran.id = validasi.id_pendaftaran', 'LEFT');
+                $modelPendaftaran->join('validasi', 'pendaftaran.id_pendaftaran = validasi.id_pendaftaran', 'LEFT');
                 $pendaftaran = $modelPendaftaran->find($idPendaftaran);
 
                 if (empty($pendaftaran)) {
@@ -130,13 +130,13 @@ class ValidasiPembayaranController extends BaseController
 
 
                 $updatePendaftaran = $this->db->table('pendaftaran')
-                    ->where('id', $idPendaftaran)
+                    ->where('id_pendaftaran', $idPendaftaran)
                     ->update(['status' => 'sudah_bayar']);
 
 
                 $this->db->transCommit();
                 $modelPendaftaran->select('pendaftaran.*, validasi.tanggal_validasi, file, status_email_verifikasi');
-                $modelPendaftaran->join('validasi', 'pendaftaran.id = validasi.id_pendaftaran', 'LEFT');
+                $modelPendaftaran->join('validasi', 'pendaftaran.id_pendaftaran = validasi.id_pendaftaran', 'LEFT');
                 $pendaftaran = $modelPendaftaran->find($idPendaftaran);
 
 
