@@ -106,11 +106,12 @@ class PendaftaranModel extends Model
 
     public function getDetail($id_pendaftaran)
     {
-        $this->select('pendaftaran.*, v.id_validasi, v.tanggal_validasi, v.file, v.status_email_verifikasi, v.tanggal_verifikasi, es.*, s.*');
+        $this->select('pendaftaran.*, v.id_validasi, v.alasan_penolakan, v.tanggal_validasi, v.file, v.status_email_verifikasi, v.tanggal_verifikasi, es.*, s.*');
         $this->join('validasi v', 'v.id_pendaftaran =  pendaftaran.id_pendaftaran', 'LEFT');
         $this->join('event_simposium es', 'pendaftaran.id_event_simposium = es.id_event_simposium');
         $this->join('simposium s', 'es.id_simposium = s.id_simposium');
         $this->where('pendaftaran.id_pendaftaran', $id_pendaftaran);
+        $this->orderBy('v.id_validasi', 'desc');
         return $this->first();
     }
  

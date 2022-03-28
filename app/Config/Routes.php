@@ -61,12 +61,13 @@ $routes->get('backend/pendaftaran/json-pendaftaran', 'Backend\PendaftaranControl
 $routes->get('backend/pendaftaran/detail/(:num)', 'Backend\PendaftaranController::detail/$1', ['filter' => 'auth']);
 
 $routes->get('backend/validasi', 'Backend\ValidasiController::index', ['filter' => 'auth']);
-$routes->get('backend/validasi/json-validasi-sudah-bayar', 'Backend\ValidasiController::jsonValidasiSudahBayar', ['filter' => 'auth']);
+$routes->get('backend/validasi/json/(:any)', 'Backend\ValidasiController::json/$1', ['filter' => 'auth']);
 
 
 $routes->post('backend/validasi/validasi', 'Backend\ValidasiController::validasi', ['filter' => 'auth']);
 $routes->get('backend/validasi/detail/(:num)', 'Backend\ValidasiController::detail/$1', ['filter' => 'auth']);
-$routes->get('backend/validasi/render-verifikasi/(:num)', 'Backend\ValidasiController::renderVerifikasi/$1', ['filter' => 'auth']);
+$routes->get('backend/validasi/modal-validasi/(:num)', 'Backend\ValidasiController::modalValidasi/$1', ['filter' => 'auth']);
+$routes->post('backend/validasi/send-mail/(:any)', 'Backend\ValidasiController::sendMail/$1', ['filter' => 'auth']);
 
 
 

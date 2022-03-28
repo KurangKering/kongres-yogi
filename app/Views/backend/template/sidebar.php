@@ -27,17 +27,7 @@
                 <li class="nav-item">
                     <a href="<?= base_url('backend/validasi') ?>" class="nav-link">
                         <i class="nav-icon fas fa-circle    "></i>
-                        <p>
-                            Data Sudah Bayar
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('backend/verifikasi') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
-                        <p>
-                            Data Sudah Verifikasi
-                        </p>
+                        <p>Data Validasi</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -60,7 +50,7 @@
                     <a href="<?= base_url('backend/simposium') ?>" class="nav-link">
                         <i class="nav-icon fas fa-circle    "></i>
                         <p>
-                            Data Master Simposium
+                            Master Simposium
                         </p>
                     </a>
                 </li>
@@ -68,7 +58,7 @@
                     <a href="<?= base_url('backend/workshop') ?>" class="nav-link">
                         <i class="nav-icon fas fa-circle    "></i>
                         <p>
-                            Data Workshop
+                            Master Workshop
                         </p>
                     </a>
                 </li>
@@ -76,7 +66,7 @@
                     <a href="<?= base_url('backend/event') ?>" class="nav-link">
                         <i class="nav-icon fas fa-circle    "></i>
                         <p>
-                            Data Event
+                            Master Event
                         </p>
                     </a>
                 </li>

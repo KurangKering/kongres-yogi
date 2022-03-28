@@ -24,7 +24,6 @@ class ValidasiController extends BaseController
     public function detail($id)
     {
         $data = $this->mPendaftaran->getDetail($id);
-
         $workshops = $this->mPendaftaranWorkshop->getByIdPendaftaran($id);
 
         $D = [
@@ -35,77 +34,145 @@ class ValidasiController extends BaseController
         return view('backend/validasi/detail', $D);
     }
 
-    public function jsonValidasiSudahBayar()
+    private function detailDiterima($id)
     {
-        echo $this->mValidasi->jsonValidasiSudahBayar();
+    }
+
+    public function json($tipe)
+    {
+        switch ($tipe) {
+            case 'menunggu':
+                echo $this->mValidasi->jsonMenunggu();
+                break;
+            case 'diterima':
+                echo $this->mValidasi->jsonDiterima();
+                break;
+
+            case 'ditolak';
+                echo $this->mValidasi->jsonDitolak();
+                break;
+            default:
+                break;
+        }
     }
 
     public function validasi()
     {
         $post = $this->request->getPost();
 
-        $this->mPendaftaran->where('id_pendaftaran', $post['id']);
-        $pendaftaran = $this->mPendaftaran->first();
+        $idValidasi = $post['id'];
+        $pendaftaran = $this->mValidasi->getDetail($idValidasi);
 
         $this->db = \Config\Database::connect();
         $response = [];
+        $message = '';
 
-        if ($post['status'] == 1) {
+        $postUpdatePendaftaran = [];
+        $postUpdateValidasi = ['tanggal_verifikasi' => date('Y-m-d H:i:s')];
+        $templateEmail = '';
 
-            $postUpdate = [
-                'status' => 'sukses',
+        if ($post['status'] == 'sukses') {
+            $postUpdatePendaftaran = ['status' => 'sukses'];
+            $postUpdateValidasi += ['alasan_penolakan' => null];
+            $templateEmail = 'backend/validasi/template_email_validasi_diterima';
+            $message = 'Data berhasil diterima';
+        } else if ($post['status'] == 'gagal') {
+            $postUpdatePendaftaran = ['status' => 'gagal'];
+            $postUpdateValidasi += ['alasan_penolakan' => $post['alasan-penolakan']];
+            $templateEmail = 'backend/validasi/template_email_validasi_ditolak';
+            $message = 'Data berhasil ditolak';
+        }
+
+        $updateP = $this->mPendaftaran->update($pendaftaran['id_pendaftaran'], $postUpdatePendaftaran);
+        if ($updateP) {
+            $updateV = $this->mValidasi->update($idValidasi, $postUpdateValidasi);
+            $pendaftaran['alasan_penolakan'] = $post['alasan-penolakan'] ?? null;
+            $content = [
+                'pendaftaran' => $pendaftaran,
             ];
-            $update = $this->mPendaftaran->update($post['id'], $postUpdate);
-
-            if ($update) {
-
-                $updateValidasi = $this->mValidasi->where('id_pendaftaran', $post['id'])
-                    ->set('tanggal_verifikasi', date('Y-m-d H:i:s'))
+            $template = view($templateEmail, $content);
+            $send = sendMail($pendaftaran['email'], "KOGI XVIII PEKANBARU 2022", "PENDFTARAN KOGI XVIII PEKANBARU 2022", $template);
+            if ($send['success']) {
+                $this->mValidasi->where('id_validasi', $idValidasi)
+                    ->set('status_email_verifikasi', 1)
                     ->update();
-
-                $content = [
-                    'pendaftaran' => $pendaftaran,
-                    'id_pendaftaran' => $post['id'],
-                ];
-                $template = view('backend/validasi/template_email', $content);
-                $send = sendMail($pendaftaran['email'], "KOGI XVIII PEKANBARU 2022", "PENDFTARAN KOGI XVIII PEKANBARU 2022", $template);
-
-                if ($send['success']) {
-                    $this->mValidasi->where('id_pendaftaran', $post['id'])
-                        ->set('status_email_verifikasi', 1)
-                        ->update();
-                }
-
-                $response = [
-                    'success' => true,
-                    'message' => 'Data berhasil diverifikasi',
-                ];
+            } else {
+                $this->mValidasi->where('id_validasi', $idValidasi)
+                    ->set('status_email_verifikasi', 0)
+                    ->update();
             }
-        } else if ($post['status'] == 0) {
-            $data = $this->mPendaftaran->getDetail($post['id']);
-            $delete = $this->mPendaftaran->where('id_pendaftaran', $post['id'])->delete();
-            if ($delete) {
+            $response = [
+                'success' => true,
+                'message' => $message,
+                'icon' => 'success'
+            ];
+        } else {
+            $response = [
+                'success' => false,
+                'message' => 'Terdapat kesalahan saat menyimpan data',
+                'icon' => 'alert'
 
-                if (!empty($data['file'])) {
-                    $filePath = WRITEPATH . 'uploads' . '/' . $data['file'];
-                    if (is_file($filePath)) {
-                        unlink($filePath);
-                    }
-                }
-                $response = [
-                    'success' => true,
-                    'message' => 'Data berhasil ditolak',
-                ];
-            }
+            ];
         }
 
         return $this->response->setJSON($response);
     }
 
-    public function renderVerifikasi()
+    public function modalValidasi($id)
     {
 
-        $D = [];
-        return view('backend/validasi/render-verifikasi', $D);
+        $data = $this->mPendaftaran->getDetail($id);
+        $D = [
+            'data' => $data,
+        ];
+        return view('backend/validasi/modal-validasi', $D);
+    }
+
+    public function sendMail($tipe)
+    {
+        $id = $this->request->getPost('id');
+
+        $templateEmail = '';
+        switch ($tipe) {
+            case 'diterima':
+                $templateEmail = 'backend/validasi/template_email_validasi_diterima';
+                break;
+            case 'ditolak':
+                $templateEmail = 'backend/validasi/template_email_validasi_ditolak';
+            default:
+                break;
+        }
+
+        $pendaftaran = $this->mPendaftaran->getDetail($id);
+        $content = [
+            'pendaftaran' => $pendaftaran,
+        ];
+
+        $response = [];
+        $template = view($templateEmail, $content);
+        $send = sendMail($pendaftaran['email'], "KOGI XVIII PEKANBARU 2022", "PENDFTARAN KOGI XVIII PEKANBARU 2022", $template);
+        if ($send['success']) {
+            $this->mValidasi->where('id_validasi', $pendaftaran['id_validasi'])
+                ->set('status_email_verifikasi', 1)
+                ->update();
+            $message = "Email berhasil dikirim";
+            $success = true;
+
+            $response = [
+                'success' => true,
+                'message' => 'Email berhasil dikirim',
+                'icon' => 'success',
+            ];
+        } else {
+            $this->mValidasi->where('id_validasi', $pendaftaran['id_validasi'])
+                ->set('status_email_verifikasi', 0)
+                ->update();
+            $response = [
+                'success' => false,
+                'message' => 'Email gagal dikirim' .  json_encode($send),
+                'icon' => 'alert',
+            ];
+        }
+        return $this->response->setJSON($response);
     }
 }

@@ -17,6 +17,12 @@ use CodeIgniter\Files\File;
 
 class ValidasiPembayaranController extends BaseController
 {
+
+    public function __construct()
+    {
+        $this->mPendaftaran = new PendaftaranModel();
+        $this->mValidasi = new ValidasiModel();
+    }
     public function index()
     {
         if ($this->request->getMethod() == 'post') {
@@ -80,26 +86,27 @@ class ValidasiPembayaranController extends BaseController
                 if (!$validation->withRequest($this->request)->run()) {
                     $errors += $validation->getErrors();
                     throw new \Exception();
-
                 }
 
                 $idPendaftaran = $this->request->getPost('id_pendaftaran');
 
-                $modelPendaftaran = new PendaftaranModel();
-                $modelPendaftaran->join('validasi', 'pendaftaran.id_pendaftaran = validasi.id_pendaftaran', 'LEFT');
-                $pendaftaran = $modelPendaftaran->find($idPendaftaran);
+
+                $pendaftaran = $this->mPendaftaran->getDetail($idPendaftaran);
 
                 if (empty($pendaftaran)) {
                     $errors += [
                         'id_pendaftaran' => 'No. Pendaftaran tidak ditemukan',
                     ];
-                    throw new \Exception();
-                }
-
-                if (!empty($pendaftaran['id_pendaftaran'])) {
+                } else if (($pendaftaran['status'] == 'sudah_bayar')) {
                     $errors += [
-                        'id_pendaftaran' => 'Bukti pembayaran telah ada',
+                        'id_pendaftaran' => 'Bukti Pembayaran telah ada sebelumnya. Menunggu Verifikasi Admin',
                     ];
+                } else if (($pendaftaran['status'] == 'sukses')) {
+                    $errors += [
+                        'id_pendaftaran' => 'Bukti pembayaran anda telah disetujui Admin',
+                    ];
+                }
+                if (!empty($errors)) {
                     throw new \Exception();
                 }
 
@@ -135,9 +142,9 @@ class ValidasiPembayaranController extends BaseController
 
 
                 $this->db->transCommit();
-                $modelPendaftaran->select('pendaftaran.*, validasi.tanggal_validasi, file, status_email_verifikasi');
-                $modelPendaftaran->join('validasi', 'pendaftaran.id_pendaftaran = validasi.id_pendaftaran', 'LEFT');
-                $pendaftaran = $modelPendaftaran->find($idPendaftaran);
+                $this->mPendaftaran->select('pendaftaran.*, validasi.tanggal_validasi, file, status_email_verifikasi');
+                $this->mPendaftaran->join('validasi', 'pendaftaran.id_pendaftaran = validasi.id_pendaftaran', 'LEFT');
+                $pendaftaran = $this->mPendaftaran->find($idPendaftaran);
 
 
                 $dataSukses = [

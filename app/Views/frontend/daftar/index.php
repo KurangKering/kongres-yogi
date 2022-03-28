@@ -8,7 +8,7 @@
                 <div class="card card-signup">
                     <h2 class="card-title text-center">PENDAFTARAN</h2>
                     <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
+                        <div class="col-md-10 col-md-offset-1">
                             <form class="form">
                                 <input type="hidden" name="biaya">
                                 <input type="hidden" name="total_pembayaran">
@@ -138,7 +138,7 @@
                                                         <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= $ws['pelatihan'] ?></td>
                                                         <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= indoDate($ws['waktu'], 'd-m-Y') ?></td>
                                                         <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= $ws['tempat'] ?></td>
-                                                        <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= rupiah($ws['biaya']) ?></td>
+                                                        <td class="text-right <?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= rupiah($ws['biaya']) ?></td>
                                                     </tr>
                                                 <?php endforeach ?>
 
