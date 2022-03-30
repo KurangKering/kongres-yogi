@@ -117,6 +117,26 @@
             </tr>
         </table>
 
+	    
+	     <table  class="bayar-table">
+                <thead>
+                    <tr>
+			<th>No</th>
+                        <th colspan="2">Simposium</th>
+                        <th width="150px">Biaya</th>
+                    </tr>
+                </thead>
+				
+                <tbody>
+		<tr>
+		    <td>1</td>
+		    <td><?= $pendaftaran['kategori'] ?></td>
+                    <td><?= $pendaftaran['hybrid'] ?></td>
+                    <td><?= rupiah($pendaftaran['harga']) ?></td>
+                </tr>
+		</tbody>
+	    </table>
+			
        
         <?php if (!empty($workshops)) : ?>
             
@@ -146,23 +166,27 @@
                             <td><?= rupiah($v['biaya']) ?></td>
                         </tr>
                     <?php endforeach ?>
-				<tr>
-                    <th colspan="2">Kode Unik Pembayaran</th>
-                    <th colspan="2"><?= rupiah($pendaftaran['kode_unik_pembayaran']) ?></th>
-				</tr>
-				<tr>
-                    <th colspan="2">TOTAL PEMBAYARAN SEBESAR</th>
-                    <th colspan="2"><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?></th>
-				</tr>
+				
                 </tbody>
             </table>
         <?php endif ?>
-        
+        <table>
+	        <tr>
+			<th align=left width="150px"><h3>Kode Unik Pembayaran</h3></th>
+			<th align=left width="150px"><h3><?= rupiah($pendaftaran['kode_unik_pembayaran']) ?></h3></th>
+		</tr>
+		<tr>
+			<th align=left width="150px"><h3>TOTAL PEMBAYARAN SEBESAR</h3></th>
+                        <th align=left width="150px"><h3><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?></h3></th>
+		</tr>
+	
+	</Table>
 		</br>
 		
 		 <ol>
             <b>INFORMASI PEMBAYARAN:</b>
             <li>Lakukan pembayaran melalui transfer Bank </b><br>
+	    	<b>Bank BRI Cab. RSUD ARIFIN ACHMAD</b><br>
                 <b>No. Rekekening : 1720-01-002204-53-2 </b><br>
                 <b>Nama Rekening: PANITIA KOGI 18 PEKANBARU</b></li>
             <li>Screenshot bukti Transfer anda yang telah berhasil <b>atau</b> Foto struk Bukti Transfer anda dengan jelas lalu Screenshot hasil foto tersebut (bertujuan agar ukuran file kurang dari 1MB)</li>
