@@ -86,32 +86,32 @@
         <h2>Data Identitas Pendaftar</h2>
         <table id="table-identitas">
             <tr>
-                <th>No. PENDAFTARAN</th>
+                <th align=left>No. PENDAFTARAN</th>
                 <td>:</td>
                 <td><?= $pendaftaran['id_pendaftaran'] ?></td>
             </tr>
             <tr>
-                <th>Nama</th>
+                <th align=left>Nama</th>
                 <td>:</td>
                 <td><?= $pendaftaran['nama'] ?></td>
             </tr>
             <tr>
-                <th>Email</th>
+                <th align=left>Email</th>
                 <td>:</td>
                 <td><?= $pendaftaran['email'] ?></td>
             </tr>
             <tr>
-                <th>Tanggal Lahir</th>
+                <th align=left>Tanggal Lahir</th>
                 <td>:</td>
                 <td><?= indoDate($pendaftaran['tanggal_lahir'], 'd-m-Y') ?></td>
             </tr>
             <tr>
-                <th>Institusi</th>
+                <th align=left>Institusi</th>
                 <td>:</td>
                 <td><?= $pendaftaran['institusi'] ?></td>
             </tr>
             <tr>
-                <th>Kota / Provinsi</th>
+                <th align=left>Kota / Provinsi</th>
                 <td>:</td>
                 <td><?= $pendaftaran['kota'] . " / " .  $pendaftaran['provinsi'] ?></td>
             </tr>
@@ -162,8 +162,8 @@
 		
 		 <ol>
             <b>INFORMASI PEMBAYARAN:</b>
-            <li>Lakukan pembayaran melalui transfer Bank</b>
-                <b>No. Rekekening : 1720-01-002204-53-2</b>
+            <li>Lakukan pembayaran melalui transfer Bank </b><br>
+                <b>No. Rekekening : 1720-01-002204-53-2 </b><br>
                 <b>Nama Rekening: PANITIA KOGI 18 PEKANBARU</b></li>
             <li>Screenshot bukti Transfer anda yang telah berhasil <b>atau</b> Foto struk Bukti Transfer anda dengan jelas lalu Screenshot hasil foto tersebut (bertujuan agar ukuran file kurang dari 1MB)</li>
             <li>Upload bukti pembayaran dengan No. Pendaftaran berikut melalui link :  
