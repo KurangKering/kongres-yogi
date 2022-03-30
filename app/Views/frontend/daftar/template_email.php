@@ -88,7 +88,7 @@
             <tr>
                 <th align=left>No. PENDAFTARAN</th>
                 <td>:</td>
-                <td><?= $pendaftaran['id_pendaftaran'] ?></td>
+                <td><b><?= $pendaftaran['id_pendaftaran'] ?></b></td>
             </tr>
             <tr>
                 <th align=left>Nama</th>
@@ -122,7 +122,8 @@
                 <thead>
                     <tr>
 			<th>No</th>
-                        <th colspan="2">Simposium</th>
+                        <th width="250px">Simposium</th>
+			<th width="70px">Tempat</th>
                         <th width="150px">Biaya</th>
                     </tr>
                 </thead>
@@ -144,18 +145,14 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Deskripsi</th>
-                        <th>Tempat</th>
+                        <th width="250px">Workshop</th>
+                        <th width="70px">Tempat</th>
                         <th width="150px">Biaya</th>
                     </tr>
                 </thead>
 				
                 <tbody>
-				<tr>
-					<td>1</td>
-                    <td><?= $pendaftaran['kategori'] ?></td>
-                    <td><?= $pendaftaran['hybrid'] ?></td>
-                    <td><?= rupiah($pendaftaran['harga']) ?></td>
+				
                 </tr>
                     <?php $no = 1; ?>
                     <?php foreach ($workshops as $k => $v) : ?>
@@ -170,21 +167,22 @@
                 </tbody>
             </table>
         <?php endif ?>
+	<br>
         <table>
 	        <tr>
-			<th align=left width="150px"><h3>Kode Unik Pembayaran</h3></th>
-			<th align=left width="150px"><h3><?= rupiah($pendaftaran['kode_unik_pembayaran']) ?></h3></th>
+			<th align=left width="350px"><h3>Kode Unik Pembayaran</h3></th>
+			<th align=left width="200px"><h3><?= rupiah($pendaftaran['kode_unik_pembayaran']) ?></h3></th>
 		</tr>
 		<tr>
-			<th align=left width="150px"><h3>TOTAL PEMBAYARAN SEBESAR</h3></th>
-                        <th align=left width="150px"><h3><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?></h3></th>
+			<th align=left width="350px"><h3>TOTAL PEMBAYARAN SEBESAR</h3></th>
+                        <th align=left width="200px"><h3><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?></h3></th>
 		</tr>
 	
 	</Table>
 		</br>
 		
 		 <ol>
-            <b>INFORMASI PEMBAYARAN:</b>
+            <h2>INFORMASI PEMBAYARAN:</h2>
             <li>Lakukan pembayaran melalui transfer Bank dalam waktu <b>1x24 Jam</b><br>
 	    	<b>Bank BRI Cab. RSUD ARIFIN ACHMAD</b><br>
                 <b>No. Rekekening : 1720-01-002204-53-2 </b><br>
