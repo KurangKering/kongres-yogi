@@ -170,22 +170,22 @@
 	<br>
         <table>
 	        <tr>
-			<th align=left width="350px"><h3>Kode Unik Pembayaran</h3></th>
-			<th align=left width="200px"><h3><?= rupiah($pendaftaran['kode_unik_pembayaran']) ?></h3></th>
+			<th align=left width="350px"><font size=5><b>Kode Unik Pembayaran</b></th>
+			<th align=left width="200px"><font size=5><b><?= rupiah($pendaftaran['kode_unik_pembayaran']) ?></b></th>
 		</tr>
 		<tr>
-			<th align=left width="350px"><h3>TOTAL PEMBAYARAN SEBESAR</h3></th>
-                        <th align=left width="200px"><h3><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?></h3></th>
+			<th align=left width="350px"><font size=5><b>TOTAL PEMBAYARAN SEBESAR</b></th>
+                        <th align=left width="200px"><font size=5><b><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?></b></th>
 		</tr>
 	
 	</Table>
-		</br>
+		<br>
 		
 		 <ol>
             <h2>INFORMASI PEMBAYARAN:</h2>
             <li>Lakukan pembayaran melalui transfer Bank dalam waktu <b>1x24 Jam</b><br>
 	    	<b>Bank BRI Cab. RSUD ARIFIN ACHMAD</b><br>
-                <b>No. Rekekening : 1720-01-002204-53-2 </b><br>
+                <b>No. Rekening : 1720-01-002204-53-2 </b><br>
                 <b>Nama Rekening: PANITIA KOGI 18 PEKANBARU</b></li>
             <li>Screenshot bukti Transfer anda yang telah berhasil <b>atau</b> Foto struk Bukti Transfer anda dengan jelas lalu Screenshot hasil foto tersebut (bertujuan agar ukuran file kurang dari 1MB)</li>
             <li>Upload bukti pembayaran dengan No. Pendaftaran berikut melalui link :  
