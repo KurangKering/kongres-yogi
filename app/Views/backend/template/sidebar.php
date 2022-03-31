@@ -18,7 +18,7 @@
 
                 <li class="nav-item">
                     <a href="<?= base_url('backend') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
+                        <i class="nav-icon fa fa-caret-right    "></i>
                         <p>
                             Dashboard
                         </p>
