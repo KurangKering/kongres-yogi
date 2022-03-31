@@ -110,7 +110,7 @@
                                     </div>
                                     <h4 style="font-weight: 500;">Workshop</h4>
                                     <div class="table-responsive">
-                                        <table style="min-width: 800px;" class="table table-striped" id="table-workshop">
+                                        <table class="table table-striped" id="table-workshop">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center">#</th>
