@@ -118,7 +118,7 @@
                                                     <th>Pelatihan</th>
                                                     <th>Waktu</th>
                                                     <th>Tempat</th>
-                                                    <th style="min-width: 100px;" class="text-right">Biaya</th>
+                                                    <th style="min-width: 100px;" class="text-center">Biaya</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
