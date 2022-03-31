@@ -18,29 +18,40 @@
 
                 <li class="nav-item">
                     <a href="<?= base_url('backend') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-caret-right    "></i>
+                        <i class="nav-icon 	fa fa-home    "></i>
                         <p>
                             Dashboard
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('backend/validasi') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
-                        <p>Data Validasi</p>
-                    </a>
-                </li>
+                
                 <li class="nav-item">
                     <a href="<?= base_url('backend/pendaftaran') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
+                        <i class="nav-icon fa fa-money    "></i>
                         <p>
                             Data Pendaftaran
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= base_url('backend/pendaftaran') ?>" class="nav-link">
+                        <i class="nav-icon fa fa-thumbs-down    "></i>
+                        <p>
+                            Data Belum Bayar
+                        </p>
+                    </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="<?= base_url('backend/validasi') ?>" class="nav-link">
+                        <i class="nav-icon fa fa-check-square-o    "></i>
+                        <p>Data Validasi</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
                     <a href="<?= base_url('backend/event-simposium') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
+                        <i class="nav-icon fa fa-file-text    "></i>
                         <p>
                             Data Event Simposium
                         </p>
@@ -48,7 +59,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('backend/simposium') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
+                        <i class="nav-icon fa fa-file-text    "></i>
                         <p>
                             Master Simposium
                         </p>
@@ -56,7 +67,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('backend/workshop') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
+                        <i class="nav-icon fa fa-file-text    "></i>
                         <p>
                             Master Workshop
                         </p>
@@ -64,7 +75,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('backend/event') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
+                        <i class="nav-icon fa fa-file-text   "></i>
                         <p>
                             Master Event
                         </p>
@@ -72,7 +83,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('logout') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
+                        <i class="nav-icon fa fa-power-off    "></i>
                         <p>
                             Logout
                         </p>
