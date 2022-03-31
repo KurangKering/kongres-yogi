@@ -170,11 +170,11 @@
 	<br>
         <table>
 	        <tr>
-			<th align=left width="350px"><font size=5><b>Kode Unik Pembayaran</b></th>
+			<th align=left width="350px"><font size=5><b>Kode Unik Pembayaran :</b></th>
 			<th align=left width="200px"><font size=5><b><?= rupiah($pendaftaran['kode_unik_pembayaran']) ?></b></th>
 		</tr>
 		<tr>
-			<th align=left width="350px"><font size=5><b>TOTAL PEMBAYARAN SEBESAR</b></th>
+			<th align=left width="350px"><font size=5><b>TOTAL PEMBAYARAN :</b></th>
                         <th align=left width="200px"><font size=5><b><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?></b></th>
 		</tr>
 	
