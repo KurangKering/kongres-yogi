@@ -50,7 +50,7 @@
         let table_data_pendaftaran = $("#table-data-pendaftaran").DataTable({
             processing: true,
             serverSide: true,
-            ajax: BASE_URL + "backend/pendaftaran/json-pendaftaran",
+            ajax: BASE_URL + "backend/belum-bayar/json-pendaftaran",
             columns: [{
                     data: "id",
                 },
@@ -82,7 +82,7 @@
             openModal({
                 classDialog: 'modal-lg',
                 title: "Detail Pendaftaran",
-                src: BASE_URL + "backend/pendaftaran/detail/" + id,
+                src: BASE_URL + "backend/belum-bayar/detail/" + id,
                 buttonClose: {
                     title: "Tutup",
                     action: function() {},
