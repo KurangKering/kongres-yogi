@@ -18,7 +18,7 @@
 
                 <li class="nav-item">
                     <a href="<?= base_url('backend') ?>" class="nav-link">
-                        <i class="bi bi-house-door-fill"></i>
+                        <i class="nav-icon bi bi-house-door-fill"></i>
                         <p>
                             Dashboard
                         </p>
