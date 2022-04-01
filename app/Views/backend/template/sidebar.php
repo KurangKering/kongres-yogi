@@ -27,7 +27,7 @@
                 
                 <li class="nav-item">
                     <a href="<?= base_url('backend/pendaftaran') ?>" class="nav-link">
-                        <i class="nav-icon glyphicon glyphicon-thumbs-up"></i>
+                        <i class="nav-icon fas fa-edit "></i>
                         <p>
                             Data Pendaftaran
                         </p>
