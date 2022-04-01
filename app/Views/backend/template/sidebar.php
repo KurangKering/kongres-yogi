@@ -18,7 +18,7 @@
 
                 <li class="nav-item">
                     <a href="<?= base_url('backend') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-file-alt"></i>
+                        <i class="nav-icon fas fa-tv"></i>
                         <p>
                             Dashboard
                         </p>
@@ -35,7 +35,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('backend/belum-bayar') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-thumbs-down    "></i>
+                        <i class="nav-icon fas fa-thumbs-down    "></i>
                         <p>
                             Data Belum Bayar
                         </p>
@@ -44,14 +44,14 @@
                 
                 <li class="nav-item">
                     <a href="<?= base_url('backend/validasi') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-check-square-o    "></i>
+                        <i class="nav-icon fas fa-check-square-o    "></i>
                         <p>Data Validasi</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <a href="<?= base_url('backend/event-simposium') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-file-text    "></i>
+                        <i class="nav-icon fas fa-clipboard    "></i>
                         <p>
                             Data Event Simposium
                         </p>
@@ -59,7 +59,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('backend/simposium') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-file-text    "></i>
+                        <i class="nav-icon fas fa-clipboard    "></i>
                         <p>
                             Master Simposium
                         </p>
@@ -67,7 +67,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('backend/workshop') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-file-text    "></i>
+                        <i class="nav-icon fas fa-clipboard   "></i>
                         <p>
                             Master Workshop
                         </p>
@@ -75,7 +75,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('backend/event') ?>" class="nav-link">
-                        <i class="nav-icon fa fa-file-text   "></i>
+                        <i class="nav-icon fas fa-clipboard   "></i>
                         <p>
                             Master Event
                         </p>
