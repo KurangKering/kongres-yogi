@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-    <a href="<?= base_url('templates/backend/index3.html') ?>" class="brand-link">
+    <a href="<?= base_url('templates/backend/index.html') ?>" class="brand-link">
         <img src="<?= base_url('templates/backend/dist/img/AdminLTELogo.png') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">KOGI 2022</span>
     </a>
@@ -18,7 +18,7 @@
 
                 <li class="nav-item">
                     <a href="<?= base_url('backend') ?>" class="nav-link">
-                        <i class="nav-icon 	fa fa-home    "></i>
+                        <i class="bi bi-house-door-fill"></i>
                         <p>
                             Dashboard
                         </p>
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url('backend/pendaftaran') ?>" class="nav-link">
+                    <a href="<?= base_url('backend/belum-bayar') ?>" class="nav-link">
                         <i class="nav-icon fa fa-thumbs-down    "></i>
                         <p>
                             Data Belum Bayar
