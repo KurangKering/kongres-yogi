@@ -44,7 +44,7 @@
                 
                 <li class="nav-item">
                     <a href="<?= base_url('backend/validasi') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-check-square-o    "></i>
+                        <i class="nav-icon fas fa-check-square   "></i>
                         <p>Data Validasi</p>
                     </a>
                 </li>
