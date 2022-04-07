@@ -28,7 +28,7 @@
                                         <th>Nama</th>
                                         <th>Kontak</th>
                                         <th>Total</th>
-                                        <th>Statur</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
