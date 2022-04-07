@@ -28,6 +28,7 @@
                                         <th>Nama</th>
                                         <th>Kontak</th>
                                         <th>Total</th>
+                                        <th>Statur</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -65,6 +66,9 @@
                 },
                 {
                     data: "total_pembayaran",
+                },
+                {
+                    data: "status",
                 },
                 {
                     data: "action",
