@@ -101,7 +101,7 @@ class EmailController extends BaseController
         $setting_email = [];
         foreach ($settings as $k => $v) {
             if ($v['param'] == 'email_password') {
-                $v['value'] = $encrypter->decrypt(hex2bin($v['value']));
+                $v['value'] = !empty($v['value']) ? $encrypter->decrypt(hex2bin($v['value'])) : '';
             }
             $setting_email[$v['param']] = $v['value'];
         }
