@@ -24,13 +24,7 @@ $("#btnSignIn").click(function (e) {
       if (response.success) {
         window.location.href = response.redirect;
       } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: response.message,
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        showNotifSm("Login gagal", response.message);
       }
     },
   }).always(function (e) {

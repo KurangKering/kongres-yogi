@@ -18,6 +18,7 @@
     <!-- CSS Files -->
     <link href="<?= base_url('templates/frontend/assets/css/bootstrap.min.css') ?>" rel="stylesheet" />
     <link href="<?= base_url('templates/frontend/assets/css/material-kit.css?v=1.2.1') ?>" rel="stylesheet" />
+    <link href="<?= base_url('templates/plugins/jquery-confirm/jquery-confirm.min.css') ?>" rel="stylesheet" />
     <link href="<?= base_url('templates/frontend/assets/css/custom.css') ?>" rel="stylesheet" />
     <script>
         var BASEURL = '<?= base_url() ?>/';
@@ -81,11 +82,15 @@
 <!--	Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/   -->
 <script src="<?= base_url('templates/frontend/assets/js/bootstrap-tagsinput.js') ?>"></script>
 
+<!--	Plugin for jquery confirm   -->
+<script src="<?= base_url('templates/plugins/jquery-confirm/jquery-confirm.min.js') ?>"></script>
+
 <!--	Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput   -->
 <script src="<?= base_url('templates/frontend/assets/js/jasny-bootstrap.min.js') ?>"></script>
 
 <!--    Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc    -->
 <script src="<?= base_url('templates/frontend/assets/js/material-kit.js?v=1.2.1') ?>" type="text/javascript"></script>
+<script src="<?= base_url('global.js?' . time()) ?>" type="text/javascript"></script>
 <script src="<?= base_url('templates/frontend/frontend.js?' . time()) ?>" type="text/javascript"></script>
 
 </html>

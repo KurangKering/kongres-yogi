@@ -6,3 +6,8 @@
 .text-decoration-line-through {
     text-decoration: line-through;
 }
+
+.list-error ul li {
+    padding: 2px;
+    font-weight: 400;
+}

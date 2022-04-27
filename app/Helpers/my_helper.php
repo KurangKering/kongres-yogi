@@ -82,28 +82,61 @@ if (!function_exists('rupiah')) {
 }
 
 if (!function_exists('sendMail')) {
-    function sendMail($recipient, $subjectFrom, $subject, $message, $from = "pogiriau@gmail.com")
+    function sendMail($recipient, $subjectFrom, $subject, $message)
     {
-        $email = \Config\Services::email();
-        $email->setTo($recipient);
-        $email->setFrom($from, $subjectFrom);
-        $email->setSubject($subject);
-        $email->setMessage($message);
+        $db = \Config\Database::connect();
+        $encrypter = \Config\Services::encrypter();
+        $errors = [];
+        $settings = $db->table('settings')
+            ->where('param', 'email_email')
+            ->orWhere('param', 'email_password')
+            ->get()->getResultArray();
 
-        $response = [
-            'success' => true,
-            'message' => 'Berhasil mengirim email',
-        ];
-
-        if (!$email->send()) {
-            $errorResponse = $email->printDebugger(['headers']);
-            $response = [
-                'success' => false,
-                'message' => $errorResponse,
-            ];
+        $setting_email = [];
+        foreach ($settings as $k => $v) {
+            $setting_email[$v['param']] = $v['value'];
+        }
+        if (!isset($setting_email['email_email'])) {
+            $errors[] = 'Email belum diset';
+        }
+        if (!isset($setting_email['email_password'])) {
+            $errors[] = 'Password Email belum diset';
         }
 
-        return $response;
+        if (empty($errors)) {
+      
+            
+            $from = "pogiriau@gmail.com";
+            $password = $encrypter->decrypt(hex2bin($setting_email['email_password']));
+            $config = config('Email');
+            $config->SMTPUser = $setting_email['email_email'];
+            $config->SMTPPass = $password;
+
+            $email = \Config\Services::email();
+            $email->initialize($config);
+            $email->SMTPPass = $password;
+            $email->setTo($recipient);
+            $email->setFrom($from, $subjectFrom);
+            $email->setSubject($subject);
+            $email->setMessage($message);
+
+            if (!$email->send()) {
+                $errors[] = $email->printDebugger(['headers']);
+            }
+        }
+
+        if (empty($errors)) {
+            $success = true;
+            $message = "Berhasil mengirim email";
+        } else {
+            $success = false;
+            $message = "<div class=\"list-error\"><ul><li>" . implode("</li><li>", $errors) . "</li></ul></div>";
+        }
+
+        return [
+            'success' => $success,
+            'message' => $message,
+        ];
     }
 }
 

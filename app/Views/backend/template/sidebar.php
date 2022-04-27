@@ -71,6 +71,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= base_url('backend/email') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-circle    "></i>
+                        <p>
+                            Konfigurasi Email
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url('logout') ?>" class="nav-link">
                         <i class="nav-icon fas fa-circle    "></i>
                         <p>

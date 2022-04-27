@@ -18,6 +18,7 @@
 
     <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/fancybox-3.5.7/dist/jquery.fancybox.min.css') ?>">
+    <link href="<?= base_url('templates/plugins/jquery-confirm/jquery-confirm.min.css') ?>" rel="stylesheet" />
     <link rel="stylesheet" href="<?= base_url('templates/backend/dist/css/adminlte.min.css?v=3.2.0') ?>">
     <link rel="stylesheet" href="<?= base_url('templates/backend/backend.css') ?>">
     <?= $this->renderSection('css') ?>
@@ -108,6 +109,8 @@
     <script src="<?= base_url('templates/backend/plugins/fancybox-3.5.7/dist/jquery.fancybox.min.js') ?>"></script>
     <script src="<?= base_url('templates/backend/dist/js/adminlte.min.js?v=3.2.0') ?>"></script>
     <script src="<?= base_url('templates/backend/plugins/summernote/summernote-bs4.min.js') ?>"></script>
+    <script src="<?= base_url('templates/plugins/jquery-confirm/jquery-confirm.min.js') ?>"></script>
+    <script src="<?= base_url('global.js?' . time()) ?>" type="text/javascript"></script>
     <script src="<?= base_url('templates/backend/backend.js?' . time()) ?>"></script>
 
     <?= $this->renderSection('js') ?>

@@ -9,3 +9,4 @@ deployment:
     - /bin/cp public/favicon.ico $PUBLICPATH
     - /bin/cp public/login.js $PUBLICPATH
     - /bin/cp public/robots.txt $PUBLICPATH
+    - /bin/cp public/global.js $PUBLICPATH

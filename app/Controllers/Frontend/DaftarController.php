@@ -201,13 +201,13 @@ class DaftarController extends BaseController
                 }
                 
 
-                $formMessage = "<ul><li>" . implode("</li><li>", $errors) . "</li></ul>";
+                $formMessage = "<div class=\"list-error\"><ul><li>" . implode("</li><li>", $errors) . "</li></ul></div>";
                 $html = alert('error', "<b>Terdapat kesalahan</b>$formMessage");
                 $response =
                     [
                         'success' => false,
                         'message' => $message,
-                        'form_message' => $html,
+                        'form_message' => $formMessage,
                         'raw_errors' => $errors,
                     ];
 

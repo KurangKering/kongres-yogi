@@ -75,6 +75,10 @@ $routes->get('backend/verifikasi', 'Backend\VerifikasiController::index', ['filt
 $routes->get('backend/verifikasi/json-verifikasi', 'Backend\VerifikasiController::jsonVerifikasi', ['filter' => 'auth']);
 $routes->get('backend/verifikasi/detail/(:num)', 'Backend\VerifikasiController::detail/$1', ['filter' => 'auth']);
 
+$routes->get('backend/email', 'Backend\EmailController::index', ['filter' => 'auth']);
+$routes->post('backend/email', 'Backend\EmailController::index', ['filter' => 'auth']);
+
+
 $routes->get('/', 'Frontend\HomeController::index');
 $routes->get('/daftar', 'Frontend\DaftarController::index');
 $routes->post('/daftar', 'Frontend\DaftarController::index');

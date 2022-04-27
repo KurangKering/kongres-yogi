@@ -165,14 +165,13 @@ class ValidasiPembayaranController extends BaseController
                     $errors += ['exception' => $exception];
                 }
 
-                $errors = "<ul><li>" . implode("</li><li>", $errors) . "</li></ul>";
-                $html = alert('error', "<b>Terdapat kesalahan</b>$errors");
+                $formMessage = "<div class=\"list-error\"><ul><li>" . implode("</li><li>", $errors) . "</li></ul></div>";
 
                 $response =
                     [
                         'success' => false,
                         'message' => $message,
-                        'form_message' => $html,
+                        'form_message' => $formMessage,
                     ];
 
                 $this->db->transRollback();

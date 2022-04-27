@@ -12,9 +12,7 @@ $(document).ready(function () {
     }
 
     $button.attr("submit", "false");
-    $button.html(
-      '<i class="fa fa-spinner fa-spin"></i>'
-    );
+    $button.html('<i class="fa fa-spinner fa-spin"></i>');
 
     let formData = new FormData($form[0]);
 
@@ -26,7 +24,7 @@ $(document).ready(function () {
       data: formData,
       success: function (response) {
         if (!response.success) {
-          $("#form-message").html(response.form_message);
+          showNotifMd("Pendaftaran gagal", response.form_message, "red");
         } else {
           if (response.redirect) {
             $button.remove();
@@ -55,9 +53,7 @@ $(document).ready(function () {
     }
 
     $button.attr("submit", "false");
-    $button.html(
-      '<i class="fa fa-spinner fa-spin"></i>'
-    );
+    $button.html('<i class="fa fa-spinner fa-spin"></i>');
 
     let formData = new FormData($form[0]);
 
@@ -69,7 +65,7 @@ $(document).ready(function () {
       data: formData,
       success: function (response) {
         if (!response.success) {
-          $("#form-message").html(response.form_message);
+          showNotifMd("Validasi gagal", response.form_message, "red");
         } else {
           if (response.redirect) {
             $button.remove();
@@ -82,6 +78,8 @@ $(document).ready(function () {
       $button.html("SUBMIT");
     });
   });
+
+  // end of document ready jquery
 });
 
 function setTotalPembayaran() {
@@ -103,7 +101,6 @@ function setTotalPembayaran() {
   });
 
   let totalPembayaran = parseInt(hargaSimposium) + parseInt(hargaWorkshop);
-  console.log(totalPembayaran);
 
   $inputBiaya.val(totalPembayaran);
 
@@ -111,21 +108,4 @@ function setTotalPembayaran() {
 
   $inputTotalPembayaran.val(totalPembayaran);
   $spanTotalPembayaran.text(formatRupiah(totalPembayaran.toString()));
-}
-
-function formatRupiah(angka, prefix) {
-  var number_string = angka.replace(/[^,\d]/g, "").toString(),
-    split = number_string.split(","),
-    sisa = split[0].length % 3,
-    rupiah = split[0].substr(0, sisa),
-    ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-  // tambahkan titik jika yang di input sudah menjadi angka ribuan
-  if (ribuan) {
-    separator = sisa ? "." : "";
-    rupiah += separator + ribuan.join(".");
-  }
-
-  rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
-  return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
 }

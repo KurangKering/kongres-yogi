@@ -32,7 +32,7 @@
                                         <span class="input-group-addon">
                                             <i class="material-icons">calendar_today</i>
                                         </span>
-                                        <input type="text" name="tanggal_lahir" class="form-control datepicker" placeholder="Tanggal Lahir...">
+                                        <input type="text" name="tanggal_lahir" class="form-control datepicker" placeholder="Tanggal Lahir (dd/mm/YYYY)">
                                     </div>
 
                                     <div class="input-group">
@@ -170,8 +170,6 @@
                                             </tbody>
                                         </table>
                                     </div>
-
-                                    <div id="form-message"></div>
                                 </div>
                                 <div class="footer text-center">
                                     <a href="javascript:void(0);" id="btnSubmitPendaftaran" submit="true" class="btn btn-primary btn-round">Daftar Sekarang</a>

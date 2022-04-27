@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/fontawesome-free/css/all.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('templates/backend/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css') ?>">
+  <link href="<?= base_url('templates/plugins/jquery-confirm/jquery-confirm.min.css') ?>" rel="stylesheet" />
 
   <link rel="stylesheet" href="<?= base_url('templates/backend/dist/css/adminlte.min.css') ?>">
   <script>
@@ -63,8 +64,10 @@
   <script src="<?= base_url('templates/backend/plugins/jquery/jquery.min.js') ?>"></script>
   <script src="<?= base_url('templates/backend/plugins/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
   <script src="<?= base_url('templates/backend/plugins/sweetalert2/sweetalert2.min.js') ?>"></script>
+  <script src="<?= base_url('templates/plugins/jquery-confirm/jquery-confirm.min.js') ?>"></script>
 
   <script src="<?= base_url('templates/backend/dist/js/adminlte.min.js') ?>"></script>
+  <script src="<?= base_url('global.js?' . time()) ?>" type="text/javascript"></script>
   <script src="<?= base_url('login.js?' . time()) ?>"></script>
 
 </body>
