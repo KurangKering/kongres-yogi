@@ -3,7 +3,6 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
-use App\Models\EventModel;
 
 class EmailController extends BaseController
 {
@@ -11,7 +10,6 @@ class EmailController extends BaseController
     {
         $this->db = \Config\Database::connect();
         $encrypter = \Config\Services::encrypter();
-
 
         if ($this->request->getMethod() == 'post') {
             $message = null;
@@ -111,15 +109,5 @@ class EmailController extends BaseController
             'setting_email' => $setting_email,
         ];
         return view('backend/email/index', $D);
-    }
-
-    public function jsonEvent()
-    {
-        $model = new EventModel();
-        echo $model->jsonEvent();
-    }
-
-    public function detail($id)
-    {
     }
 }
