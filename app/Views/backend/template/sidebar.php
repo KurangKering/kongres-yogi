@@ -83,7 +83,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('backend/email') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-circle    "></i>
+                        <i class="nav-icon fas fa-envelope    "></i>
                         <p>
                             Konfigurasi Email
                         </p>
