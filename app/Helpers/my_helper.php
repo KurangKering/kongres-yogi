@@ -104,8 +104,8 @@ if (!function_exists('sendMail')) {
         }
 
         if (empty($errors)) {
-      
-            
+
+
             $from = "pogiriau@gmail.com";
             $password = $encrypter->decrypt(hex2bin($setting_email['email_password']));
             $config = config('Email');
@@ -204,5 +204,35 @@ if (!function_exists('uploadErrors')) {
                 return $phpFileUploadErrors;
             }
         }
+    }
+}
+
+if (!function_exists('getDaftarTanggalHotel')) {
+    function getDaftarTanggalHotel($index = null)
+    {
+        $data =  [
+            '2022-07-21',
+            '2022-07-22',
+            '2022-07-23',
+            '2022-07-24',
+            '2022-07-25',
+            '2022-07-26',
+            '2022-07-27',
+        ];
+
+        if ($index == null) {
+            return $data;
+        }
+
+        return (isset($data[$index])) ? $data[$index] : null;
+    }
+}
+
+if (!function_exists('dateFormatConverter')) {
+    function dateFormatConverter($inputDate, $inputFormat = 'Y-m-d', $outputFormat = 'd-m-Y')
+    {
+        $myDateTime = DateTime::createFromFormat($inputFormat, $inputDate);
+        $newDateString = $myDateTime->format($outputFormat);
+        return $newDateString;
     }
 }

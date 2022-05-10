@@ -82,6 +82,10 @@ $routes->post('backend/email', 'Backend\EmailController::index', ['filter' => 'a
 $routes->get('/', 'Frontend\HomeController::index');
 $routes->get('/daftar', 'Frontend\DaftarController::index');
 $routes->post('/daftar', 'Frontend\DaftarController::index');
+$routes->get('/daftar/lookup-jenis-kamar', 'Frontend\DaftarController::lookupJenisKamar');
+$routes->get('/daftar/lookup-tanggal-menginap', 'Frontend\DaftarController::lookupTanggalMenginap');
+$routes->get('/daftar/lookup-lama-menginap', 'Frontend\DaftarController::lookupLamaMenginap');
+
 $routes->get('/validasi-pembayaran', 'Frontend\ValidasiPembayaranController::index');
 $routes->post('/validasi-pembayaran', 'Frontend\ValidasiPembayaranController::index');
 

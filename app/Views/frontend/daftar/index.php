@@ -26,7 +26,7 @@
                                         <span class="input-group-addon">
                                             <i class="material-icons">email</i>
                                         </span>
-                                        <input type="email" name="email" class="form-control" placeholder="Email...">
+                                        <input type="email" name="email" class="form-control" placeholder="Email">
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -39,7 +39,7 @@
                                         <span class="input-group-addon">
                                             <i class="material-icons">maps_home_work</i>
                                         </span>
-                                        <input type="text" name="institusi" class="form-control" placeholder="Institusi...">
+                                        <input type="text" name="institusi" class="form-control" placeholder="Institusi">
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
@@ -47,7 +47,7 @@
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">home</i>
                                                 </span>
-                                                <input type="text" name="kota" class="form-control" placeholder="Kota...">
+                                                <input type="text" name="kota" class="form-control" placeholder="Kota">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -56,7 +56,7 @@
                                                     <i class="material-icons">home</i>
                                                 </span>
                                                 <select name="provinsi" id="provinsi" class="form-control">
-                                                    <option value="" disabled selected>Provinsi...</option>
+                                                    <option value="" disabled selected>Provinsi</option>
 
                                                     <?php foreach ($provinsi as $k => $prov) : ?>
                                                         <option value="<?= $prov['prov_name'] ?>"><?= $prov['prov_name'] ?></option>
@@ -72,7 +72,7 @@
                                         <span class="input-group-addon">
                                             <i class="material-icons">smartphone</i>
                                         </span>
-                                        <input type="text" name="no_hp" class="form-control" placeholder="No HP...">
+                                        <input type="text" name="no_hp" class="form-control" placeholder="No HP">
                                     </div>
 
 
@@ -146,11 +146,59 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <h4 style="font-weight: 500;">Penginapan</h4>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">hotel</i>
+                                        </span>
+                                        <select name="select-hotel" id="select-hotel" class="form-control">
+                                            <option value="" disabled selected>Opsi penginapan...</option>
+                                            <?php foreach ($hotel as $k => $h) : ?>
+                                                <option value="<?= $h['id_hotel'] ?>"><?= $h['nama'] ?></option>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="input-group hide" id="div-jenis-kamar">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">bed</i>
+                                        </span>
+                                        <select name="select-jenis-kamar" id="select-jenis-kamar" class="form-control">
+                                            <option value="" disabled selected>Jenis kamar...</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group hide" id="div-tanggal-menginap">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">calendar_month</i>
+                                        </span>
+                                        <select name="select-tanggal-menginap" id="select-tanggal-menginap" class="form-control">
+                                            <option value="" disabled selected>Tanggal menginap...</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group hide" id="div-lama-menginap">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">schedule</i>
+                                        </span>
+                                        <select name="select-lama-menginap" id="select-lama-menginap" class="form-control">
+                                            <option value="" disabled selected>Lama menginap...</option>
+                                        </select>
+                                    </div>
+
+
 
 
                                     <div class="table-responsive">
                                         <table class="table table-striped">
                                             <tbody>
+                                                <tr id="tr-biaya-penginapan" class="hide">
+                                                    <td class="td-total" style="text-align: left;">
+                                                        Biaya Penginapan
+                                                    </td>
+                                                    <td class="td-price">
+                                                        <small>Rp.</small><span id="biaya-penginapan">0</span>
+
+                                                    </td>
+                                                </tr>
                                                 <tr>
                                                     <td class="td-total" style="text-align: left;">
                                                         Kode Unik
