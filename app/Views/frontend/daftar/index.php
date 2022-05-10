@@ -28,12 +28,14 @@
                                         </span>
                                         <input type="email" name="email" class="form-control" placeholder="Email">
                                     </div>
+                                  /* 
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">calendar_today</i>
                                         </span>
-                                        <input type="text" name="tanggal_lahir" class="form-control datepicker" placeholder="Tanggal Lahir (dd/mm/YYYY)">
+                                        <input type="hidden" name="tanggal_lahir" class="form-control datepicker" placeholder="Tanggal Lahir (dd/mm/YYYY)">
                                     </div>
+                                    */
 
                                     <div class="input-group">
                                         <span class="input-group-addon">
