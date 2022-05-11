@@ -107,9 +107,9 @@
                 <td><?= $pendaftaran['email'] ?></td>
             </tr>
             <tr>
-                <th align=left>Tanggal Lahir</th>
+                <th align=left>Tanggal Pendaftaran</th>
                 <td>:</td>
-                <td><?= indoDate($pendaftaran['tanggal_lahir'], 'd-m-Y') ?></td>
+                <td><?= indoDate($pendaftaran['tanggal_pendaftaran'], 'd-m-Y') ?></td>
             </tr>
             <tr>
                 <th align=left>Institusi</th>
