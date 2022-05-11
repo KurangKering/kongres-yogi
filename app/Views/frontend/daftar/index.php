@@ -14,7 +14,7 @@
                                 <input type="hidden" name="total_pembayaran">
                                 <input type="hidden" name="kode_unik_pembayaran" value="<?= $kode_unik ?>">
                                 <div class="card-content">
-                                    <h4 style="font-weight: 500;">Data Diri</h4>
+                                    <h4 style="font-weight: 500;">DATA DIRI</h4>
 
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -28,14 +28,15 @@
                                         </span>
                                         <input type="email" name="email" class="form-control" placeholder="Email">
                                     </div>
-                                  <!-- /* 
+                                    <!-- /* 
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">calendar_today</i>
                                         </span>
-                                        <input type="hidden" name="tanggal_lahir" class="form-control datepicker" placeholder="Tanggal Lahir (dd/mm/YYYY)">
+                                        <input type="text" name="tanggal_lahir" class="form-control datepicker" placeholder="Tanggal Lahir (dd/mm/YYYY)">
                                     </div>
                                     */ -->
+
 
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -78,7 +79,7 @@
                                     </div>
 
 
-                                    <h4 style="font-weight: 500;">Simposium</h4>
+                                    <h4 style="font-weight: 500;">SIMPOSIUM</h4>
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="table-simposium">
                                             <thead>
@@ -110,7 +111,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <h4 style="font-weight: 500;">Workshop</h4>
+                                    <h4 style="font-weight: 500;">WORKSHOPS</h4>
                                     <div class="table-responsive">
                                         <table class="table table-striped" id="table-workshop">
                                             <thead>
@@ -148,13 +149,13 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <h4 style="font-weight: 500;">Penginapan</h4>
+                                    <h4 style="font-weight: 500;">PENGINAPAN</h4>
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <i class="material-icons">hotel</i>
                                         </span>
                                         <select name="select-hotel" id="select-hotel" class="form-control">
-                                            <option value="" disabled selected>Opsi penginapan...</option>
+                                            <option value="" disabled selected>HOTEL</option>
                                             <?php foreach ($hotel as $k => $h) : ?>
                                                 <option value="<?= $h['id_hotel'] ?>"><?= $h['nama'] ?></option>
                                             <?php endforeach ?>
@@ -166,7 +167,7 @@
                                             <i class="material-icons">bed</i>
                                         </span>
                                         <select name="select-jenis-kamar" id="select-jenis-kamar" class="form-control">
-                                            <option value="" disabled selected>Jenis kamar...</option>
+                                            <option value="" disabled selected>Room Type ..</option>
                                         </select>
                                     </div>
                                     <div class="input-group hide" id="div-tanggal-menginap">
@@ -174,7 +175,7 @@
                                             <i class="material-icons">calendar_month</i>
                                         </span>
                                         <select name="select-tanggal-menginap" id="select-tanggal-menginap" class="form-control">
-                                            <option value="" disabled selected>Tanggal menginap...</option>
+                                            <option value="" disabled selected>Tanggal Check In ..</option>
                                         </select>
                                     </div>
                                     <div class="input-group hide" id="div-lama-menginap">
@@ -182,7 +183,7 @@
                                             <i class="material-icons">schedule</i>
                                         </span>
                                         <select name="select-lama-menginap" id="select-lama-menginap" class="form-control">
-                                            <option value="" disabled selected>Lama menginap...</option>
+                                            <option value="" disabled selected>Lama Menginap ..</option>
                                         </select>
                                     </div>
 
@@ -201,6 +202,7 @@
 
                                                     </td>
                                                 </tr>
+                                                <tr> </tr>
                                                 <tr>
                                                     <td class="td-total" style="text-align: left;">
                                                         Kode Unik
