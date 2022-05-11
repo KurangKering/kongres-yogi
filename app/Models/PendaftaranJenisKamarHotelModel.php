@@ -24,6 +24,7 @@ class PendaftaranJenisKamarHotelModel extends Model
         'id_pendaftaran',
         'id_jenis_kamar_hotel',
         'tanggal',
+        'harga',
     ];
     protected $useTimestamps        = false;
 
