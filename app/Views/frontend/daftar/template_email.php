@@ -122,11 +122,7 @@
                 <td><?= $pendaftaran['kota'] . " / " .  $pendaftaran['provinsi'] ?></td>
             </tr>
             <?php if (!empty($penginapan)) : ?>
-                <tr>
-                    <th align=left>Penginapan</th>
-                    <td>:</td>
-                    <td><?= $penginapan[0]['kota'] . " / " .  $pendaftaran['provinsi'] ?></td>
-                </tr>
+
             <?php endif ?>
         </table>
 

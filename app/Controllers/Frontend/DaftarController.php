@@ -237,8 +237,8 @@ class DaftarController extends BaseController
                     throw new \Exception();
                 }
 
-                $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $this->request->getPost('tanggal_lahir'));
-                $tanggalLahir =  $tanggalLahir->format('Y-m-d');
+                // $tanggalLahir = \DateTime::createFromFormat('d/m/Y', $this->request->getPost('tanggal_lahir'));
+                // $tanggalLahir =  $tanggalLahir->format('Y-m-d');
                 $emailPendaftar = $pEmail;
                 $totalPembayaran = $pBiaya + $pKodeUnik;
 
@@ -246,7 +246,7 @@ class DaftarController extends BaseController
                 $post = [
                     'tanggal_pendaftaran' => date('Y-m-d H:i:s'),
                     'nama' => $this->request->getPost('nama'),
-                    'tanggal_lahir' => $tanggalLahir,
+                    // 'tanggal_lahir' => $tanggalLahir,
                     'institusi' => $this->request->getPost('institusi'),
                     'kota' => $this->request->getPost('kota'),
                     'provinsi' => $this->request->getPost('provinsi'),
@@ -292,16 +292,11 @@ class DaftarController extends BaseController
                     ->where('param', 'durasi_pembayaran')
                     ->get()->getRowArray();
                 $pendaftaran = $this->mPendaftaran->getDetail($idPendaftaran);
-                $penginapan = $this->mPendaftaranJenisKamarHotel->select('h.nama as nama_hotel, h.bintang, h.alamat, jkh.nama as jenis_kamar, pjkh.harga, jpkh.tanggal')
+                $penginapan = $this->mPendaftaranJenisKamarHotel->select('h.nama as nama_hotel, h.bintang, h.alamat, jkh.nama as jenis_kamar, pendaftaran_jenis_kamar_hotel.harga, pendaftaran_jenis_kamar_hotel.tanggal')
                     ->where('id_pendaftaran', $idPendaftaran)
                     ->join('jenis_kamar_hotel jkh', 'jkh.id_jenis_kamar_hotel = pendaftaran_jenis_kamar_hotel.id_jenis_kamar_hotel')
-                    ->join('hotel h', 'h.id_hotel jkh.id_hotel')
+                    ->join('hotel h', 'h.id_hotel = jkh.id_hotel')
                     ->findAll();
-
-                echo '<pre>';
-                print_r($penginapan);
-                echo '</pre>';
-                die();
 
                 $dataSukses = [
                     'workshops' => $workshops,
