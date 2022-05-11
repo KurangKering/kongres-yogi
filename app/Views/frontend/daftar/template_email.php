@@ -121,11 +121,8 @@
                 <td>:</td>
                 <td><?= $pendaftaran['kota'] . " / " .  $pendaftaran['provinsi'] ?></td>
             </tr>
-            <?php if (!empty($penginapan)) : ?>
 
-            <?php endif ?>
         </table>
-
 
         <table class="bayar-table">
             <thead>
@@ -173,6 +170,31 @@
                         </tr>
                     <?php endforeach ?>
 
+                </tbody>
+            </table>
+        <?php endif ?>
+        <?php if (!empty($penginapan)) : ?>
+            <table class="bayar-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Hotel</th>
+                        <th>Jenis Kamar</th>
+                        <th>Tanggal</th>
+                        <th width="150px">Biaya</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $no = 1; ?>
+                    <?php foreach ($penginapan as $k => $v) : ?>
+                        <tr>
+                            <td><?= $no++; ?></td>
+                            <td><?= $v['nama_hotel'] ?></td>
+                            <td><?= $v['jenis_kamar'] ?></td>
+                            <td><?= indoDate($v['tanggal'], 'd-m-Y') ?></td>
+                            <td><?= rupiah($v['harga']) ?></td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         <?php endif ?>

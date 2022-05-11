@@ -7,6 +7,8 @@ use App\Models\PendaftaranModel;
 use App\Models\PendaftaranWorkshopModel;
 use App\Models\ValidasiModel;
 use App\Models\WorkshopModel;
+use App\Models\PendaftaranJenisKamarHotelModel;
+
 
 class PendaftaranController extends BaseController
 {
@@ -26,9 +28,13 @@ class PendaftaranController extends BaseController
     {
         $data = $this->mPendaftaran->getDetail($id);
         $workshops = $this->mPendaftaranWorkshop->getByIdPendaftaran($id);
+        $penginapan = $this->mPendaftaranJenisKamarHotel->getByIdPendaftaran($id);
+
         $D = [
             'data' => $data,
             'workshops' => $workshops,
+            'penginapan' => $penginapan,
+
         ];
 
         return view('backend/belum-bayar/detail', $D);

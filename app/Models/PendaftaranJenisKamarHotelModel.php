@@ -34,4 +34,17 @@ class PendaftaranJenisKamarHotelModel extends Model
         $dt->query('select id_pendaftaran_jenis_kamar_hotel, id_pendaftaran, id_jenis_kamar_hotel, tanggal from pendaftaran_jenis_kamar_hotel');
         echo $dt->generate();
     }
+
+    public function getByIdPendaftaran($idPendaftaran)
+    {
+        $db = \Config\Database::connect();
+        $data = $db->table('pendaftaran_jenis_kamar_hotel pjkh')
+        ->select("h.nama as nama_hotel, pjkh.harga, jkh.nama as jenis_kamar, pjkh.tanggal")
+        ->join('jenis_kamar_hotel jkh', 'jkh.id_jenis_kamar_hotel = pjkh.id_jenis_kamar_hotel')
+        ->join('hotel h', 'jkh.id_hotel = h.id_hotel')
+        ->where('pjkh.id_pendaftaran', $idPendaftaran)
+        ->get()->getResultArray();
+
+        return $data;
+    }
 }

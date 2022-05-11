@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\BaseController;
+use App\Models\PendaftaranJenisKamarHotelModel;
 use App\Models\PendaftaranModel;
 use App\Models\PendaftaranWorkshopModel;
 use App\Models\ValidasiModel;
@@ -15,6 +16,8 @@ class ValidasiController extends BaseController
         $this->mValidasi = new ValidasiModel();
         $this->mPendaftaran = new PendaftaranModel();
         $this->mPendaftaranWorkshop = new PendaftaranWorkshopModel();
+        $this->mPendaftaranJenisKamarHotel = new PendaftaranJenisKamarHotelModel();
+
     }
     public function index()
     {
@@ -25,10 +28,14 @@ class ValidasiController extends BaseController
     {
         $data = $this->mPendaftaran->getDetail($id);
         $workshops = $this->mPendaftaranWorkshop->getByIdPendaftaran($id);
+        $penginapan = $this->mPendaftaranJenisKamarHotel->getByIdPendaftaran($id);
+
 
         $D = [
             'data' => $data,
             'workshops' => $workshops,
+            'penginapan' => $penginapan,
+
         ];
 
         return view('backend/validasi/detail', $D);
