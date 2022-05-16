@@ -30,7 +30,26 @@ class HotelModel extends Model
     public function jsonHotel()
     {
         $dt = new Datatables(new Codeigniter4Adapter());
-        $dt->query('select id_hotel, nama, alamat, bintang from hotel');
+        $dt->query('
+        SELECT h.id_hotel, 
+        h.nama AS nama_hotel, 
+        h.alamat, 
+        h.bintang,
+        jkh.id_jenis_kamar_hotel,
+        jkh.nama AS jenis_kamar,
+        jkh.jumlah,
+        jkh.harga
+        FROM hotel h
+        JOIN jenis_kamar_hotel jkh ON h.id_hotel = jkh.id_hotel
+        ');
+
+        $dt->add('action', function ($q) {
+            return '';
+        });
+
+        $dt->edit('harga', function ($q) {
+            return rupiah($q['harga']);
+        });
         echo $dt->generate();
     }
 }

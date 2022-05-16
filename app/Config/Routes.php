@@ -41,6 +41,9 @@ $routes->post('login', 'Backend\AuthController::login');
 
 $routes->get('/backend', 'Backend\DashboardController::index', ['filter' => 'auth']);
 
+$routes->get('backend/hotel', 'Backend\HotelController::index', ['filter' => 'auth']);
+$routes->get('backend/hotel/json-hotel', 'Backend\HotelController::jsonHotel', ['filter' => 'auth']);
+
 $routes->get('backend/event', 'Backend\EventController::index', ['filter' => 'auth']);
 $routes->get('backend/event/json-event', 'Backend\EventController::jsonEvent', ['filter' => 'auth']);
 

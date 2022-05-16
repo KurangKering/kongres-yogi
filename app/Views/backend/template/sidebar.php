@@ -82,6 +82,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= base_url('backend/hotel') ?>" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard   "></i>
+                        <p>
+                            Master Hotel
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url('backend/email') ?>" class="nav-link">
                         <i class="nav-icon fas fa-envelope    "></i>
                         <p>
