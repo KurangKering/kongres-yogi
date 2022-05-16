@@ -56,7 +56,7 @@ class JenisKamarHotelModel extends Model
             ->join('hotel h', 'h.id_hotel = jkh.id_hotel')
             ->join('pendaftaran_jenis_kamar_hotel pjkh', 'pjkh.id_jenis_kamar_hotel = jkh.id_jenis_kamar_hotel', 'left')
             ->join('pendaftaran p', 'p.id_pendaftaran = pjkh.id_pendaftaran', 'left')
-            ->where('p.status', 'sukses')
+            // ->where('p.status', 'sukses')
             ->where('jkh.id_jenis_kamar_hotel', $idJenisKamarHotel)
             ->where('pjkh.tanggal', $tanggal)
             ->get()->getRowArray();
