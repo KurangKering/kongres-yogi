@@ -110,7 +110,7 @@ class JenisKamarHotelModel extends Model
             $jumlahHari = $i + 1;
             $biaya = ($harga * $jumlahHari);
             $terbilang = rupiah($biaya);
-            $tanggalMenginapAkhir = date("d-m-Y", strtotime($tanggal . " + $i days"));
+            $tanggalMenginapAkhir = date("d-m-Y", strtotime($tanggal . " + $jumlahHari days"));
             $optionLamaMenginap[$i]['value'] = $jumlahHari;
             $optionLamaMenginap[$i]['text'] = "$jumlahHari Hari (s/d $tanggalMenginapAkhir)";
             $optionLamaMenginap[$i]['harga'] = $biaya;
