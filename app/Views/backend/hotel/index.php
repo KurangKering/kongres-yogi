@@ -27,7 +27,7 @@
                                         <th>Nama Hotel</th>
                                         <th>Jenis Kamar</th>
                                         <th>Harga</th>
-                                        <th>Kuota</th>
+                                        <th>Kuota per Hari</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
