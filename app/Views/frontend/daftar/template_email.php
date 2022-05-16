@@ -178,9 +178,9 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Hotel</th>
-                        <th>Jenis Kamar</th>
-                        <th>Tanggal</th>
+                        <th width="180px">Hotel</th>
+                        <th width="90px">Jenis Kamar</th>
+                        <th width="90px">Tanggal</th>
                         <th width="150px">Biaya</th>
                     </tr>
                 </thead>

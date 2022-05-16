@@ -175,7 +175,7 @@
                                             <i class="material-icons">calendar_month</i>
                                         </span>
                                         <select name="select-tanggal-menginap" id="select-tanggal-menginap" class="form-control">
-                                            <option value="" disabled selected>Tanggal Check In ..</option>
+                                            <option value="" disabled selected>Check In ..</option>
                                         </select>
                                     </div>
                                     <div class="input-group hide" id="div-lama-menginap">
@@ -183,7 +183,7 @@
                                             <i class="material-icons">schedule</i>
                                         </span>
                                         <select name="select-lama-menginap" id="select-lama-menginap" class="form-control">
-                                            <option value="" disabled selected>Lama Menginap ..</option>
+                                            <option value="" disabled selected>Check Out ..</option>
                                         </select>
                                     </div>
 
