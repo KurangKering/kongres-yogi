@@ -43,8 +43,9 @@ class HotelModel extends Model
         JOIN jenis_kamar_hotel jkh ON h.id_hotel = jkh.id_hotel
         ');
 
+
         $dt->add('action', function ($q) {
-            return '';
+            return '<button class="btn btn-success" bCheckTanggal="' . $q['id_jenis_kamar_hotel'] . '"><i class="far fa-calendar-check"></i> Cek Terpakai</button>';
         });
 
         $dt->edit('harga', function ($q) {

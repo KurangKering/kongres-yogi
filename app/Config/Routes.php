@@ -43,6 +43,7 @@ $routes->get('/backend', 'Backend\DashboardController::index', ['filter' => 'aut
 
 $routes->get('backend/hotel', 'Backend\HotelController::index', ['filter' => 'auth']);
 $routes->get('backend/hotel/json-hotel', 'Backend\HotelController::jsonHotel', ['filter' => 'auth']);
+$routes->get('backend/hotel/list-terpakai/(:any)', 'Backend\HotelController::listTerpakai/$1', ['filter' => 'auth']);
 
 $routes->get('backend/event', 'Backend\EventController::index', ['filter' => 'auth']);
 $routes->get('backend/event/json-event', 'Backend\EventController::jsonEvent', ['filter' => 'auth']);

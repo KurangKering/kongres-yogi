@@ -28,6 +28,7 @@
                                         <th>Jenis Kamar</th>
                                         <th>Harga</th>
                                         <th>Kuota</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -65,10 +66,43 @@
                 {
                     data: "jumlah",
                 },
+                {
+                    data: "action",
+                },
             ],
             columnDefs: [{
                 targets: -1,
             }, ],
+        });
+
+        $(document).on("click", "[bCheckTanggal]", function(e) {
+            let id = $(this).attr("bCheckTanggal");
+            openModal({
+                classDialog: 'modal-lg',
+                title: "Informasi Hotel Terpakai",
+                src: BASE_URL + "backend/hotel/list-terpakai/" + id,
+                buttonClose: {
+                    title: "Tutup",
+                    action: function() {},
+                },
+                buttonDone: false,
+            });
+        });
+
+        $(document).on("click", "[bDetailPendaftaran]", function(e) {
+
+            let id = $(this).attr("bDetailPendaftaran");
+
+            openModal({
+                classDialog: 'modal-lg',
+                title: "Detail Pendaftaran",
+                src: BASE_URL + "backend/pendaftaran/detail/" + id,
+                buttonClose: {
+                    title: "Tutup",
+                    action: function() {},
+                },
+                buttonDone: false,
+            });
         });
     });
 </script>

@@ -35,6 +35,29 @@ class JenisKamarHotelModel extends Model
         echo $dt->generate();
     }
 
+    public function getListTerpakai($idJenisKamarHotel)
+    {
+        $this->db = \Config\Database::connect();
+        $query = $this->db->query("SELECT 
+        p.id_pendaftaran,
+        p.nama,
+        p.status,
+        h.id_hotel,
+        h.nama AS nama_hotel,
+        pjkh.id_jenis_kamar_hotel,
+        pjkh.harga AS harga,
+        pjkh.tanggal
+        FROM 
+        pendaftaran_jenis_kamar_hotel pjkh
+        JOIN jenis_kamar_hotel jkh ON pjkh.id_jenis_kamar_hotel = jkh.id_jenis_kamar_hotel
+        JOIN hotel h ON h.id_hotel = jkh.id_hotel
+        JOIN pendaftaran p ON p.id_pendaftaran = pjkh.id_pendaftaran
+        WHERE pjkh.id_jenis_kamar_hotel = ?", [$idJenisKamarHotel]);
+
+        return $query->getResultArray();
+
+    }
+
     public function getTanggalTersedia($id_jenis_kamar_hotel)
     {
         $daftarTanggal = getDaftarTanggalHotel();
