@@ -68,10 +68,8 @@ class PendaftaranController extends BaseController
             } else {
                 $this->db->table('log_singkronisasi_total_pembayaran')->where('id_pendaftaran', $value['id_pendaftaran'])->update($p);
             }
-
-            if ($status == 0) {
-                $this->db->table('pendaftaran')->where('id_pendaftaran', $value['id_pendaftaran'])->update(['biaya' => $totalPembayaranPisah['biaya'], 'total_pembayaran' => $totalPembayaran]);
-            }
+            
+            $this->db->table('pendaftaran')->where('id_pendaftaran', $value['id_pendaftaran'])->update(['biaya' => $totalPembayaranPisah['biaya'], 'total_pembayaran' => $totalPembayaran]);
         }
 
         $response =
