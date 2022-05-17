@@ -48,7 +48,9 @@ class PendaftaranController extends BaseController
     {
         $data_pendaftaran = $this->db->table('pendaftaran')->get()->getResultArray();
         foreach ($data_pendaftaran as $key => $value) {
-            $totalPembayaran = $this->mPendaftaran->getTotalPembayaran($value['id_pendaftaran']);
+            $totalPembayaranPisah = $this->mPendaftaran->getTotalPembayaran($value['id_pendaftaran'], true);
+
+            $totalPembayaran = $totalPembayaranPisah['biaya'] + $totalPembayaranPisah['kode_unik_pembayaran'];
             $status = 1;
             if ($value['total_pembayaran'] != $totalPembayaran) {
                 $status = 0;
@@ -68,7 +70,7 @@ class PendaftaranController extends BaseController
             }
 
             if ($status == 0) {
-                $this->db->table('pendaftaran')->where('id_pendaftaran', $value['id_pendaftaran'])->update(['total_pembayaran' => $totalPembayaran]);
+                $this->db->table('pendaftaran')->where('id_pendaftaran', $value['id_pendaftaran'])->update(['biaya' => $totalPembayaranPisah['biaya'], 'total_pembayaran' => $totalPembayaran]);
             }
         }
 

@@ -115,7 +115,7 @@ class PendaftaranModel extends Model
         return $this->first();
     }
 
-    public function getTotalPembayaran($idPendaftaran)
+    public function getTotalPembayaran($idPendaftaran, $pisah = false)
     {
         $this->db = \Config\Database::connect();
 
@@ -139,7 +139,9 @@ class PendaftaranModel extends Model
             ->get()->getResultArray();
 
         $totalPembayaran = 0;
-        $totalPembayaran += $pendaftaran['kode_unik_pembayaran'];
+        if (!$pisah) {
+            $totalPembayaran += $pendaftaran['kode_unik_pembayaran'];
+        }
         $totalPembayaran += $eventSimposium['harga'];
         if (!empty($workshops)) {
             foreach ($workshops as $key => $value) {
@@ -152,6 +154,12 @@ class PendaftaranModel extends Model
             }
         }
 
+        if ($pisah) {
+            return [
+                'biaya' => $totalPembayaran,
+                'kode_unik_pembayaran' => $pendaftaran['kode_unik_pembayaran'],
+            ];
+        }
         return $totalPembayaran;
     }
 }
