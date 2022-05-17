@@ -97,7 +97,7 @@ class PendaftaranModel extends Model
     }
 
     public function isEmailUsed($id_event_simposium, $email)
-    {   
+    {
         $this->where('id_event_simposium', $id_event_simposium);
         $this->where('email', $email);
         $pendaftaran = $this->first();
@@ -114,5 +114,44 @@ class PendaftaranModel extends Model
         $this->orderBy('v.id_validasi', 'desc');
         return $this->first();
     }
- 
+
+    public function getTotalPembayaran($idPendaftaran)
+    {
+        $this->db = \Config\Database::connect();
+
+        $pendaftaran = $this->db->table('pendaftaran')
+            ->where('id_pendaftaran', $idPendaftaran)
+            ->get()->getRowArray();
+
+        $eventSimposium = $this->db->table('event_simposium')
+            ->where('id_event_simposium', $pendaftaran['id_event_simposium'])
+            ->get()->getRowArray();
+
+        $workshops = $this->db->table('pendaftaran_workshop pw')
+            ->select('w.biaya')
+            ->where('pw.id_pendaftaran', $pendaftaran['id_pendaftaran'])
+            ->join('workshop w', 'pw.id_workshop = w.id_workshop')
+            ->get()->getResultArray();
+
+        $pendaftaranJenisKamarHotel = $this->db->table('pendaftaran_jenis_kamar_hotel pjkh')
+            ->select('pjkh.harga')
+            ->where('pjkh.id_pendaftaran', $pendaftaran['id_pendaftaran'])
+            ->get()->getResultArray();
+
+        $totalPembayaran = 0;
+        $totalPembayaran += $pendaftaran['kode_unik_pembayaran'];
+        $totalPembayaran += $eventSimposium['harga'];
+        if (!empty($workshops)) {
+            foreach ($workshops as $key => $value) {
+                $totalPembayaran += $value['biaya'];
+            }
+        }
+        if (!empty($pendaftaranJenisKamarHotel)) {
+            foreach ($pendaftaranJenisKamarHotel as $key => $value) {
+                $totalPembayaran += $value['harga'];
+            }
+        }
+
+        return $totalPembayaran;
+    }
 }

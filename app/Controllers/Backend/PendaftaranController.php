@@ -43,4 +43,39 @@ class PendaftaranController extends BaseController
         $mPendaftaran = new PendaftaranModel();
         echo $mPendaftaran->jsonPendaftaran();
     }
+
+    public function SinkronisasiTotalPembayaran()
+    {
+        $data_pendaftaran = $this->db->table('pendaftaran')->get()->getResultArray();
+        foreach ($data_pendaftaran as $key => $value) {
+            $totalPembayaran = $this->mPendaftaran->getTotalPembayaran($value['id_pendaftaran']);
+            $status = 1;
+            if ($value['total_pembayaran'] != $totalPembayaran) {
+                $status = 0;
+            }
+            $p = [
+                'id_pendaftaran' => $value['id_pendaftaran'],
+                'total_pembayaran_lama' => $value['total_pembayaran'],
+                'total_pembayaran_baru' => $totalPembayaran,
+                'status' => $status,
+            ];
+
+            $data = $this->db->table('log_singkronisasi_total_pembayaran')->where('id_pendaftaran', $value['id_pendaftaran'])->get()->getRowArray();
+            if (empty($data)) {
+                $this->db->table('log_singkronisasi_total_pembayaran')->insert($p);
+            } else {
+                $this->db->table('log_singkronisasi_total_pembayaran')->where('id_pendaftaran', $value['id_pendaftaran'])->update($p);
+            }
+
+            if ($status == 0) {
+                $this->db->table('pendaftaran')->where('id_pendaftaran', $value['id_pendaftaran'])->update(['total_pembayaran' => $totalPembayaran]);
+            }
+        }
+
+        $response =
+            [
+                'success' => true,
+            ];
+        return $this->response->setJSON($response);
+    }
 }

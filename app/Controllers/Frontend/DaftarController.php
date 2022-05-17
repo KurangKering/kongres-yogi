@@ -174,11 +174,12 @@ class DaftarController extends BaseController
                     $tanggalMenginapAkhir = date("Y-m-d", strtotime($tanggalMenginapAwal . " + $perhitunganHari days"));
 
                     $begin = new DateTime($tanggalMenginapAwal);
-                    $end = new DateTime($tanggalMenginapAkhir);
+                    $end = (new DateTime($tanggalMenginapAkhir))->modify('+1 day');
 
-                    $interval = DateInterval::createFromDateString('1 day');
+
+                    $interval = new DateInterval('P1D');
                     $period = new DatePeriod($begin, $interval, $end);
-                    if ($begin == $end) $period = [$begin];
+
 
 
                     foreach ($period as $dt) {
@@ -272,9 +273,7 @@ class DaftarController extends BaseController
 
                 if ($isTanggalMenginapTersedia && !empty($pSelectLamaMenginap)) {
                     $period = new DatePeriod($begin, $interval, $end);
-                    if ($begin == $end) $period = [$begin];
                     $harga = $this->mJenisKamarHotel->select('harga')->where('id_jenis_kamar_hotel', $idJenisKamarHotel)->first();
-
                     $harga = !empty($harga) ? $harga['harga'] : null;
 
                     foreach ($period as $dt) {

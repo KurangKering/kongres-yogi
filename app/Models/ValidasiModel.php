@@ -111,14 +111,20 @@ class ValidasiModel extends Model
         pend.status_email_pendaftaran,
         pend.id_event_simposium,
         pend.status,
-        pend.kode_unik_pembayaran from validasi join pendaftaran pend on pend.id_pendaftaran = validasi.id_pendaftaran
+        pend.kode_unik_pembayaran,
+        lstp.status as status_sinkronisasi
+        from validasi join pendaftaran pend on pend.id_pendaftaran = validasi.id_pendaftaran
         join (select max(id_validasi) id_validasi from validasi group by validasi.id_pendaftaran) maxId on validasi.id_validasi = maxId.id_validasi
+        left join log_singkronisasi_total_pembayaran lstp on pend.id_pendaftaran = lstp.id_pendaftaran
         where pend.status = 'sukses'
         order by tanggal_verifikasi desc
         ");
 
         $dt->add('action', function ($q) {
-            $warnaIconSend = $q['status_email_verifikasi'] == '1' ? 'bg-green' : 'bg-yellow';
+
+            $warnaIconSend = ($q['status_email_verifikasi'] === '1') ? 'bg-green' : 'bg-yellow';
+            $warnaIconSend = ($q['status_sinkronisasi'] === '0') ? 'bg-yellow' : $warnaIconSend;
+
             $buttons = "<div class=\"btn-group\">";
             $bDetail = "<button class=\"btn btn-sm btn-outline-info\" type=\"button\" bDetail=\"$q[id_pendaftaran]\"><i class=\"fas fa-list\"></i></button>";
             $bSendMail = "<button title=\"Kirim email\" data-tipe=\"diterima\" class=\"btn btn-sm btn-outline-info $warnaIconSend\" type=\"button\" bSendMail=\"$q[id_pendaftaran]\"><i class=\"fas fa-paper-plane\"></i></button>";
@@ -273,6 +279,4 @@ class ValidasiModel extends Model
         $this->where('validasi.id_validasi', $id_validasi);
         return $this->first();
     }
-
-   
 }

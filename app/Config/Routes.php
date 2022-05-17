@@ -63,6 +63,7 @@ $routes->get('backend/workshop/json-workshop', 'Backend\WorkshopController::json
 $routes->get('backend/pendaftaran', 'Backend\PendaftaranController::index', ['filter' => 'auth']);
 $routes->get('backend/pendaftaran/json-pendaftaran', 'Backend\PendaftaranController::jsonPendaftaran', ['filter' => 'auth']);
 $routes->get('backend/pendaftaran/detail/(:num)', 'Backend\PendaftaranController::detail/$1', ['filter' => 'auth']);
+$routes->get('backend/pendaftaran/sinkronisasi-total-pembayaran', 'Backend\PendaftaranController::SinkronisasiTotalPembayaran', ['filter' => 'auth']);
 
 $routes->get('backend/validasi', 'Backend\ValidasiController::index', ['filter' => 'auth']);
 $routes->get('backend/validasi/json/(:any)', 'Backend\ValidasiController::json/$1', ['filter' => 'auth']);
