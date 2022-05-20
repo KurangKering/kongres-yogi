@@ -181,7 +181,7 @@
                         <th width="180px">Hotel</th>
                         <th width="90px">Jenis Kamar</th>
                         <th width="90px">Tanggal</th>
-                        <th width="150px">Biaya</th>
+                        <th width="100px">Biaya</th>
                     </tr>
                 </thead>
                 <tbody>
