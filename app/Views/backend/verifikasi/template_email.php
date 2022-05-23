@@ -49,6 +49,25 @@
                 <td><?= $pendaftaran['kota'] . " / " .  $pendaftaran['provinsi'] ?></td>
             </tr>
         </table>
+        <table>
+            <tr>
+                <th align=left width="350px">
+                    <font size=4>Kode Unik Pembayaran :
+                </th>
+                <th align=left width="200px">
+                    <font size=4><?= rupiah($pendaftaran['kode_unik_pembayaran']) ?>
+                </th>
+            </tr>
+            <tr>
+                <th align=left width="350px">
+                    <font size=4>TOTAL PEMBAYARAN :
+                </th>
+                <th align=left width="200px">
+                    <font size=4><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?>
+                </th>
+            </tr>
+
+        </Table>
     </div>
 
 </body>
