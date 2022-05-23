@@ -56,12 +56,12 @@
             <tr>
                 <th>Biaya</th>
                 <td>:</td>
-                <td><?= $pendaftaran['biaya'] ?></td>
+                <td><?= rupiah($pendaftaran['biaya']) ?></td>
             </tr>
             <tr>
                 <th>TOTAL</th>
                 <td>:</td>
-                <td><?= $pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran'] ?></td>
+                <td><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?></td>
             </tr>
             <tr>
                 <th>Status</th>
