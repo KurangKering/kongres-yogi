@@ -58,6 +58,16 @@
                 <td>:</td>
                 <td><?= $pendaftaran['biaya'] ?></td>
             </tr>
+            <tr>
+                <th>TOTAL</th>
+                <td>:</td>
+                <td><?= $pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran'] ?></td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>:</td>
+                <td><H3>LUNAS</h3></td>
+            </tr>
         </table>
     </div>
 
