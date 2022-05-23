@@ -48,6 +48,16 @@
                 <td>:</td>
                 <td><?= $pendaftaran['kota'] . " / " .  $pendaftaran['provinsi'] ?></td>
             </tr>
+            <tr>
+                <th>Kode Unik</th>
+                <td>:</td>
+                <td><?= $pendaftaran['kode_unik_pembayaran'] ?></td>
+            </tr>
+            <tr>
+                <th>Biaya</th>
+                <td>:</td>
+                <td><?= $pendaftaran['biaya'] ?></td>
+            </tr>
         </table>
     </div>
 
