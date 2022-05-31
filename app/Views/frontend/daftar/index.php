@@ -140,7 +140,7 @@
                                                         </td>
                                                         <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= $ws['pelatihan'] ?></td>
                                                         <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= indoDate($ws['waktu'], 'd-m-Y') ?></td>
-                                                        <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= $ws['tempat'] ?></td>
+                                                        <td class="<?= $is_penuh  ? '' : '' ?>"><?= $ws['tempat'] ?></td>
                                                         <td class="text-right <?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= rupiah($ws['biaya']) ?></td>
                                                     </tr>
                                                 <?php endforeach ?>
