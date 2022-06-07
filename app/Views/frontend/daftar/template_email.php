@@ -232,8 +232,9 @@
                 <?= base_url('validasi-pembayaran') ?></li>
 
         </ol>
+    
         </br>
-        <b>Informasi lebih lanjut. WA: 081374391461(Lira)</b>
+<b>Informasi lebih lanjut beserta ketentuan persyaratan.</b></br><b> WA: 081374391461(Lira)</b>
 
     </div>
 
