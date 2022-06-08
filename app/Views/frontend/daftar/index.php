@@ -143,11 +143,11 @@
                                                         <td class="<?= $is_penuh  ? '' : '' ?>"><?= $ws['tempat'] ?></td>
                                                         <td class="text-right <?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= rupiah($ws['biaya']) ?></td>
                                                     </tr>
+                                                
+                                                <?php endforeach ?>
                                                 <tr>
                                                     <td colspan="6">*Berikut data peserta yang dapat mengikuti Workshop Standarisasi dan Sertifikat Kompetensi USG Obsgin Tingkat Madya (Competence - based)</td>
                                                 </tr>
-                                                <?php endforeach ?>
-
 
                                             </tbody>
                                         </table>
