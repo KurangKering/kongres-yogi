@@ -145,10 +145,7 @@
                                                     </tr>
                                                 
                                                 <?php endforeach ?>
-                                                <tr>
-                                                    <td colspan="6">*Berikut data peserta yang dapat mengikuti Workshop Standarisasi dan Sertifikat Kompetensi USG Obsgin Tingkat Madya (Competence - based)
-                                                    Klik :  <a href="https://bit.ly/USGMadyaKOGI2022" target="_blank"> bit.ly/USGMadyaKOGI2022</a> </td>
-                                                </tr>
+                                                
 
                                             </tbody>
                                         </table>
