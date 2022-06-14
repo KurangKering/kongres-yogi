@@ -20,7 +20,7 @@
                                         <span class="input-group-addon">
                                             <i class="material-icons">face</i>
                                         </span>
-                                        <input type="text" class="form-control" name="nama" placeholder="Nama">
+                                        <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap Beserta Gelar">
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">
