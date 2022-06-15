@@ -12,7 +12,8 @@
                             </div>
                             <h4 class="info-title">Pendaftaran Berhasil</h4>
                             <?php $email = $data['pendaftaran']['email']; ?>
-                            <p>Kami telah mengirim detail pendaftaran ke email <b><?= $email ?></b> . Silahkan cek email anda. </p>
+                            <p>Kami telah mengirim detail pendaftaran ke email <b><?= $email ?></b> . Silahkan cek email anda. </p></br>
+                            <p>Jika tidak menerima e-mail, silahkan hubungi WA(0813 7439 1461)</p>
 
                         </div>
                     </div>
