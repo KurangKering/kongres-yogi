@@ -89,12 +89,12 @@ class DaftarController extends BaseController
                         'required' => '{field} tidak boleh kosong',
                     ],
                 ],
-                //'id_event_simposium' => [
-                //    'label' => 'Simposium', 'rules' => 'required',
-                //    'errors' => [
-                //        'required' => '{field} tidak boleh kosong',
-                //    ],
-              //  ],
+                'id_event_simposium' => [
+                    'label' => 'Simposium', 'rules' => 'required',
+                   'errors' => [
+                        'required' => '{field} tidak boleh kosong',
+                  ],
+                ],
                 'select-hotel' => [
                     'label' => 'Opsi Penginapan', 'rules' => 'required',
                     'errors' => [
@@ -149,9 +149,9 @@ class DaftarController extends BaseController
                     ->join('simposium', 'event_simposium.id_simposium = simposium.id_simposium')
                     ->first();
 
-               // if (empty($simposium)) {
-                //    $errors += ['id_event_simposium' => 'Event tidak ditemukan'];
-               // }
+                if (empty($simposium)) {
+                   $errors += ['id_event_simposium' => 'Event tidak ditemukan'];
+                }
 
                 foreach ($pIdWorkshops as $k => $v) {
                     $workshopAda = $this->mWorkshop->withTerpakai($v);
