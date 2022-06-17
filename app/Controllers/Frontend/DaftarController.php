@@ -149,9 +149,9 @@ class DaftarController extends BaseController
                     ->join('simposium', 'event_simposium.id_simposium = simposium.id_simposium')
                     ->first();
 
-                if (empty($simposium)) {
-                    $errors += ['id_event_simposium' => 'Event tidak ditemukan'];
-                }
+               // if (empty($simposium)) {
+                //    $errors += ['id_event_simposium' => 'Event tidak ditemukan'];
+               // }
 
                 foreach ($pIdWorkshops as $k => $v) {
                     $workshopAda = $this->mWorkshop->withTerpakai($v);
