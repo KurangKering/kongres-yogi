@@ -89,12 +89,12 @@ class DaftarController extends BaseController
                         'required' => '{field} tidak boleh kosong',
                     ],
                 ],
-                'id_event_simposium' => [
-                    'label' => 'Simposium', 'rules' => 'required',
-                    'errors' => [
-                        'required' => '{field} tidak boleh kosong',
-                    ],
-                ],
+                //'id_event_simposium' => [
+                //    'label' => 'Simposium', 'rules' => 'required',
+                //    'errors' => [
+                //        'required' => '{field} tidak boleh kosong',
+                //    ],
+              //  ],
                 'select-hotel' => [
                     'label' => 'Opsi Penginapan', 'rules' => 'required',
                     'errors' => [
