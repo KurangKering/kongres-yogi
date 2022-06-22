@@ -222,7 +222,7 @@
 
         <ol>
             <h2>INFORMASI PEMBAYARAN:</h2>
-            <li>Lakukan pembayaran melalui transfer Bank dalam waktu <b>1x24 Jam</b><br>
+            <li>Lakukan pembayaran melalui transfer Bank dalam waktu <b>1x6 Jam</b><br>
                 <b>Bank BRI Cab. RSUD ARIFIN ACHMAD</b><br>
                 <b>No. Rekening : 1720-01-002204-53-2 </b><br>
                 <b>Nama Rekening: PANITIA KOGI 18 PEKANBARU</b>
@@ -230,7 +230,8 @@
             <li>Screenshot bukti Transfer anda yang telah berhasil <b>atau</b> Foto struk Bukti Transfer anda dengan jelas lalu Screenshot hasil foto tersebut (bertujuan agar ukuran file kurang dari 1MB)</li>
             <li>Upload bukti pembayaran dengan No. Pendaftaran berikut melalui link :
                 <?= base_url('validasi-pembayaran') ?></li>
-
+            <li><b>info :  </b>Dikarnakan event sudah mendekati hari H, Maka diharapkan peserta yang telah menerima email ini <b>segera melakukan pembayaran dan validasi pembayaran,</b> setiap data peserta yang belum melakukan validasi Pembayaran akan di reset setiap pukul 08.30 WIB. Sehingga bagi peserta yang belum melakukan pembayaran di harapkan melakukan pendaftaran ulang kembali.</li>
+            <li>Atas Perhatiannya, Terima Kasih.</li>
         </ol>
     
         </br>
