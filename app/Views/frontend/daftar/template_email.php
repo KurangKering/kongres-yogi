@@ -234,11 +234,11 @@
             Atas Perhatiannya, Terima Kasih.
         </ol>
 </br>
-<h2>info :  </h2></br>
+<h2>info :  </h3></br>
 Dikarnakan event sudah mendekati hari H, Maka diharapkan peserta yang telah menerima email ini <b>segera melakukan pembayaran dan validasi pembayaran,</b> setiap data peserta yang belum melakukan validasi Pembayaran akan di reset setiap pukul 08.30 WIB. Sehingga bagi peserta yang belum melakukan pembayaran di harapkan melakukan pendaftaran ulang kembali.</br>
-            Atas Perhatiannya, Terima Kasih.
-        </br>
-<b>Informasi lebih lanjut beserta ketentuan persyaratan.</b></br><b> WA: 081374391461(Lira)</b>
+            Atas Perhatiannya, Terima Kasih.</br>
+        <b>Informasi lebih lanjut beserta ketentuan persyaratan: </b></br>
+        <b>WA: 081374391461</b>
 
     </div>
 
