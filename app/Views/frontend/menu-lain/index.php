@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="card card-signup">
-                    <h2 class="card-title text-center">Periksa Data Pendaftaran</h2>
+                    <h2 class="card-title text-center">Join Virtual Meeting</h2>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
 
@@ -19,7 +19,7 @@
                                     </div>
                                 </div>
                                 <div class="footer text-center">
-                                    <a href="javascript:void(0)" id="btnPeriksaDataPendaftaran" class="btn btn-primary btn-round">CEK</a>
+                                    <a href="javascript:void(0)" id="btnPeriksaDataPendaftaran" class="btn btn-primary btn-round">JOIN</a>
                                 </div>
                             </form>
 
