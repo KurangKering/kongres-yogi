@@ -5,7 +5,7 @@
 
     <style type="text/css">
         
-        .container {
+        .page-header {
             background-image: "/BG1.png";
         }
     </style>
