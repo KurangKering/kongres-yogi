@@ -6,7 +6,7 @@
     <style type="text/css">
         
         .container {
-            background-color: #ffcccc;
+            background-image: "/BG1.png";
         }
     </style>
 
