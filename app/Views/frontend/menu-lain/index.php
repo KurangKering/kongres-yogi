@@ -1,15 +1,5 @@
 <?= $this->extend('frontend/template/layout') ?>
 <?= $this->section('content') ?>
-
-
-
-    <style type="text/css">
-        
-        .page-header {
-            background-image: "/BG1.png";
-        }
-    </style>
-
 <div class="page-header header-filter" filter-color="purple">
     <div class="container">
         <div class="row">
