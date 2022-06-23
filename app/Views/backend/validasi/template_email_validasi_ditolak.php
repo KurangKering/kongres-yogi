@@ -19,6 +19,8 @@
         <?= $pendaftaran['alasan_penolakan']; ?>
 
         <p>Silahkan upload ulang bukti pembayaran.</p>
+        <p>Untuk informasi lebih lanjut, dapat menghubungi nomor berikut :</p)
+        <p>Lira : 081374391461 </p>
     </div>
 
 </body>

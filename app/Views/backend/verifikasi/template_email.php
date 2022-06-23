@@ -34,7 +34,7 @@
                 <td><?= $pendaftaran['email'] ?></td>
             </tr>
             <tr>
-                <th>Tanggal Lahir</th>
+                <th>Tanggal Regis</th>
                 <td>:</td>
                 <td><?= indoDate($pendaftaran['tanggal_lahir'], 'd-m-Y') ?></td>
             </tr>
@@ -48,7 +48,9 @@
                 <td>:</td>
                 <td><?= $pendaftaran['kota'] . " / " .  $pendaftaran['provinsi'] ?></td>
             </tr>
+            
         </table>
+        
     </div>
 
 </body>

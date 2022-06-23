@@ -33,14 +33,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= base_url('backend/belum-bayar') ?>" class="nav-link">
-                        <i class="nav-icon fas fa-thumbs-down    "></i>
-                        <p>
-                            Data Belum Bayar
-                        </p>
-                    </a>
-                </li>
+                
                 
                 <li class="nav-item">
                     <a href="<?= base_url('backend/validasi') ?>" class="nav-link">

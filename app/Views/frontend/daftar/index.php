@@ -20,7 +20,7 @@
                                         <span class="input-group-addon">
                                             <i class="material-icons">face</i>
                                         </span>
-                                        <input type="text" class="form-control" name="nama" placeholder="Nama">
+                                        <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap Beserta Gelar">
                                     </div>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -140,11 +140,12 @@
                                                         </td>
                                                         <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= $ws['pelatihan'] ?></td>
                                                         <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= indoDate($ws['waktu'], 'd-m-Y') ?></td>
-                                                        <td class="<?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= $ws['tempat'] ?></td>
+                                                        <td class="<?= $is_penuh  ? '' : '' ?>"><?= $ws['tempat'] ?></td>
                                                         <td class="text-right <?= $is_penuh  ? 'text-decoration-line-through' : '' ?>"><?= rupiah($ws['biaya']) ?></td>
                                                     </tr>
+                                                
                                                 <?php endforeach ?>
-
+                                                
 
                                             </tbody>
                                         </table>

@@ -91,9 +91,9 @@ class DaftarController extends BaseController
                 ],
                 'id_event_simposium' => [
                     'label' => 'Simposium', 'rules' => 'required',
-                    'errors' => [
+                   'errors' => [
                         'required' => '{field} tidak boleh kosong',
-                    ],
+                  ],
                 ],
                 'select-hotel' => [
                     'label' => 'Opsi Penginapan', 'rules' => 'required',
@@ -150,7 +150,7 @@ class DaftarController extends BaseController
                     ->first();
 
                 if (empty($simposium)) {
-                    $errors += ['id_event_simposium' => 'Event tidak ditemukan'];
+                   $errors += ['id_event_simposium' => 'Event tidak ditemukan'];
                 }
 
                 foreach ($pIdWorkshops as $k => $v) {

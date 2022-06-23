@@ -16,9 +16,9 @@
         <div class="col-7 no-padding"><?= $data['email'] ?></div>
     </div>
     <div class="row">
-        <div class="col-4 no-padding">Tanggal Lahir</div>
+        <div class="col-4 no-padding">Tanggal Daftar</div>
         <div class="col-1 no-padding" width="1%">:</div>
-        <div class="col-7 no-padding"><?= indoDate($data['tanggal_lahir'], 'd-m-Y') ?></div>
+        <div class="col-7 no-padding"><?= $data['tanggal_pendaftaran'] ?></div>
     </div>
     <div class="row">
         <div class="col-4 no-padding">Kota / Provinsi</div>

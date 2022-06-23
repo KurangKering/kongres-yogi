@@ -211,6 +211,7 @@ if (!function_exists('getDaftarTanggalHotel')) {
     function getDaftarTanggalHotel($index = null)
     {
         $data =  [
+            '2022-07-20',
             '2022-07-21',
             '2022-07-22',
             '2022-07-23',
