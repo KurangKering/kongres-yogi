@@ -93,6 +93,8 @@ $routes->get('/daftar/lookup-lama-menginap', 'Frontend\DaftarController::lookupL
 
 $routes->get('/validasi-pembayaran', 'Frontend\ValidasiPembayaranController::index');
 $routes->post('/validasi-pembayaran', 'Frontend\ValidasiPembayaranController::index');
+$routes->get('/menu-lain', 'Frontend\MenuLainController::index');
+$routes->post('/menu-lain/cek', 'Frontend\MenuLainController::cek');
 
 /*
  * --------------------------------------------------------------------

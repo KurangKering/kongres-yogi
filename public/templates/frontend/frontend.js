@@ -197,6 +197,29 @@ $(document).ready(function () {
     });
   });
 
+  $("#btnPeriksaDataPendaftaran").click(function (e) {
+    let $form = $(this).closest("form");
+    let formData = new FormData($form[0]);
+
+    $.ajax({
+      processData: false,
+      contentType: false,
+      type: "POST",
+      url: BASEURL + "/menu-lain/cek",
+      data: formData,
+      dataType: "json",
+      success: function (response) {
+        if (!response.success) {
+          showNotifMd(response.message, "", "red");
+        } else {
+          if (response.redirect) {
+            window.location.href = response.redirect;
+          }
+        }
+      },
+    });
+  });
+
   // end of document ready jquery
 });
 
