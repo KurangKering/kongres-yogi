@@ -29,11 +29,11 @@ class MenuLainController extends BaseController
             $errors = "Data tidak ditemukan";
         } else {
             if ($pendaftaran['status'] == 'belum_bayar') {
-                $errors = "Data pendaftaran belum melakukan pembayaran";
+                $errors = "Peserta belum melakukan pembayaran";
             } else if ($pendaftaran['status'] == 'sudah_bayar') {
-                $errors = "Data pendaftaran sedang diproses";
+                $errors = "Data peserta sedang diproses";
             } else if ($pendaftaran['status'] == 'gagal') {
-                $errors = "Data pendaftaran ditolak";
+                $errors = "Data peserta ditolak";
             }
         }
 
