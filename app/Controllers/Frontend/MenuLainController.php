@@ -40,7 +40,7 @@ class MenuLainController extends BaseController
         if (empty($errors)) {
             $response['success'] = true;
             $response['message'] = '';
-            $response['redirect'] = "https://google.com";
+            $response['redirect'] = "https://us02web.zoom.us/j/81160159838?pwd=M2I70Z3dfXrRf70onGElUZLwlOuqOM.1";
         } else {
             $response['success'] = false;
             $response['message'] = $errors;
