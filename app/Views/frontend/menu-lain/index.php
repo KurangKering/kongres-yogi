@@ -1,3 +1,8 @@
+.page-header header-filter 
+{
+background-image: url("BG1.png");
+}
+
 <?= $this->extend('frontend/template/layout') ?>
 <?= $this->section('content') ?>
 <div class="page-header header-filter" filter-color="yellow">
