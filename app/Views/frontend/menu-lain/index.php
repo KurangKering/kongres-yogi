@@ -1,6 +1,6 @@
 <?= $this->extend('frontend/template/layout') ?>
 <?= $this->section('content') ?>
-<div class="page-header header-filter" filter-color="purple">
+<div class="page-header header-filter" filter-color="yellow">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
