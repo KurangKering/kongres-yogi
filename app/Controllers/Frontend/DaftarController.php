@@ -369,7 +369,7 @@ class DaftarController extends BaseController
 
         $hotel = $this->mHotel->findAll();
 
-        array_unshift($hotel, ['id_hotel' => '0', 'nama' => 'TIDAK MENGINAP']);
+        array_unshift($hotel, ['id_hotel' => '0', 'nama' => 'HOTEL']);
 
         $digits = 3;
         $kodeUnik = rand(pow(10, $digits - 1), pow(10, $digits) - 1);
