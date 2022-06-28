@@ -156,7 +156,7 @@
                                             <i class="material-icons">hotel</i>
                                         </span>
                                         <select name="select-hotel" id="select-hotel" class="form-control">
-                                           // <option value="" disabled selected>HOTEL</option>
+                                           
                                             <?php foreach ($hotel as $k => $h) : ?>
                                                 <option value="<?= $h['id_hotel'] ?>"><?= $h['nama'] ?></option>
                                             <?php endforeach ?>
