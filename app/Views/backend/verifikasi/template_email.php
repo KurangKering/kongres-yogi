@@ -36,7 +36,7 @@
             <tr>
                 <th>Tanggal Regis</th>
                 <td>:</td>
-                <td><?= indoDate($pendaftaran['tanggal_lahir'], 'd-m-Y') ?></td>
+                <td><?= $pendaftaran['tanggal_pendaftaran'] ?></td>
             </tr>
             <tr>
                 <th>Institusi</th>
@@ -47,6 +47,26 @@
                 <th>Kota / Provinsi</th>
                 <td>:</td>
                 <td><?= $pendaftaran['kota'] . " / " .  $pendaftaran['provinsi'] ?></td>
+            </tr>
+            <tr>
+                <th>Kode Unik</th>
+                <td>:</td>
+                <td><?= $pendaftaran['kode_unik_pembayaran'] ?></td>
+            </tr>
+            <tr>
+                <th>Biaya</th>
+                <td>:</td>
+                <td><?= rupiah($pendaftaran['biaya']) ?></td>
+            </tr>
+            <tr>
+                <th>TOTAL</th>
+                <td>:</td>
+                <td><?= rupiah($pendaftaran['biaya'] + $pendaftaran['kode_unik_pembayaran']) ?></td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>:</td>
+                <td><H3>LUNAS</h3></td>
             </tr>
             
         </table>
