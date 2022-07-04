@@ -14,13 +14,15 @@
     <div class="container">
 
         <p style="font-weight: bold;">
-            Bukti pembayaran Pendaftaran KOGI XVIII PEKANBARU 2022 dengan No. Pendaftaran <?= $pendaftaran['id_pendaftaran'] ?> ditolak karena :
+            Bukti pembayaran Pendaftaran KOGI XVIII PEKANBARU 2022 dengan No. Pendaftaran <?= $pendaftaran['id_pendaftaran'] ?>, dengan Nama <?= $pendaftaran['nama'] ?> ditolak karena :
         </p>
         <?= $pendaftaran['alasan_penolakan']; ?>
-
-        <p>Silahkan upload ulang bukti pembayaran.</p>
-        <p>Untuk informasi lebih lanjut, dapat menghubungi nomor berikut :</p)
-        <p>Lira : 081374391461 </p>
+<br>
+        <p><b>Silahkan upload ulang bukti pembayaran.</b></p>
+        <br>
+        <b>Email tidak untuk di balas!</b><br>
+        <b>Untuk Informasi lebih lanjut beserta ketentuan persyaratan Langsung ke: </b><br>
+        <b>WA: 081374391461</b>
     </div>
 
 </body>
