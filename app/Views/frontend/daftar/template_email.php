@@ -222,7 +222,7 @@
 
         <ol>
             <h2>INFORMASI PEMBAYARAN:</h2>
-            <li>Lakukan pembayaran melalui transfer Bank dalam waktu <b>1x6 Jam</b><br>
+            <li>SEGERA Lakukan pembayaran melalui transfer Bank <br>
                 <b>Bank BRI Cab. RSUD ARIFIN ACHMAD</b><br>
                 <b>No. Rekening : 1720-01-002204-53-2 </b><br>
                 <b>Nama Rekening: PANITIA KOGI 18 PEKANBARU</b>
