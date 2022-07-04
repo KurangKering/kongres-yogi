@@ -232,7 +232,7 @@
                 <h3><?= base_url('validasi-pembayaran') ?></h3></li>
             
         </ol>
-        <b>Email tidak untuk di balas.<br>
+        <b>Email tidak untuk di balas!<br>
         <b>Untuk Informasi lebih lanjut beserta ketentuan persyaratan Langsung ke: </b><br>
         <b>WA: 081374391461</b>
 
