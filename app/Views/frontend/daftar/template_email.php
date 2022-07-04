@@ -228,12 +228,12 @@
                 <b>Nama Rekening: PANITIA KOGI 18 PEKANBARU</b>
             </li>
             <li>Screenshot bukti Transfer anda yang telah berhasil <b>atau</b> Foto struk Bukti Transfer anda dengan jelas lalu Screenshot hasil foto tersebut (bertujuan agar ukuran file kurang dari 1MB)</li>
-            <li>Upload bukti pembayaran dengan No. Pendaftaran berikut melalui link :
-                <?= base_url('validasi-pembayaran') ?></li>
+            <li><b>Upload bukti pembayaran dengan No. Pendaftaran melalui link berikut:</b><br>
+                <h3><?= base_url('validasi-pembayaran') ?></h3></li>
             
         </ol>
-</br>
-        <b>Informasi lebih lanjut beserta ketentuan persyaratan: </b></br>
+        <b>Email tidak untuk di balas.<br>
+        <b>Untuk Informasi lebih lanjut beserta ketentuan persyaratan Langsung ke: </b><br>
         <b>WA: 081374391461</b>
 
     </div>
