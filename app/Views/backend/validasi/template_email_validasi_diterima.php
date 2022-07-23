@@ -19,7 +19,7 @@
 
         <table id="table-identitas">
             <tr>
-                <th>No Pendaftaran</th>
+                <th>No. Registrasi</th>
                 <td>:</td>
                 <td><?= $pendaftaran['id_pendaftaran'] ?></td>
             </tr>
@@ -70,6 +70,8 @@
             </tr>
         </table>
         <p>Untuk Virtual dapat di akses pada Link Berikut:</p><br>
+        <p>No.Registrasi:  <?= $pendaftaran['id_pendaftaran'] ?></p><br>
+            <p>Email: <?= $pendaftaran['email'] ?></p><br>
         <p><a href="https://kogi-2022.com">kogi-2022.com</a></p>
     </div>
 
