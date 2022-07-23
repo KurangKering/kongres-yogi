@@ -69,6 +69,8 @@
                 <td><H3>LUNAS</h3></td>
             </tr>
         </table>
+        <p>Untuk Virtual dapat di akses pada Link Berikut:</p><br>
+        <p><a href="https://kogi-2022.com">kogi-2022.com</a></p>
     </div>
 
 </body>
